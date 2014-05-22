@@ -3,7 +3,7 @@
 ##Authors: Samantha Camus and Alex Lien
 * * * * * * * *
 
-ZooBit is a virtual pet app that allows users to manage
+ZooBit is a web app that allows users to manage
 their own collection of virtual pets. These pets require
 interaction with their user in order to stay happy, and
 their image will change based on the current level of happiness.
