@@ -13,6 +13,21 @@
 
 ActiveRecord::Schema.define(version: 20140523043619) do
 
+  create_table "pets", force: true do |t|
+    t.string   "name"
+    t.string   "breed"
+    t.string   "gender"
+    t.integer  "happiness"
+    t.string   "img_loc"
+    t.integer  "user_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_interaction"
+  end
+
+  add_index "pets", ["user_id"], name: "index_pets_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

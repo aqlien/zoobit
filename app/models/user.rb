@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  has_many :pets
+  delegate :dogs, :cats, :birds, :rabbits, to: :pets
   validates :username, presence: true, :uniqueness => {:case_sensitive => false}
   # Virtual field representing whether user is logged in.
   attr_accessor :login
