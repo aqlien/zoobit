@@ -5,5 +5,6 @@ require "minitest/rails"
 require "minitest/rails/capybara"
 
 class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
   fixtures :all
 end

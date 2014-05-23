@@ -1,6 +1,6 @@
 <% if current_user.nil? %>
-  <%= link_to "New user? Sign up here!", new_user_registration_path %>
+  <%= link_to "New user? Sign up here!", new_user_registration_path %> |
   <%= link_to "Need to check on your pets? Sign in!", new_user_session_path  %>
 <% else %>
-  <%= link_to "Leaving? Sign out here.", user_session_path, method: :delete %>
+  <%= link_to "Leaving? Sign out here.", user_session_path, method: :delete %> | <%= link_to "Check on your pets!", user_pets_path(current_user.id) %>
 <% end %>
