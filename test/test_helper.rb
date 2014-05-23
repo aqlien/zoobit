@@ -8,11 +8,12 @@ class ActiveSupport::TestCase
   fixtures :all
 end
 
-def sign_in(login = users(:sam).email, password = "password")
+def sign_in(login = users(:sam).email, password = "password", fail_sign_in? = false)
   click_on I18n.t(:sign_in_link)
   fill_in "Login", with: login
   fill_in "Password", with: password
   click_on "Sign in"
+  page.must_have_content I18n.t("devise.sessions.signed_in") unless fail_sign_in?
 end
 
 def setup_omniauth_for_testing
