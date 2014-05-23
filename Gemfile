@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem "devise"
 
 group :test do
+  gem "launchy"
   gem "minitest-rails-capybara"
 end
 

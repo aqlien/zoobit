@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  sign_up_link: "New user? Sign up here!"
+  sign_in_link: "Need to check on your pets? Sign in!"
+  sign_out_link: "Leaving? Sign out here."
