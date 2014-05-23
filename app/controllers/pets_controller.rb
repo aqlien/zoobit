@@ -30,7 +30,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
-        format.html { redirect_to @pet, notice: 'Congratulations on your new pet.' }
+        format.html { redirect_to @pet, notice: "Congratulations on your new pet!" }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to @pet, notice: "Your pet's name was successfully updated." }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to pets_url, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
     end
   end

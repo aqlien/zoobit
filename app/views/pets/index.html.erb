@@ -2,7 +2,7 @@
 
 <table>
     <tbody>
-      <% @pets.each do |pet| %>
+      <% current_user.pets.each do |pet| %>
           <tr id="<%= dom_id(pet) %>">
             <td><h3><%= link_to pet.name, user_pet_path(current_user, pet) %></h3></td>
             <td><%= link_to 'Change Name', edit_pet_path(pet) %></td>
