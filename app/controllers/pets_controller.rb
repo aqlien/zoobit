@@ -2,6 +2,24 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+  def update_happiness
+    unless @last_interaction.nil?
+      current_time = Time.now
+      # Time in seconds since last interaction converted to minutes, every 7 minutes
+      @happiness -= (current_time - @last_interaction) / 60 / 7
+    end
+  end
+
+  def feed
+    @last_interaction = Time.now
+    @pet.happiness = 100
+  end
+
+  def play
+    @last_interaction = Time.now
+    @pet.happiness += 50
+  end
+
   # GET /pets
   # GET /pets.json
   def index
@@ -11,6 +29,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    update_happiness
   end
 
   # GET /pets/new
@@ -30,7 +49,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
-        format.html { redirect_to @pet, notice: "Congratulations on your new pet!" }
+        format.html { redirect_to pet_path(@pet), notice: "Congratulations on your new pet!" }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -44,7 +63,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to @pet, notice: "Your pet's name was successfully updated." }
+        format.html { redirect_to pet_path(@pet), notice: "Your pet's name was successfully updated." }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
@@ -58,7 +77,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: "You abandoned #{@pet.name}." }
+      format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
     end
   end
@@ -71,6 +90,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :breed, :gender)
+      params.require(:pet).permit(:name, :type, :gender)
     end
 end
