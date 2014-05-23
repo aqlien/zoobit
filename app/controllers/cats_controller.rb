@@ -69,6 +69,6 @@ class CatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cat_params
-      params[:cat]
+      params.require(:pet).permit(:name, :type, :gender)
     end
 end
