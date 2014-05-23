@@ -1,0 +1,34 @@
+<%= form_for(@pet) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation" class="alert-box alert radius" align="center">
+      <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
+
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="small-12 columns">
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+    <%= f.label :breed %><br />
+    <%= f.select :breed, Pet.subclasses.map { |type| type.name } %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+     <%= f.select :gender, options_for_select(["Male", "Female"]) %>
+  </div>
+
+    <br />
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

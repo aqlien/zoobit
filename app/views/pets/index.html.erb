@@ -1,0 +1,16 @@
+<h2>All Pets</h2>
+
+<table>
+    <tbody>
+      <% current_user.pets.each do |pet| %>
+          <tr id="<%= dom_id(pet) %>">
+            <td><h3><%= link_to pet.name, user_pet_path(current_user, pet) %></h3></td>
+            <td><%= link_to 'Change Name', edit_pet_path(pet) %></td>
+            <td><%= link_to 'Abandon', pet, method: :delete, data: { confirm: "Leave #{ pet.name } all alone?" } %></td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br />
+  <p><%= link_to 'New Pet', new_pet_path, id: "newpet" %></p>

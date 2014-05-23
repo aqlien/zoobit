@@ -1,0 +1,2 @@
+module RabbitsHelper
+end
