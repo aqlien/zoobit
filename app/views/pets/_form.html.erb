@@ -18,8 +18,8 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
-    <%= f.label :breed %><br />
-    <%= f.select :breed, Pet.subclasses.map { |type| type.name } %>
+    <%= f.label :type %><br />
+    <%= f.select :type, Pet.subclasses.map { |type| type.name } %>
   </div>
   <div class="field">
     <%= f.label :gender %><br />
