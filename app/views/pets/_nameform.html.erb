@@ -1,4 +1,6 @@
-<%= form_for(@pet) do |f| %>
+
+<%= form_for(@pet, as: :pet, url: pet_path(@pet)) do |f| %>
+
   <% if @pet.errors.any? %>
     <div id="error_explanation" class="alert-box alert radius" align="center">
       <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>

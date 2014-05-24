@@ -1,6 +1,8 @@
 <h1>Renaming <%= @pet.name %></h1>
 
+
+<div><%= @pet.class %></div>
 <%= render 'nameform' %>
 
-<%= link_to 'Show', @pet %> |
+<%= link_to 'Show', pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
