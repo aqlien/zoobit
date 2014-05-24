@@ -6,7 +6,8 @@ class PetsController < ApplicationController
     unless @last_interaction.nil?
       current_time = Time.now
       # Time in seconds since last interaction converted to minutes, every 7 minutes
-      @happiness -= (current_time - @last_interaction) / 60 #/ 7
+      decrease = @pet.happiness - (current_time - @last_interaction) / 60 / 7
+      @pet.update(happiness: decrease)
     end
   end
 
