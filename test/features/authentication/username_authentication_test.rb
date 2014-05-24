@@ -15,12 +15,11 @@ feature "Basic Devise Authentication" do
   scenario "an existing user should be able to sign in" do
     visit root_path
     sign_in
-    page.must_have_content I18n.t("devise.sessions.signed_in")
   end
 
   scenario "an non-existing user should not be able to sign in" do
     visit root_path
-    sign_in("randomjoe@localhost.com", "12341234")
+    sign_in("randomjoe@localhost.com", "12341234", true)
     page.must_have_content I18n.t("devise.failure.not_found_in_database")
   end
 

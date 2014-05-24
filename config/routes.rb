@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
-
-  resources :pets
-
-  devise_for :users
-
-  resources :users do
-    resources :pets
-
-  end
-
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   root 'home#index'
 
+  resources :pets
+  resources :users do
+    resources :pets
+  end
 end

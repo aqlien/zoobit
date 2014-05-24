@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522233610) do
+ActiveRecord::Schema.define(version: 20140523043619) do
 
   create_table "pets", force: true do |t|
     t.string   "name"
+    t.string   "type"
     t.string   "breed"
     t.string   "gender"
     t.integer  "happiness"
     t.string   "img_loc"
     t.integer  "user_id"
-    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_interaction"
   end
 
   add_index "pets", ["user_id"], name: "index_pets_on_user_id"
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20140522233610) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
