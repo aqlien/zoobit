@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522223432) do
+ActiveRecord::Schema.define(version: 20140523043619) do
+
+  create_table "pets", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "breed"
+    t.string   "gender"
+    t.integer  "happiness"
+    t.string   "img_loc"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_interaction"
+  end
+
+  add_index "pets", ["user_id"], name: "index_pets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,9 +41,13 @@ ActiveRecord::Schema.define(version: 20140522223432) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
