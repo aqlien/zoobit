@@ -37,13 +37,12 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = Pet.new(pet_params)
+    @pet.breed = @pet.type.constantize::BREEDS.sample
     @pet.happiness = 100
     @last_interaction = Time.now
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
-        species = @pet.type.constantize
-        @pet.breed = species::BREEDS.sample
         format.html { redirect_to pet_path(@pet), notice: "Congratulations on your new pet!" }
         format.json { render :show, status: :created, location: @pet }
       else
