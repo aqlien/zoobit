@@ -1,15 +1,19 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :set_pet, except: [:new, :index, :create]
   before_action :authenticate_user!, except: [:index, :show]
 
   def feed
     @last_interaction = Time.now
     @pet.happiness = 100
+    @pet.save
+    redirect_to pet_path(@pet)
   end
 
   def play
     @last_interaction = Time.now
     @pet.happiness += 50
+    @pet.save
+    redirect_to pet_path(@pet)
   end
 
   # GET /pets
@@ -79,7 +83,7 @@ class PetsController < ApplicationController
 private
   # Use callbacks to share common setup or constraints between actions.
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = params[:id].nil? ? Pet.find(params[:pet_id]) : Pet.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
