@@ -12,15 +12,6 @@ class PetsController < ApplicationController
     @pet.happiness += 50
   end
 
-  def happiness_to_image
-    if @pet.happiness == 50
-      "sad"
-    else
-      "happy"
-    end
-    #
-  end
-
   # GET /pets
   # GET /pets.json
   def index
