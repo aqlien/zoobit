@@ -2,15 +2,6 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  def update_happiness
-    unless @last_interaction.nil?
-      current_time = Time.now
-      # Time in seconds since last interaction converted to minutes, every 7 minutes
-      decrease = @pet.happiness - (current_time - @last_interaction) / 60 / 7
-      @pet.update(happiness: decrease)
-    end
-  end
-
   def feed
     @last_interaction = Time.now
     @pet.happiness = 100
@@ -86,14 +77,23 @@ class PetsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pet
-      @pet = Pet.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pet
+    @pet = Pet.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pet_params
-      params.require(:pet).permit(:name, :type, :gender)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pet_params
+    params.require(:pet).permit(:name, :type, :gender)
+  end
+
+  def update_happiness
+    unless @last_interaction.nil?
+      current_time = Time.now
+      # Time in seconds since last interaction converted to minutes, every 7 minutes
+      decrease = @pet.happiness - (current_time - @last_interaction) / 60 / 7
+      @pet.update(happiness: decrease)
     end
+  end
 end
