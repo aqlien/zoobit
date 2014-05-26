@@ -6,7 +6,7 @@ class PetsController < ApplicationController
     unless @last_interaction.nil?
       current_time = Time.now
       # Time in seconds since last interaction converted to minutes, every 7 minutes
-      @happiness -= (current_time - @last_interaction) / 60 / 7
+      @happiness -= (current_time - @last_interaction) / 60 #/ 7
     end
   end
 
@@ -46,9 +46,12 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.happiness = 100
+    @last_interaction = Time.now
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
+        species = @pet.type.constantize
+        @pet.breed = species::BREEDS.sample
         format.html { redirect_to pet_path(@pet), notice: "Congratulations on your new pet!" }
         format.json { render :show, status: :created, location: @pet }
       else

@@ -69,6 +69,6 @@ class RabbitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rabbit_params
-      params[:rabbit]
+      params.require(:pet).permit(:name, :type, :gender)
     end
 end

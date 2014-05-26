@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140522233610) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "last_interaction"
   end
 
   add_index "pets", ["user_id"], name: "index_pets_on_user_id"

@@ -18,13 +18,13 @@
       <%= f.text_field :name %>
     </div>
     <div class="field">
-    <%= f.label :type %><br />
-    <%= f.select :type, Pet.subclasses.map { |type| type.name } %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-     <%= f.select :gender, options_for_select(["Male", "Female"]) %>
-  </div>
+      <%= f.label :type %><br />
+      <%= f.select :type, options_for_select(["Dog", "Cat", "Bird", "Rabbit"]) %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br />
+      <%= f.select :gender, options_for_select(["Male", "Female"]) %>
+    </div>
 
     <br />
     <div class="actions">
