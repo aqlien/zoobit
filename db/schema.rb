@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140523043619) do
+ActiveRecord::Schema.define(version: 20140526205022) do
 
   create_table "pets", force: true do |t|
     t.string   "name"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20140523043619) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_interaction"
+    t.datetime "last_rest"
+    t.datetime "last_feeding"
+    t.integer  "energy"
+    t.integer  "fullness"
   end
 
   add_index "pets", ["user_id"], name: "index_pets_on_user_id"

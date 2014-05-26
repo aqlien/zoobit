@@ -3,17 +3,21 @@ class PetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def feed
-    @last_interaction = Time.now
-    @pet.happiness = 100
-    @pet.save
-    redirect_to pet_path(@pet)
+    @pet.last_feeding = Time.now
+    if @pet.fullness < 90
+      @pet.happiness += 75
+      @pet.fullness = 100
+    end
+    save_and_show
   end
 
   def play
     @last_interaction = Time.now
-    @pet.happiness += 50
-    @pet.save
-    redirect_to pet_path(@pet)
+    if @pet.energy > 25
+      @pet.happiness += 50
+      @pet.energy -= 20
+    end
+    save_and_show
   end
 
   # GET /pets
@@ -42,8 +46,7 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
     @pet.breed = @pet.type.constantize::BREEDS.sample
-    @pet.happiness = 100
-    @last_interaction = Time.now
+    initialize_pet
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
@@ -91,12 +94,50 @@ private
     params.require(:pet).permit(:name, :type, :gender)
   end
 
+  def save_and_show
+    @pet.save
+    redirect_to pet_path(@pet)
+  end
+
   def update_happiness
-    unless @last_interaction.nil?
-      current_time = Time.now
-      # Time in seconds since last interaction converted to minutes, every 7 minutes
-      decrease = @pet.happiness - (current_time - @last_interaction) / 60 / 7
-      @pet.update(happiness: decrease)
+    current_time = Time.now
+
+    decrease_fullness(current_time)
+    decrease_energy(current_time)
+    @pet.happiness = (@pet.fullness + @pet.energy*1.5)/2
+
+    # decrease = @pet.happiness - (current_time - @pet.last_interaction) / 60 / 7
+    # @pet.update(happiness: decrease)
+
+    reset_below_zero
+    @pet.save
+  end
+
+  def decrease_fullness(current_time)
+    # Time in seconds since last feeding converted to minutes, every 8 minutes
+    @pet.fullness -= (current_time - @pet.last_feeding) / 60 / 8
+  end
+
+  def decrease_energy(current_time)
+    if @pet.energy < 10
+      @pet.last_rest = Time.now
+      @pet.energy = 100
     end
+    @pet.energy -= (current_time - @pet.last_rest) / 60 / 10
+  end
+
+  def reset_below_zero
+    @pet.happiness = 0 if @pet.happiness < 0
+    @pet.fullness = 0 if @pet.fullness < 0
+    @pet.energy = 0 if @pet.energy < 0
+  end
+
+  def initialize_pet
+    @pet.happiness = 100
+    @pet.energy = 100
+    @pet.fullness = 100
+    @pet.last_interaction = Time.now
+    @pet.last_feeding = Time.now
+    @pet.last_rest = Time.now
   end
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :pets do
     get :feed
+    get :play
   end
 
   resources :users do

@@ -1,0 +1,19 @@
+
+Happiness = master value
+  energy = when high, happier, play takes it down but gives a big happiness boost
+  fullness = when high, pet is happy but feeding doesn't do anything (or decreases happiness?)
+  love = time since last interaction
+
+  happiness:
+
+
+  energy increases slowly when not interacting
+  feeeing gives a small energy boost and resets hunger completely
+  fullness decreases constantly, at a pace so that the pet needs to be fed twice daily
+
+
+
+
+
+  Idea for future -
+  once full, energy starts filling a boredom bar, which decreases happiness.

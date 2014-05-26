@@ -9,8 +9,10 @@
 <strong>Breed/color:</strong> <%= @pet.breed %><br>
 <strong>Gender:</strong> <%= @pet.gender %><br>
 <strong>Happiness:</strong> <%= @pet.happiness %><br>
+<strong>Energy:</strong> <%= @pet.energy %><br>
+<strong>Fullness:</strong> <%= @pet.fullness %><br>
 <br>
-
 <%= link_to 'Feed your pet', pet_feed_path(@pet) %>
+<%= link_to 'Play with your pet', pet_play_path(@pet) %>
 <br>
 <%= link_to 'Back', pets_path %>
