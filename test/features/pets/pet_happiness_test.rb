@@ -1,8 +1,6 @@
 require "test_helper"
 require "minitest/autorun"
 
-
-
 describe "Happiness" do
   before do
     @spot = Pet.create(name: "Spot", type: "Dog", gender: "Male")
