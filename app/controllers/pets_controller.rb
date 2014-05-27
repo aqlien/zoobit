@@ -40,6 +40,7 @@ class PetsController < ApplicationController
     @pet.breed = @pet.type.constantize::BREEDS.sample
     @pet.happiness = 100
     @last_interaction = Time.now
+    @pet.img_loc = "#{@pet.type.downcase}_happy.jpg"
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
@@ -84,7 +85,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def pet_params
-    params.require(:pet).permit(:name, :type, :gender)
+    params.require(:pet).permit(:name, :type, :gender, :breed)
   end
 
   def update_happiness
@@ -93,6 +94,8 @@ private
       # Time in seconds since last interaction converted to minutes, every 7 minutes
       decrease = @pet.happiness - (current_time - @last_interaction) / 60 / 7
       @pet.update(happiness: decrease)
+      set_moodpic
+      @pet.save
     end
   end
 end

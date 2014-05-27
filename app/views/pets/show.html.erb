@@ -1,14 +1,25 @@
-<h1><%= @pet.name %></h2><br>
+<div class="custom-panel" align="right">
+  <h2><%= @pet.name %></h2>
+</div>
 
-<h2>About <%= @pet.name %></h2>
+<div style="height: 100px"></div>
+<div class="row">
+  <div class="small-8 columns">
+    <% happy_value = @pet.happiness < 50 ? "sad" : "happy" %>
+    <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
+    <% @pet.save %>
+    <%= image_tag @pet.img_loc %>
+  </div>
+  <div class="small-4 columns">
+    <div class="panel callout">
+      <h5><strong>About <%= @pet.name %></strong></h5>
+      <strong>Species:</strong> <%= @pet.type %><br>
+      <strong>Breed/color:</strong> <%= @pet.breed %><br>
+      <strong>Gender:</strong> <%= @pet.gender %><br>
+      <strong>Happiness:</strong> <%= @pet.happiness %><br>
+    </div>
+  </div>
+</div>
 
-<% happy_value = @pet.happiness < 50 ? "sad" : "happy" %>
-<%= image_tag "#{@pet.type.downcase}_#{happy_value}.jpg" %>
-<br>
-<strong>Species:</strong> <%= @pet.type %><br>
-<strong>Breed/color:</strong> <%= @pet.breed %><br>
-<strong>Gender:</strong> <%= @pet.gender %><br>
-<strong>Happiness:</strong> <%= @pet.happiness %><br>
-
-<br>
-<%= link_to 'Back', pets_path %>
+<br />
+<div align="center"><%= link_to 'Back', pets_path %></div>

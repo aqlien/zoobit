@@ -1,16 +1,28 @@
-<h2>All Pets</h2>
+<div class="custom-panel" align="right">
+<h2>Your Pets</h2>
+</div>
 
-<table>
-    <tbody>
-      <% current_user.pets.each do |pet| %>
-          <tr id="<%= dom_id(pet) %>">
-            <td><h3><%= link_to pet.name, user_pet_path(current_user, pet) %></h3></td>
-            <td><%= link_to 'Change Name', edit_pet_path(pet) %></td>
-            <td><%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone?" } %></td>
-          </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div style="height: 100px"></div>
 
   <br />
-  <p><%= link_to 'New Pet', new_pet_path, id: "newpet" %></p>
+  <div align="center">
+    <% if current_user.pets.empty? %>
+      <h3><strong>You don't have any pets!</strong></h3>
+      <p> Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>? </p>
+    <% else %>
+      <table>
+        <tbody>
+          <% current_user.pets.each do |pet| %>
+              <tr id="<%= dom_id(pet) %>">
+                <td><div align="center"><%= link_to image_tag(pet.img_loc, width: '50%'), user_pet_path(current_user, pet) %></a><br />
+                  <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4></div></td>
+                <td><%= link_to 'Change Name', edit_pet_path(pet) %></td>
+                <td><%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone?" } %></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br />
+      <%= link_to 'New Pet', new_pet_path, id: "newpet" %>
+    <% end %>
+  </div>

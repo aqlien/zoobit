@@ -1,8 +1,12 @@
-<h1>Renaming <%= @pet.name %></h1>
+<div class="custom-panel" align="right">
+  <h1>Renaming <%= @pet.name %></h1>
+</div>
 
-
-<div><%= @pet.class %></div>
+<div style="height: 100px"></div>
 <%= render 'nameform' %>
 
-<%= link_to 'Show', pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<br />
+<div align="center">
+  <%= link_to 'Show', pet_path(@pet) %> |
+  <%= link_to 'Back', pets_path %>
+</div>

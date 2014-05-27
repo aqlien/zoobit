@@ -1,21 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Zoobit</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <div id="header">
-    <%= render "layouts/signin" %>
+    <title><%= content_for?(:title) ? yield(:title) : "Zoobit" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <div class="sticky">
+      <div class="logo-wrapper hide-for-small-only">
+        <div class="logo">
+          <%= link_to image_tag("button_round_seagreen.png"), root_path %></a>
+        </div>
+      </div>
+
+      <div class="panel" style="height: 75px;"></div>
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name"></li>
+          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+        </ul>
+
+        <section class="top-bar-section">
+
+          <!-- Right Nav Section -->
+          <ul class="right">
+          <% if current_user.nil? %>
+            <li><%= link_to t(:sign_up_link), new_user_registration_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to t(:sign_in_link), new_user_session_path  %></li>
+            <li class="divider"></li>
+            <li><%= link_to image_tag("sign-in-with-twitter-gray.png"), user_omniauth_authorize_path(:twitter) %></a></li>
+          <% else %>
+            <li><%= link_to "Check on your pets!", user_pets_path(current_user.id) %></li>
+            <li class="divider"></li>
+            <li><%= link_to t(:sign_out_link), destroy_user_session_path, method: :delete %></li>
+            <li class="divider"></li>
+          <% end %>
+          </ul>
+
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li><a href="#">Linky Dink</a></li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Weee Stuff</a>
+              <ul class="dropdown">
+                <li><a href="#">First link in dropdown</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+          </ul>
+
+        </section>
+      </nav>
+    </div><!-- /navigation -->
+
     <div id="flash_notice">
       <%= render "layouts/flash" %>
     </div>
-  </div>
-  <div id="main">
-    <%= yield %>
-  </div>
-</body>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
