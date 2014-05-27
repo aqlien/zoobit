@@ -13,16 +13,18 @@
     </div>
   <% end %>
 
-<div class="row">
-  <div class="small-12 columns">
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
-
-    <br />
-    <div class="actions">
-      <%= f.submit %>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <br />
+      <div align="center">
+        <div class="actions">
+          <%= f.submit "Rename Pet" %>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

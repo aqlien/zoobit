@@ -1,8 +1,0 @@
-<!-- use config\locales\en.yml to customize messages -->
-<% if current_user.nil? %>
-  <%= link_to t(:sign_up_link), new_user_registration_path %> |
-  <%= link_to t(:sign_in_link), new_user_session_path  %>
-<% else %>
-  <%= link_to "Check on your pets!", user_pets_path(current_user.id) %> |
-  <%= link_to t(:sign_out_link), destroy_user_session_path, method: :delete %>
-<% end %>

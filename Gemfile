@@ -12,6 +12,7 @@ gem 'spring',        group: :development
 gem 'sqlite3', group: :development, group: :test
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'foundation-rails'
 
 #Authorization
 gem "devise"
