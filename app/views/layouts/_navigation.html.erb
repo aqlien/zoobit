@@ -42,11 +42,23 @@
     </section>
   </nav>
 
-  <div class="orange-bar"></div>
+  <div class="orange-bar" style="height: 10px"></div>
 
   <!-- Title Bar -->
   <div class="title-panel"></div>
   <div class="flash-panel" id="flash_notice" align="center">
     <%= render "layouts/flash" %>
+  </div>
+  <div class="side-panel" style="height: 100%">
+    <% if current_user.nil? %>
+        <h3><strong>Your pets go here!</strong></h3>
+      <% elsif current_user.pets.empty? %>
+        <h3><strong>You don't have any pets!</strong></h3>
+      <% else %>
+        <h3><strong>Current Pets:</strong></h3>
+      <% end %>
+    <ul class="side-nav" style="width:200%; position:relative; left: -25%">
+      <li class="divider"></li>
+    </ul>
   </div>
 </div>

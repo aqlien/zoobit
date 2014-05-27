@@ -1,14 +1,15 @@
 @import 'foundation_and_overrides';
 @import 'foundation/components/panels';
+$bright-orange: #FFA82D;
+$bright-blue: #62A1D9;
 
 .orange-bar {
-  background-color:#FFA82D;
-  height:10px;
+  background-color: $bright-orange;
 }
 
 .title-panel {
     @include panel(
-    $bg:#62A1D9,
+    $bg: $bright-blue,
     $padding:5px,
     $adjust:true
   );
@@ -26,4 +27,12 @@
   left: 50%;
   right: 50%;
   margin-left: -50%;
+}
+
+.side-panel {
+  background-color: $bright-orange;
+  width: 25%;
+  position: absolute;
+  margin-left: 75%;
+  padding-left: 100px;
 }
