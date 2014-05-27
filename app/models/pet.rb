@@ -14,22 +14,24 @@ class Pet < ActiveRecord::Base
     self.last_interaction = Time.now
     self.last_feeding = Time.now
     self.last_rest = Time.now
+    self.last_update = Time.now
     self.img_loc = "#{self.type.downcase}_happy.jpg"
   end
 
   def update_happiness
     current_time = Time.now
-
-    decrease_fullness(current_time)
-    decrease_energy(current_time)
+    if (current_time - self.last_update).round/ 60 > 8
+      decrease_fullness(current_time)
+      decrease_energy(current_time)
+      self.last_update = current_time
+    end
     self.happiness = (self.fullness + self.energy*1.5)/2
-
     reset_below_zero
   end
 
   def decrease_fullness(current_time)
     # Time in seconds since last feeding converted to minutes, every 8 minutes
-    self.fullness -= ((current_time - self.last_feeding).round/ 60 / 8).to_i
+    self.fullness -= (current_time - self.last_feeding).round/ 60 / 8
     reset_below_zero
   end
 
@@ -38,7 +40,7 @@ class Pet < ActiveRecord::Base
       self.last_rest = Time.now
       self.energy = 100
     end
-    self.energy -= ((current_time - self.last_rest).round / 60 / 10).to_i
+    self.energy -= (current_time - self.last_rest).round / 60 / 10
     reset_below_zero
   end
 
