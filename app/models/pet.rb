@@ -4,5 +4,4 @@ class Pet < ActiveRecord::Base
   scope :cats, -> {where(type: "Cat")}
   scope :birds, -> {where(type: "Bird")}
   scope :rabbits, -> {where(type: "Rabbit")}
-
 end

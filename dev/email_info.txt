@@ -7,3 +7,4 @@ OAuth integration:
   Social Media ----
     Twitter: @ZoobitDevs
     Facebook:
+  Pass: ENV = ZOOBIT_PASS
