@@ -29,7 +29,10 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
-    update_happiness
+    if (Time.now - @pet.last_interaction) / 60 > 7
+      update_happiness
+      @pet.update(last_interaction: Time.now)
+    end
   end
 
   # GET /pets/new
