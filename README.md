@@ -1,4 +1,4 @@
-#ZooBit v0.1
+#ZooBit v0.2
 
 ##Authors: Samantha Camus and Alex Lien
 * * * * * * * *
