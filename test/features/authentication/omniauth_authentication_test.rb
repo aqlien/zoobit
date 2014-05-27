@@ -12,4 +12,3 @@ feature "Twitter Authentication" do
     page.must_have_content I18n.t("devise.sessions.signed_in")
   end
 end
-

@@ -29,7 +29,7 @@ class Pet < ActiveRecord::Base
 
   def decrease_fullness(current_time)
     # Time in seconds since last feeding converted to minutes, every 8 minutes
-    self.fullness -= ((current_time - self.last_feeding)/ 60 / 8).to_i
+    self.fullness -= ((current_time - self.last_feeding).round/ 60 / 8).to_i
     reset_below_zero
   end
 
@@ -38,7 +38,7 @@ class Pet < ActiveRecord::Base
       self.last_rest = Time.now
       self.energy = 100
     end
-    self.energy -= ((current_time - self.last_rest) / 60 / 10).to_i
+    self.energy -= ((current_time - self.last_rest).round / 60 / 10).to_i
     reset_below_zero
   end
 

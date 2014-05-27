@@ -1,0 +1,52 @@
+<div class="sticky">
+  <div class="logo-wrapper hide-for-small-only">
+    <div class="logo">
+      <%= link_to image_tag("button_round_orange.png"), root_path %></a>
+    </div>
+  </div>
+
+  <div class="panel" style="height:85px;" align="center">
+    <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+  </div>
+
+  <nav class="top-bar" data-topbar>
+    <section class="top-bar-section">
+
+      <!-- Right Nav Section -->
+      <ul class="left">
+      <% if current_user.nil? %>
+        <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
+        <li class="divider"></li>
+        <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
+        <li class="divider"></li>
+      <% else %>
+        <li><%= link_to "Check on your pets!", user_pets_path(current_user.id) %></li>
+        <li class="divider"></li>
+        <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+        <li class="divider"></li>
+      <% end %>
+      </ul>
+
+      <!-- Left Nav Section -->
+      <!-- <ul class="left">
+        <li><a href="#">Linky Dink</a></li>
+        <li class="divider"></li>
+        <li class="has-dropdown">
+          <a href="#">Weee Stuff</a>
+          <ul class="dropdown">
+            <li><a href="#">First link in dropdown</a></li>
+          </ul>
+        </li>
+        <li class="divider"></li>
+      </ul> -->
+    </section>
+  </nav>
+
+  <div class="orange-bar"></div>
+
+  <!-- Title Bar -->
+  <div class="title-panel"></div>
+  <div class="flash-panel" id="flash_notice" align="center">
+    <%= render "layouts/flash" %>
+  </div>
+</div>
