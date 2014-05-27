@@ -54,17 +54,17 @@
 
         </section>
       </nav>
-    </div><!-- /navigation -->
 
-    <!-- Title Bar -->
-    <div id="row">
-      <div class="title-panel" align="right">
-        <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+      <!-- Title Bar -->
+      <div id="row">
+        <div class="title-panel" align="right">
+          <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+        </div>
+        <div id="flash_notice" style="margin-top: 10px; width: 50%; margin-left: 50%; text-align: center">
+          <%= render "layouts/flash" %>
+        </div>
       </div>
-      <div id="flash_notice" style="margin-top: 10px; width: 50%; margin-left: 50%; text-align: center">
-        <%= render "layouts/flash" %>
-      </div>
-    </div>
+    </div><!-- /navigation -->
 
     <div id="main">
       <%= yield %>
