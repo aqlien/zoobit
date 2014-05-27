@@ -1,12 +1,21 @@
 @import 'foundation_and_overrides';
 @import 'foundation/components/panels';
 
-.custom-panel {
+.title-panel {
     @include panel(
     $bg:#62A1D9,
     $padding:5px,
     $adjust:true
   );
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -50%;
+  padding-right: 100px;
+}
+
+.flash-panel {
   margin-top: 10px;
   width: 50%;
   position: absolute;

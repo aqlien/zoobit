@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Zoobit" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -16,17 +14,13 @@
     <div class="sticky">
       <div class="logo-wrapper hide-for-small-only">
         <div class="logo">
-          <%= link_to image_tag("button_round_seagreen.png"), root_path %></a>
+          <%= link_to image_tag("button_round_orange.png"), root_path %></a>
         </div>
       </div>
 
-      <div class="panel" style="height: 75px;"></div>
-      <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name"></li>
-          <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-        </ul>
+      <div class="panel" style="height:85px;"></div>
 
+      <nav class="top-bar" data-topbar>
         <section class="top-bar-section">
 
           <!-- Right Nav Section -->
@@ -62,8 +56,14 @@
       </nav>
     </div><!-- /navigation -->
 
-    <div id="flash_notice">
-      <%= render "layouts/flash" %>
+    <!-- Title Bar -->
+    <div id="row">
+      <div class="title-panel" align="right">
+        <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+      </div>
+      <div id="flash_notice" style="margin-top: 10px; width: 50%; margin-left: 50%; text-align: center">
+        <%= render "layouts/flash" %>
+      </div>
     </div>
 
     <div id="main">
