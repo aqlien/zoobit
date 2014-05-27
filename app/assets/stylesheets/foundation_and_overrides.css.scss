@@ -243,8 +243,8 @@ $success-color: #62A1D9;
 // $alert-padding-bottom: $alert-padding-top;
 
 // We use these to control text style.
-// $alert-font-weight: normal;
-// $alert-font-size: rem-calc(13);
+$alert-font-weight: bold;
+$alert-font-size: rem-calc(14);
 // $alert-font-color: #fff;
 // $alert-font-color-alt: scale-color($secondary-color, $lightness: -66%);
 
@@ -271,7 +271,7 @@ $success-color: #62A1D9;
 
 // We use this to control transition effects
 // $alert-transition-speed: 300ms;
-// $alert-transition-ease: ease-out;
+$alert-transition-ease: ease-out;
 
 // Block Grid
 
@@ -812,10 +812,10 @@ $panel-bg: #97BC65;
 
 // We use these to set default inner padding and bottom margin
 $panel-margin-bottom: 0;
-// $panel-padding: rem-calc(20);
+$panel-padding: 25px;
 
 // We use these to set default font colors
-// $panel-font-color: #333;
+$panel-font-color: #102E49;
 // $panel-font-color-alt: #fff;
 
 // $panel-header-adjust: true;
@@ -1194,7 +1194,7 @@ $topbar-dropdown-link-bg: #C8FF7D;
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
 $topbar-link-bg-hover: #648537;

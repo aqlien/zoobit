@@ -3,7 +3,7 @@
 <div style="height: 100px"></div>
 
   <br />
-  <div align="center">
+  <div class="small-9 columns" align="center">
     <% if current_user.pets.empty? %>
       <h3><strong>You don't have any pets!</strong></h3>
       <p> Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>? </p>
