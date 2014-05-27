@@ -24,3 +24,8 @@ en:
   sign_up_link: "New user? Sign up here!"
   sign_in_link: "Need to check on your pets? Sign in!"
   sign_out_link: "Leaving? Sign out here."
+  pets:
+    feed_success: "ate all their food."
+    feed_failure: "isn't hungry right now."
+    play_success: "You had fun with"
+    play_failure: "is too tired to play."
