@@ -1,6 +1,4 @@
-<div class="title-panel" align="right">
-  <h2>Forgot your password?</h2>
-</div>
+<%- title "Forgot your password?" %>
 
 <div style="height: 100px"></div>
 <div class="row">
@@ -8,7 +6,7 @@
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div><%= f.label :Email %><br />
+      <div><%= f.label :Email %>
       <%= f.text_field :login, autofocus: true %></div>
       <div align="center">
         <div><%= f.submit "Send me reset password instructions" %></div>

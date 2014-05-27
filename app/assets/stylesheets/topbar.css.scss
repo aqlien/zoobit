@@ -4,11 +4,11 @@
 
 .logo-wrapper .logo {
     width: 200px;
-    height:  200px;
+    height: 200px;
 
     position: absolute;
-    left: 50%;
-    right: 50%;
+    left: 75%;
+    right: 25%;
     top: 5px;
     margin-left: -100px;
     z-index: 2;
@@ -16,7 +16,7 @@
 
 // Right part
 .top-bar-section ul.right {
-    width: 50%;
+    width: 25%;
     padding-left: 100px;
 }
 .top-bar-section ul.right li {
@@ -25,7 +25,7 @@
 
 // Left part
 .top-bar-section ul.left {
-    width:  50%;
+    width:  75%;
     padding-right: 100px;
 }
 .top-bar-section ul.left li {

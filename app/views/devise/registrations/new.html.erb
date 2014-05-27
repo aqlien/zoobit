@@ -1,6 +1,4 @@
-<div class="title-panel" align="right">
-  <h2>New Owner</h2>
-</div>
+<%- title "New Owner" %>
 
 <div style="height: 100px"></div>
 
@@ -9,16 +7,16 @@
     <div class="small-12 columns">
       <%= devise_error_messages! %>
 
-    <div><%= f.label :email %><br />
+    <div><%= f.label :email %>
       <%= f.email_field :email, autofocus: true %>
     </div>
 
     <% if f.object.password_required? %>
-      <div><%= f.label :password %><br />
+      <div><%= f.label :password %>
         <%= f.password_field :password, autocomplete: "off" %>
       </div>
 
-      <div><%= f.label :password_confirmation %><br />
+      <div><%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     <% end %>
