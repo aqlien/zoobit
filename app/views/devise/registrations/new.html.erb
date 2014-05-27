@@ -9,8 +9,12 @@
     <div class="small-12 columns">
       <%= devise_error_messages! %>
 
+    <div><%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true %>
+    </div>
+
     <div><%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.email_field :email%>
     </div>
 
     <% if f.object.password_required? %>
