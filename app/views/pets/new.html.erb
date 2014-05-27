@@ -1,11 +1,16 @@
-<h1>Adopt a Pet</h1></div>
+<div class="custom-panel" align="right">
+  <h2>Adopt a Pet</h2>
+</div>
 
-  <div class="row">
-    <div class="small-12 columns">
-  <%= render 'form' %><br />
-    </div>
+<div style="height: 100px"></div>
+<div class="row">
+  <div class="small-12 columns">
+    <%= render 'form' %>
   </div>
-<br />
+</div>
 
+<br />
+<div align="center">
   <%= link_to 'Back', user_pets_path(current_user) %>
+</div>
 
