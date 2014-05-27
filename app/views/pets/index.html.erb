@@ -1,6 +1,4 @@
-<div class="custom-panel" align="right">
-<h2>Your Pets</h2>
-</div>
+<%- title "Your Pets" %>
 
 <div style="height: 100px"></div>
 
@@ -23,6 +21,6 @@
         </tbody>
       </table>
       <br />
-      <%= link_to 'New Pet', new_pet_path, id: "newpet" %>
+      <%= link_to 'New Pet', new_pet_path, id: 'newpet' %>
     <% end %>
   </div>
