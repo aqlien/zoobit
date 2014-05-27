@@ -94,7 +94,7 @@ private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def pet_params
-    params.require(:pet).permit(:name, :type, :gender)
+    params.require(:pet).permit(:name, :type, :gender, :breed)
   end
 
   def save_and_show
@@ -108,9 +108,6 @@ private
     decrease_fullness(current_time)
     decrease_energy(current_time)
     @pet.happiness = (@pet.fullness + @pet.energy*1.5)/2
-
-    # decrease = @pet.happiness - (current_time - @pet.last_interaction) / 60 / 7
-    # @pet.update(happiness: decrease)
 
     reset_below_zero
     @pet.save
@@ -142,5 +139,6 @@ private
     @pet.last_interaction = Time.now
     @pet.last_feeding = Time.now
     @pet.last_rest = Time.now
+    @pet.img_loc = "#{@pet.type.downcase}_happy.jpg"
   end
 end
