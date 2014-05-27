@@ -1,18 +1,12 @@
-# Read about fixtures at
-# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  breed: MyString
-  gender: MyString
-  happiness: 1
-  img_loc: MyString
-  user: 
+whiskers:
+  name: Whiskers
+  type: Cat
+  gender: Female
+  user: sam
 
-two:
-  name: MyString
-  breed: MyString
-  gender: MyString
-  happiness: 1
-  img_loc: MyString
-  user: 
+spot:
+  name: Spot
+  type: Dog
+  gender: Male
+  user: alex
