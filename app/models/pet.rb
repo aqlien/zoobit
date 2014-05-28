@@ -1,5 +1,8 @@
 class Pet < ActiveRecord::Base
   belongs_to :user
+  has_one :pet_hunger, dependent: :destroy
+  has_one :pet_tiredness, dependent: :destroy
+  has_one :pet_boredom, dependent: :destroy
   before_create :initialize_pet
 
   scope :dogs, -> {where(type: "Dog")}
@@ -7,46 +10,23 @@ class Pet < ActiveRecord::Base
   scope :birds, -> {where(type: "Bird")}
   scope :rabbits, -> {where(type: "Rabbit")}
 
+  def update_happiness(current_time)
+    self.pet_hunger.increase(current_time)
+    self.pet_tiredness.increase(current_time)
+    self.pet_boredom.increase(current_time)
+    self.calculate_happiness
+  end
+
+  def calculate_happiness
+    self.happiness = ((100 - self.pet_hunger.value)*3 + (100-self.pet_tiredness.value) + (100 - self.pet_boredom.value)*2)/6
+  end
+
+private
   def initialize_pet
     self.happiness = 100
-    self.energy = 100
-    self.fullness = 100
-    self.last_interaction = Time.now
-    self.last_feeding = Time.now
-    self.last_rest = Time.now
-    self.last_update = Time.now
     self.img_loc = "#{self.type.downcase}_happy.jpg"
-  end
-
-  def update_happiness
-    current_time = Time.now
-    if (current_time - self.last_update).round/ 60 > 8
-      decrease_fullness(current_time)
-      decrease_energy(current_time)
-      self.last_update = current_time
-    end
-    self.happiness = (self.fullness + self.energy*1.5)/2
-    reset_below_zero
-  end
-
-  def decrease_fullness(current_time)
-    # Time in seconds since last feeding converted to minutes, every 8 minutes
-    self.fullness -= (current_time - self.last_feeding).round/ 60 / 8
-    reset_below_zero
-  end
-
-  def decrease_energy(current_time)
-    if self.energy < 10
-      self.last_rest = Time.now
-      self.energy = 100
-    end
-    self.energy -= (current_time - self.last_rest).round / 60 / 10
-    reset_below_zero
-  end
-
-  def reset_below_zero
-    self.happiness = 0 if self.happiness < 0
-    self.fullness = 0 if self.fullness < 0
-    self.energy = 0 if self.energy < 0
+    self.pet_hunger = PetHunger.new(pet_id: self.id)
+    self.pet_tiredness = PetTiredness.new(pet_id: self.id)
+    self.pet_boredom = PetBoredom.new(pet_id: self.id)
   end
 end
