@@ -1,19 +1,26 @@
-<%- title "Your Pets" %>
+<% current_uri = request.env['PATH_INFO'] %>
+<% if current_uri == "/pets" %>
+  <% owner = current_user %>
+<% else %>
+  <% url_parts = current_uri.split("/")-[""] %>
+  <% uid = url_parts[1].to_i %>
+  <% owner = User.find(uid) %>
+<% end %>
+<%- title "#{owner.username}'s Pets" %>
 
 <div style="height: 50px"></div>
 
 <br />
 <div class="small-9 columns" align="center">
-  <% if current_user.pets.empty? %>
-    <h3><strong>You don't have any pets!</strong></h3>
-    <p> Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>? </p>
+  <% if owner.pets.empty? %>
+    <h3><strong><%= owner.username %> doesn't have any pets!</strong></h3>
   <% else %>
     <table>
       <tbody>
-        <% current_user.pets.each do |pet| %>
+        <% owner.pets.each do |pet| %>
           <tr id="<%= dom_id(pet) %>">
-            <td><div align="center"><%= link_to image_tag(pet.img_loc, width: '50%'), user_pet_path(current_user, pet) %></a><br />
-            <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4></div></td>
+            <td><div align="center"><%= link_to image_tag(pet.img_loc, width: '50%'), user_pet_path(owner, pet) %></a><br />
+            <h4><%= link_to pet.name, user_pet_path(owner, pet) %></h4></div></td>
           </tr>
         <% end %>
       </tbody>

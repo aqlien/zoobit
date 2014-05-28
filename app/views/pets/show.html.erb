@@ -14,6 +14,7 @@
     <div class="row">
       <div class="callout-panel" align="left">
         <div align="center"><h5><strong>About <%= @pet.name %></strong></h5></div>
+        <strong>Owner:</strong> <%= @pet.user.username %><br>
         <strong>Species:</strong> <%= @pet.type %><br>
         <strong>Breed/color:</strong> <%= @pet.breed %><br>
         <strong>Gender:</strong> <%= @pet.gender %><br>
@@ -25,9 +26,9 @@
   </div>
   <br />
   <div class="small-5 columns" align="center">
-    <%= link_to 'Feed your pet', pet_feed_path(@pet) %> |
-    <%= link_to 'Play with your pet', pet_play_path(@pet) %>
+    <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet) %> |
+    <%= link_to "Play with #{@pet.name}", pet_play_path(@pet) %>
     <br /><br />
-    <%= link_to 'Back', pets_path %></div>
+    <%= link_to 'Back', :back %></div>
   </div>
 </div>

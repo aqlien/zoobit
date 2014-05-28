@@ -9,7 +9,7 @@
     </div>
   <% else %>
     <div style="padding-left: 100px; margin-bottom: -5px">
-      <h3><strong>Current Pets:</strong></h3>
+      <h3><strong>Your Current Pets:</strong></h3>
     </div>
   <% end %>
   <ul class="side-nav">
@@ -45,6 +45,9 @@
         </div>
         <li class="divider"></li>
       <% end %>
+      <div align="center">
+      <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
+      </div>
     <% end %>
   </ul>
 </div>
