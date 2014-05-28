@@ -6,6 +6,7 @@ class PetHunger < ActiveRecord::Base
     if self.value > 15
       self.value = 0
       self.last_interaction = Time.now
+      self.save
       return true
     end
     return false
@@ -17,6 +18,7 @@ class PetHunger < ActiveRecord::Base
       self.change = current_time
     end
     self.value = 100 if self.value > 100
+    self.save
   end
 
 private

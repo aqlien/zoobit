@@ -32,4 +32,5 @@ en:
     feed_failure: "%{name} isn't hungry right now."
     play_success: "You and %{name} had fun together!"
     play_failure: "%{name} isn't really interested in playing right now."
+    new: "Congratulations on your new pet!"
 

@@ -6,9 +6,9 @@ class PetsController < ApplicationController
     if @pet.pet_hunger.decrease
       @pet.happiness += 75
       @pet.save
-      redirect_to pet_path(@pet), notice: "#{t("pets.feed_success", name: @pet.name)}"
+      redirect_to pet_path(@pet), notice: t("pets.feed_success", name: @pet.name)
     else
-      redirect_to pet_path(@pet), notice: "#{t("pets.feed_failure", name: @pet.name)}"
+      redirect_to pet_path(@pet), notice: t("pets.feed_failure", name: @pet.name)
     end
   end
 
@@ -16,9 +16,9 @@ class PetsController < ApplicationController
     if @pet.pet_boredom.decrease
       @pet.happiness += 50
       @pet.save
-      redirect_to pet_path(@pet), notice: "#{t("pets.play_success", name: @pet.name)}"
+      redirect_to pet_path(@pet), notice: t("pets.play_success", name: @pet.name)
     else
-      redirect_to pet_path(@pet), notice: "#{t("pets.play_failure", name: @pet.name)}"
+      redirect_to pet_path(@pet), notice: t("pets.play_failure", name: @pet.name)
     end
   end
 
@@ -43,7 +43,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
-        format.html { redirect_to pet_path(@pet), notice: "Congratulations on your new pet!" }
+        format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }

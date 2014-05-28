@@ -4,8 +4,9 @@ class PetBoredom < ActiveRecord::Base
 
   def decrease
     if self.value > 10
-      self.value -= 20
+      self.value -= 10
       self.last_interaction = Time.now
+      self.save
       return true
     end
     return false
@@ -17,6 +18,7 @@ class PetBoredom < ActiveRecord::Base
       self.change = current_time
     end
     self.value = 100 if self.value > 100
+    self.save
   end
 
 private

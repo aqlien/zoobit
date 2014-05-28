@@ -5,6 +5,7 @@ class PetTiredness < ActiveRecord::Base
   def decrease
     self.value = 0
     self.last_interaction = Time.now
+    self.save
   end
 
   def increase(current_time)
@@ -13,7 +14,8 @@ class PetTiredness < ActiveRecord::Base
       self.change = current_time
     end
     self.value = 100 if self.value > 100
-    self.decrease if self.value == 100
+    self.decrease if self.value == 100 #simulates sleeping, doesn't take any time yet
+    self.save
   end
 
 private
