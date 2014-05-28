@@ -18,24 +18,24 @@ describe "Hunger" do
     #last fed 8 hours ago
   end
 
-  it "should start at zero" do
-    assert_equal 0, @sylvie.pet_hunger.value
+  it "should start at 30" do
+    assert_equal 30, @sylvie.pet_hunger.value
   end
 
   it "increases by 1 about every 8 minutes" do
     @sylvie.pet_hunger.change = @time - (60*7)
     @sylvie.update_happiness(@time)
-    assert_equal 0, @sylvie.pet_hunger.value
+    assert_equal 30, @sylvie.pet_hunger.value
     #no increase, hasn't been long enough
 
     @sylvie.pet_hunger.change = @time - (60*9)
     @sylvie.update_happiness(@time)
-    assert_equal 1, @sylvie.pet_hunger.value
+    assert_equal 31, @sylvie.pet_hunger.value
     #increase by 1 in 8 minutes
 
     #refresh again
     @sylvie.update_happiness(@time)
-    assert_equal 1, @sylvie.pet_hunger.value
+    assert_equal 31, @sylvie.pet_hunger.value
     #no increase, hasn't been long enough since last update
   end
 end

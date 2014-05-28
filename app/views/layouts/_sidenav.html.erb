@@ -24,15 +24,19 @@
     </div>
     <% else %>
       <% current_user.pets.each do |pet| %>
-        <div class="row">
+        <div class="row" style="margin-top: .75em">
           <li>
-            <div class="small-3 columns" align="center"><%= link_to image_tag(pet.img_loc, width: "100%"), user_pet_path(current_user, pet) %></a>
+            <div class="small-3 columns" align="center" style="padding-top: .5em"><%= link_to image_tag(pet.img_loc, width: "100%"), user_pet_path(current_user, pet) %>
             </div>
               <div class="small-9 columns" align="center">
-                <div class="callout-panel radius" style="margin-top: 5px; margin-bottom: 12px; padding-top: 5px; padding-bottom: 5px; radius: 5px">
-                  <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></a></h4>
+                <div class="callout-panel radius" style="margin-bottom: 1em; padding-bottom: .25em; padding-top: .5em">
+                  <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4>
+                  <% h = pet.happiness.nil? ? 0 : pet.happiness %>
+                  <div class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
+                    <span class="meter" style="width:<%=h%>%"></span>
+                  </div>
                   <div class="row">
-                    <div class="small-6 columns" align="right">
+                    <div class="small-6 columns" align="right" >
                       <%= link_to 'Change Name', edit_pet_path(pet) %>
                     </div>
                     <div class="small-6 columns" align="left">
