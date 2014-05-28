@@ -1,0 +1,36 @@
+<div class="row" >
+  <% v = @pet.happiness %>
+  <div class="small-3 column" >
+    <strong style="vertical-align:sub;">Happiness:</strong>
+  </div>
+  <div class="small-9 column progress round <%= v > 40 ? "" : "alert"%>">
+    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%=v%></strong></span>
+  </div>
+</div>
+<div class="row">
+  <% v = @pet.pet_hunger.value %>
+  <div class="small-3 column">
+    <strong style="vertical-align:sub;">Hunger:</strong>
+  </div>
+  <div class="small-9 column progress round <%= v < 60 ? "" : "alert"%>">
+    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%=v%></strong></span>
+  </div>
+</div>
+<div class="row">
+  <% v = @pet.pet_tiredness.value %>
+  <div class="small-3 column">
+    <strong style="vertical-align:sub;">Tiredness:</strong>
+  </div>
+  <div class="small-9 column progress round <%= v < 80 ? "" : "alert"%>">
+    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%=v%></strong></span>
+  </div>
+</div>
+<div class="row">
+  <% v = @pet.pet_boredom.value %>
+  <div class="small-3 column">
+    <strong style="vertical-align:sub;">Boredom:</strong>
+  </div>
+  <div class="small-9 column progress round <%= v < 50 ? "" : "alert"%>">
+    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%=v%></strong></span>
+  </div>
+</div>

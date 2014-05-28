@@ -17,14 +17,8 @@
         <strong>Species:</strong> <%= @pet.type %><br>
         <strong>Breed/color:</strong> <%= @pet.breed %><br>
         <strong>Gender:</strong> <%= @pet.gender %><br>
-        <strong>Happiness:</strong> <%= @pet.happiness %><br>
-        <strong>Hunger:</strong> <%= @pet.pet_hunger.value %><br>
-        <strong>Tiredness:</strong> <%= @pet.pet_tiredness.value %><br>
-        <strong>Boredom:</strong> <%= @pet.pet_boredom.value %><br>
         <br>
-         <div class="progress radius round">
-          <span class="meter" style="width: [1 - 100]%"></span>
-        </div>
+        <%= render "pets/status_bars" %><br>
       </div>
     </div>
   </div>

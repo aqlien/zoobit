@@ -23,7 +23,7 @@ class PetHunger < ActiveRecord::Base
 
 private
   def initialize_hunger
-    self.value = 0
+    self.value = 30
     self.last_interaction = Time.now
     self.change = Time.now
   end

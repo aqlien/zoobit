@@ -13,8 +13,6 @@
 
   <nav class="top-bar" data-topbar>
     <section class="top-bar-section">
-
-      <!-- Right Nav Section -->
       <ul class="left">
       <% if current_user.nil? %>
         <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
@@ -28,19 +26,6 @@
         <li class="divider"></li>
       <% end %>
       </ul>
-
-      <!-- Left Nav Section -->
-      <!-- <ul class="left">
-        <li><a href="#">Linky Dink</a></li>
-        <li class="divider"></li>
-        <li class="has-dropdown">
-          <a href="#">Weee Stuff</a>
-          <ul class="dropdown">
-            <li><a href="#">First link in dropdown</a></li>
-          </ul>
-        </li>
-        <li class="divider"></li>
-      </ul> -->
     </section>
   </nav>
 

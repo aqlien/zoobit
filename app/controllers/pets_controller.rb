@@ -4,8 +4,6 @@ class PetsController < ApplicationController
 
   def feed
     if @pet.pet_hunger.decrease
-      @pet.happiness += 75
-      @pet.save
       redirect_to pet_path(@pet), notice: t("pets.feed_success", name: @pet.name)
     else
       redirect_to pet_path(@pet), notice: t("pets.feed_failure", name: @pet.name)
@@ -14,8 +12,6 @@ class PetsController < ApplicationController
 
   def play
     if @pet.pet_boredom.decrease
-      @pet.happiness += 50
-      @pet.save
       redirect_to pet_path(@pet), notice: t("pets.play_success", name: @pet.name)
     else
       redirect_to pet_path(@pet), notice: t("pets.play_failure", name: @pet.name)
