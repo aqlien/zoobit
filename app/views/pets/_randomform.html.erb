@@ -1,0 +1,42 @@
+<%= form_for(@pet) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation" class="alert-box alert radius" align="center">
+      <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
+
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="field">
+        <%= f.label :name %>
+        <%= n = ["Bill", "Will", "Jill", "Dillon"].sample %>
+        <% f.text_field :name, value: n %>
+        <%= f.hidden_field :name, value: n %>
+      </div>
+      <div class="field">
+        <%= f.label :type %>
+        <%= t = ["Dog", "Cat", "Bird", "Rabbit"].sample %>
+        <% f.select :type, options_for_select(["Dog", "Cat", "Bird", "Rabbit"], t) %>
+        <%= f.hidden_field :type, value: t %>
+      </div>
+      <div class="field">
+        <%= f.label :gender %>
+        <%= g = ["Male", "Female"].sample %>
+        <% f.select :gender, options_for_select(["Male", "Female"], g) %>
+        <%= f.hidden_field :gender, value: g %>
+      </div>
+
+      <br />
+      <div class="actions" align="center">
+        <%= f.submit "Adopt Pet"%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
