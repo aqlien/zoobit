@@ -28,8 +28,9 @@ en:
   sign_out_link: "Leaving? Sign out here."
   sign_out_link_html: "Leaving? <strong>Sign out</strong> here."
   pets:
-    feed_success: "ate all of the food you offered."
-    feed_failure: "isn't hungry right now."
-    play_success: "You had fun with"
-    play_failure: "is too tired to play."
+    feed_success: "%{name} ate all of the food you offered."
+    feed_failure: "%{name} isn't hungry right now."
+    play_success: "You and %{name} had fun together!"
+    play_failure: "%{name} isn't really interested in playing right now."
+    new: "Congratulations on your new pet!"
 

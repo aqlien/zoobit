@@ -3,26 +3,22 @@ class PetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def feed
-    if @pet.fullness < 90
-      @pet.last_feeding = Time.now
+    if @pet.pet_hunger.decrease
       @pet.happiness += 75
-      @pet.fullness = 100
       @pet.save
-      redirect_to pet_path(@pet), notice: "#{@pet.name} #{t("pets.feed_success")}"
+      redirect_to pet_path(@pet), notice: t("pets.feed_success", name: @pet.name)
     else
-      redirect_to pet_path(@pet), notice: "#{@pet.name} #{t("pets.feed_failure")}"
+      redirect_to pet_path(@pet), notice: t("pets.feed_failure", name: @pet.name)
     end
   end
 
   def play
-    if @pet.energy > 25
-      @last_interaction = Time.now
+    if @pet.pet_boredom.decrease
       @pet.happiness += 50
-      @pet.energy -= 20
       @pet.save
-      redirect_to pet_path(@pet), notice: "#{t("pets.play_success")} #{@pet.name}!"
+      redirect_to pet_path(@pet), notice: t("pets.play_success", name: @pet.name)
     else
-      redirect_to pet_path(@pet), notice: "#{@pet.name} #{t("pets.play_failure")}"
+      redirect_to pet_path(@pet), notice: t("pets.play_failure", name: @pet.name)
     end
   end
 
@@ -31,7 +27,7 @@ class PetsController < ApplicationController
   end
 
   def show
-    @pet.update_happiness
+    @pet.update_happiness(Time.now)
   end
 
   def new
@@ -47,7 +43,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
-        format.html { redirect_to pet_path(@pet), notice: "Congratulations on your new pet!" }
+        format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }

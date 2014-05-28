@@ -1,0 +1,21 @@
+#language setting
+language: ruby
+
+# version numbers
+rvm:
+  - 2.1.1
+  - 2.0.0
+  - 1.9.3
+
+env:
+  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
+
+before_script:
+  - cp config/database.shippable.yml config/database.yml
+  - psql -c 'create database zoobit_test;' -U postgres
+  - rake db:migrate
+  - mkdir -p shippable/testresults
+  - bundle install
+
+script:
+  - rake test
