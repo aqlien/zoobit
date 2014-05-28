@@ -1,14 +1,33 @@
 <%- title "Animal Shelter" %>
+<% pet = Pet.create(name: Pet::NAMES.sample, type: Pet::TYPES.sample, gender: Pet::GENDERS.sample) %>
+<% pet.breed = pet.type.constantize::BREEDS.sample %>
 
 <div style="height: 50px"></div>
-<div class="small-9 columns">
-  <div class="row" style="left-padding:-25%">
-    <%= render 'form' %>
+<div style="row">
+  <div class="small-4 columns" align="right">
+    <div class="row">
+      <%= image_tag(pet.img_loc, width: "100%") %>
+    </div>
+  </div>
+  <div class="small-5 columns" align="left" style="padding-bottom: 100px">
+    <div class="row">
+      <div class="callout-panel" align="left">
+        <div align="center"><h5><strong><%= pet.name %></strong></h5></div>
+        <strong>Species:</strong> <%= pet.type %><br>
+        <strong>Breed/color:</strong> <%= pet.breed %><br>
+        <strong>Gender:</strong> <%= pet.gender %><br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="small-5 columns" align="center">
+    <%= button_tag(type: "submit", class: "button") do %>
+      Adopt Pet
+    <% current_user.pets << pet %>
+    <% end %>
+
+    <br /><br />
+    <%= link_to 'Back', :back %></div>
   </div>
 </div>
-
-<br />
-<div align="center">
-  <%= link_to 'Back', user_pets_path(current_user) %>
-</div>
-<br />

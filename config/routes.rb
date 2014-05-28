@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :pets do
     get :feed
     get :play
+    get :randomize
   end
 
   resources :users do
     resources :pets
   end
+
 end
