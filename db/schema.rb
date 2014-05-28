@@ -50,12 +50,6 @@ ActiveRecord::Schema.define(version: 20140527225712) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "last_interaction"
-    t.datetime "last_rest"
-    t.datetime "last_feeding"
-    t.integer  "energy"
-    t.integer  "fullness"
-    t.datetime "last_update"
   end
 
   add_index "pets", ["user_id"], name: "index_pets_on_user_id"

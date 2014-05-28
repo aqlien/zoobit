@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin = User.create(username: "Admin", email: "admin@zoobit.net", id: 1, password: "zoobit123")
-admin.pets << Pet.create(name: "Kayenne", type: "Dog", breed: "White German Shepherd", gender: "female", happiness: 100)
-admin.pets << Pet.create(name: "Cherri", type: "Cat", breed: "Tuxedo", gender: "female", happiness: 100)
-admin.pets << Pet.create(name: "Monty", type: "Cat", breed: "Flame-point Ragdoll", gender: "male", happiness: 100)
-admin.pets << Pet.create(name: "Aram", type: "Bird", breed: "Violet Parakeet", gender: "male", happiness: 100)
-admin.pets << Pet.create(name: "Mitsuki", type: "Rabbit", breed: "Hotot", gender: "male", happiness: 100)
+admin.pets << Pet.create(name: "Kayenne", type: "Dog", breed: "White German Shepherd", gender: "female")
+admin.pets << Pet.create(name: "Cherri", type: "Cat", breed: "Tuxedo", gender: "female")
+admin.pets << Pet.create(name: "Monty", type: "Cat", breed: "Flame-point Ragdoll", gender: "male")
+admin.pets << Pet.create(name: "Aram", type: "Bird", breed: "Violet Parakeet", gender: "male")
+admin.pets << Pet.create(name: "Mitsuki", type: "Rabbit", breed: "Hotot", gender: "male")

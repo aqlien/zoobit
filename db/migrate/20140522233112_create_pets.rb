@@ -9,7 +9,6 @@ class CreatePets < ActiveRecord::Migration
       t.string :img_loc
       t.references :user, index: true
       t.timestamps
-      t.datetime :last_interaction
     end
   end
 end
