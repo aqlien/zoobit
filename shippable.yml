@@ -12,7 +12,7 @@ env:
 
 before_script:
   - cp config/database.shippable.yml config/database.yml
-  - psql -c 'create database acroparty_test;' -U postgres
+  - psql -c 'create database zoobit_test;' -U postgres
   - rake db:migrate
   - mkdir -p shippable/testresults
   - bundle install
