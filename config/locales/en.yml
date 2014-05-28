@@ -28,7 +28,7 @@ en:
   sign_out_link: "Leaving? Sign out here."
   sign_out_link_html: "Leaving? <strong>Sign out</strong> here."
   pets:
-    feed_success: "ate all their food."
+    feed_success: "ate all of the food you offered."
     feed_failure: "isn't hungry right now."
     play_success: "You had fun with"
     play_failure: "is too tired to play."

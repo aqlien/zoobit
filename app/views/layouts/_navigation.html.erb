@@ -5,8 +5,10 @@
     </div>
   </div>
 
-  <div class="panel" style="height:85px;" align="center">
-    <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+  <div class="panel" style="height:85px">
+    <div class="small-9 columns" align="center">
+      <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+    </div>
   </div>
 
   <nav class="top-bar" data-topbar>
@@ -20,7 +22,7 @@
         <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
         <li class="divider"></li>
       <% else %>
-        <li><%= link_to "Check on your pets!", user_pets_path(current_user.id) %></li>
+        <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
         <li class="divider"></li>
         <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
         <li class="divider"></li>
@@ -42,11 +44,12 @@
     </section>
   </nav>
 
-  <div class="orange-bar"></div>
+  <div class="orange-bar" style="height: 10px"></div>
 
   <!-- Title Bar -->
   <div class="title-panel"></div>
   <div class="flash-panel" id="flash_notice" align="center">
     <%= render "layouts/flash" %>
   </div>
+  <%= render "layouts/sidenav" %>
 </div>
