@@ -1,12 +1,12 @@
 <% if flash[:alert] %>
   <div data-alert class="alert-box alert radius">
+    <a href="#" class="close" align="left">&times;</a>
     <%= alert %>
-    <a href="#" class="close">&times;</a>
   </div>
 <% end %>
   <% if flash[:notice] %>
   <div data-alert class="alert-box success radius">
+    <a href="#" class="close" align="left">&times;</a>
     <%= notice %>
-    <a href="#" class="close">&times;</a>
   </div>
 <% end %>

@@ -3,8 +3,8 @@
 <div style="height: 100px"></div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<div class="row">
-  <div class="small-12 columns">
+<div class="small-9 columns">
+  <div class="row">
     <div><%= f.label :login %>
       <%= f.text_field :login, autofocus: true %>
     </div>

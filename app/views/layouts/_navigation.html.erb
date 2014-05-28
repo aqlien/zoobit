@@ -5,8 +5,10 @@
     </div>
   </div>
 
-  <div class="panel" style="height:85px;" align="center">
-    <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+  <div class="panel" style="height:85px">
+    <div class="small-9 columns" align="center">
+      <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+    </div>
   </div>
 
   <nav class="top-bar" data-topbar>
@@ -20,7 +22,7 @@
         <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
         <li class="divider"></li>
       <% else %>
-        <li><%= link_to "Check on your pets!", user_pets_path(current_user.id) %></li>
+        <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
         <li class="divider"></li>
         <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
         <li class="divider"></li>
@@ -49,16 +51,5 @@
   <div class="flash-panel" id="flash_notice" align="center">
     <%= render "layouts/flash" %>
   </div>
-  <div class="side-panel" style="height: 100%">
-    <% if current_user.nil? %>
-        <h3><strong>Your pets go here!</strong></h3>
-      <% elsif current_user.pets.empty? %>
-        <h3><strong>You don't have any pets!</strong></h3>
-      <% else %>
-        <h3><strong>Current Pets:</strong></h3>
-      <% end %>
-    <ul class="side-nav" style="width:200%; position:relative; left: -25%">
-      <li class="divider"></li>
-    </ul>
-  </div>
+  <%= render "layouts/sidenav" %>
 </div>
