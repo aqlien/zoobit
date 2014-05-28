@@ -34,6 +34,7 @@ class PetsController < ApplicationController
   end
 
   def create
+    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= 10
     @pet = Pet.new(pet_params)
     @pet.breed = @pet.type.constantize::BREEDS.sample
     respond_to do |format|

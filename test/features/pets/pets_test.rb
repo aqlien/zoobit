@@ -12,9 +12,10 @@ feature "Pet Creation" do
     visit root_path
     sign_in
     click_on "new Pet"
-    fill_in "Name", with: pets(:spot).name
-    select pets(:spot).type, from: "Type"
-    select pets(:spot).gender, from: "Gender"
+    ##Users cannot create their own pets anymore, they must adopt
+    # fill_in "Name", with: pets(:spot).name
+    # select pets(:spot).type, from: "Type"
+    # select pets(:spot).gender, from: "Gender"
     click_on "Adopt Pet"
     page.must_have_content I18n.t("pets.new")
   end
