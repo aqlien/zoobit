@@ -6,8 +6,8 @@ feature "Basic Devise Authentication" do
     click_on I18n.t(:sign_up_link)
     fill_in "Username", with: "newbie" #Username parameter added, required
     fill_in "Email", with: "newbie@localhost.com"
-    fill_in "Password", with: "12341234"
-    fill_in "Password confirmation", with: "12341234"
+    fill_in "user_password", with: "12341234"
+    fill_in "user_password_confirmation", with: "12341234"
     click_on "Sign Up"
     page.must_have_content I18n.t("devise.registrations.signed_up")
   end
