@@ -11,10 +11,11 @@
     </div>
   <% end %>
 
-  <% n = Pet::NAMES.sample %>
-  <% t = Pet::TYPES.sample %>
+  <% g = PetsHelper::GENDERS.sample %>
+  <% n = g=="Female" ? (PetsHelper::FEMALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample : (PetsHelper::MALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample %>
+  <% t = PetsHelper::TYPES.sample %>
   <% b = t.constantize::BREEDS.sample %>
-  <% g = Pet::GENDERS.sample %>
+
 
 
   <div class="small-9 columns">
