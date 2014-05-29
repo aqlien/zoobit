@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
-gem "figaro"
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem "minitest-rails"
@@ -11,10 +10,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'sqlite3', group: :development, group: :test
 gem 'uglifier', '>= 1.3.0'
+
 gem 'foundation-rails'
+gem "obscenity"
 
 #Authorization
 gem "devise"
+gem "figaro"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
 

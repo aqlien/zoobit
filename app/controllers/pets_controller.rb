@@ -77,13 +77,11 @@ class PetsController < ApplicationController
   def destroy
     @pet.previous_owner = current_user.username
     current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
-    shelter = User.find(2)
-    shelter.pets.first.destroy if shelter.pets.count >= 20
-    shelter.pets << @pet
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
     end
+    give_to_shelter
   end
 
 private
@@ -95,5 +93,12 @@ private
   # Never trust parameters from the scary internet, only allow the white list through.
   def pet_params
     params.require(:pet).permit(:name, :type, :gender, :breed)
+  end
+
+  def give_to_shelter
+    shelter = User.find(2)
+    @pet.name = "$%*!" if Obscenity.profane?(@pet.name)
+    shelter.pets.first.destroy if shelter.pets.count >= 20
+    shelter.pets << @pet
   end
 end
