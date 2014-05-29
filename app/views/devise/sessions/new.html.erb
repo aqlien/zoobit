@@ -18,11 +18,15 @@
     </div>
     <% end -%>
     <div align="center">
-      <div><%= f.submit "Submit", class: "button small round"%> or <%= link_to image_tag("sign-in-with-twitter-gray.png", alt:"Sign in with Twitter"), user_omniauth_authorize_path(:twitter) %></a>
+      <div><%= f.submit "Submit", class: "button small round"%> or <a href="#" class="button small round" data-reveal-id="omniauth">Sign in with social media</a>
       </div>
       <% end %>
       <br />
       <%= render "devise/shared/links" %>
     </div>
   </div>
+</div>
+
+<div id="omniauth" class="reveal-modal small" data-reveal>
+  <%= render "layouts/omniauthpopup" %>
 </div>

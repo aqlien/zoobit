@@ -16,6 +16,7 @@ gem 'foundation-rails'
 #Authorization
 gem "devise"
 gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 group :test do
   gem "launchy"
