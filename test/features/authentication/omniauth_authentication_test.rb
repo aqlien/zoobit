@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "Twitter Authentication" do
+feature "Mock Twitter Authentication" do
   before do
     setup_omniauth_for_testing
     OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({provider: 'twitter', uid: '12345'})

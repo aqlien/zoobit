@@ -4,4 +4,6 @@
 <%= render "randomform" %><br>
 
 <div class="small-9 columns" style="padding-top: 2em; padding-bottom: 5em"><div class="title-panel" align="center" style="width: 100%; padding: 1em"><h4>Browse Pets</h4></div></div><br>
-  <%= render "shelterform" %>
+  <%= render "shelterform" unless User.first.id != 1 %>
+  <!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly -->
+  <!-- So far, this is only a problem in the test environment. -->

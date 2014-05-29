@@ -96,7 +96,7 @@ private
   end
 
   def give_to_shelter
-    shelter = User.find(2)
+    shelter = User.find(1)
     @pet.name = "$%*!" if Obscenity.profane?(@pet.name)
     shelter.pets.first.destroy if shelter.pets.count >= 20
     shelter.pets << @pet
