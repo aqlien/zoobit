@@ -1,7 +1,7 @@
 class Pet < ActiveRecord::Base
   NAMES = ["Puma", "Dougie", "Tempura", "Scout", "AJ", "Guardian", "Neo", "Pistol", "Theo", "Lorenzo", "Hector",
     "King Kong", "Raymon", "Elliott", "Halo", "Yertle", "Bonzo", "Vasline", "Johnny Depth", "Tommy", "Pandora",
-    "Sophie"]
+    "Sophie", "Thor", "Ruby"]
   TYPES = ["Dog", "Cat", "Bird", "Rabbit"]
   GENDERS = ["Male", "Female"]
 

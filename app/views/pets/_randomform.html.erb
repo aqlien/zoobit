@@ -37,6 +37,8 @@
             <%= f.hidden_field :breed, value: b %>
             <strong>Gender:</strong> <%= g %><br>
             <%= f.hidden_field :gender, value: g %>
+            <br>
+            <%= PetsHelper.generate_story(n,t,g) %>
           </div>
         </div>
       </div>
@@ -44,8 +46,6 @@
         <div class="actions">
           <%= f.submit "Adopt Pet", class: "button round" %>
           <%= link_to "See Another Pet", new_pet_path, class: "button round" %>
-          <br><br>
-          <%= link_to "Back", :back, class: "button small" %>
         </div>
       </div>
       <div class="row" align="center">

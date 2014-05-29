@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.username = auth.info.nickname
-      user.email = "#{user.username}-TEMPORARY@zoobit.com"
+      user.username = auth.info.nickname.nil? ? auth.info.name : auth.info.nickname
+      user.email = auth.info.email.nil? ? "#{user.username}-TEMPORARY@zoobit.com" : auth.info.email
     end
   end
 

@@ -6,5 +6,5 @@ Email:
 OAuth integration:
   Social Media ----
     Twitter: @ZoobitDevs
-    Facebook:
+    Facebook: Zoobit Devs, gmail account
   Pass: ENV = ZOOBIT_PASS
