@@ -54,7 +54,7 @@ $reveal-modal-bg: $light-blue;
   background-color: $orange;
   width: 25%;
   height: 4em;
-  position:fixed;
+  position: fixed;
   margin-left: 75%;
   padding-top: .4em;
   z-index: 1;
@@ -64,9 +64,9 @@ $reveal-modal-bg: $light-blue;
   background-color: $light-orange;
   color: $dark-orange;
   width: 25%;
-  height: 74%;
   position: fixed;
-  margin-top: 4em;
+  bottom: 2em;
+  top: 12.5em;
   margin-left: 75%;
   border-style: solid;
   border-color: $orange;
@@ -88,9 +88,13 @@ $reveal-modal-bg: $light-blue;
   @include sub-nav();
   background: $blue;
   width: 110%;
+  height: 2em;
   position: fixed;
   bottom: 0px;
   padding-left: 3em;
-  margin-top: 30%;
   z-index: 2;
-  }
+}
+
+.content-wrapper {
+  bottom: 2em;
+}
