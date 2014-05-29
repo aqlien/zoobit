@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <div id="wrapper">
+    <div class="content-wrapper">
       <%= render "layouts/navigation" %>
       <%= render "layouts/sidenav" %>
       <div id="main">
         <%= yield %>
       </div>
     </div>
-    <%= render "layouts/footer" %>
     <%= javascript_include_tag "application" %>
   </body>
+  <%= render "layouts/footer" %>
 </html>
