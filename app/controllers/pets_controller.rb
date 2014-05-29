@@ -61,7 +61,9 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet.destroy
+    current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
+    shelter = User.find(2)
+    shelter.pets << @pet
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }

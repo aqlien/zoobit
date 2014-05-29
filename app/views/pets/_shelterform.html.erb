@@ -1,0 +1,27 @@
+<% shelter = User.find(2) %>
+<div class="small-9 columns" align="left" style="padding-bottom: 3em">
+  <div class="row">
+    <% if shelter.pets.empty? %>
+        <h3><strong>The Animal Shelter doesn't have any pets currently available for browsing.</strong></h3>
+    <% else %>
+      <% shelter.pets.each do |pet| %>
+        <div class="row" style="padding-bottom: 2em">
+          <div class="small-4 columns" align="right">
+            <%= link_to image_tag(pet.img_loc, width: "100%"), user_pet_path(current_user, pet) %>
+          </div>
+          <div class="small-8 columns" align="left">
+            <div class="callout-panel" align="left" style="margin-top: 4em">
+              <div align="center">
+                <h5><strong>About <%= pet.name %></strong></h5>
+              </div>
+              <strong>Owner:</strong> <%= pet.user.username %><br>
+              <strong>Species:</strong> <%= pet.type %><br>
+              <strong>Breed/color:</strong> <%= pet.breed %><br>
+              <strong>Gender:</strong> <%= pet.gender %><br>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
