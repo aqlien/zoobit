@@ -2,7 +2,7 @@
 <div class="small-9 columns" align="left" style="padding-bottom: 3em">
   <div class="row">
     <% if shelter.pets.empty? %>
-        <h3><strong>The Animal Shelter doesn't have any pets currently available for browsing.</strong></h3>
+        <h3><strong>The Animal Shelter doesn't currenty have any pets available for browsing.</strong></h3>
     <% else %>
       <% shelter.pets.each do |pet| %>
         <div class="row" style="padding-bottom: 2em">
@@ -14,10 +14,19 @@
               <div align="center">
                 <h5><strong>About <%= pet.name %></strong></h5>
               </div>
-              <strong>Owner:</strong> <%= pet.user.username %><br>
-              <strong>Species:</strong> <%= pet.type %><br>
-              <strong>Breed/color:</strong> <%= pet.breed %><br>
-              <strong>Gender:</strong> <%= pet.gender %><br>
+              <div class="row">
+                <div class="small-6 columns">
+                  <strong>Previous Owner:</strong> <%= pet.previous_owner %><br>
+                  <strong>Species:</strong> <%= pet.type %><br>
+                  <strong>Breed/color:</strong> <%= pet.breed %><br>
+                  <strong>Gender:</strong> <%= pet.gender %><br>
+                </div>
+                <div class="small-6 columns" align="right">
+                  <div class="actions">
+                    <%= button_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "button round" %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
