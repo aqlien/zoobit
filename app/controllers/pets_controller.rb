@@ -36,7 +36,19 @@ class PetsController < ApplicationController
   def create
     redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= 10
     @pet = Pet.new(pet_params)
-    @pet.breed = @pet.type.constantize::BREEDS.sample
+    respond_to do |format|
+      if @pet.save
+        current_user.pets << @pet
+        format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
+        format.json { render :show, status: :created, location: @pet }
+      else
+        format.html { render :new }
+        format.json { render json: @pet.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def adopt
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
@@ -62,7 +74,10 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet.destroy
+    @pet.previous_owner = current_user.username
+    current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
+    shelter = User.find(2)
+    shelter.pets << @pet
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }

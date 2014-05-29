@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140527225712) do
     t.string   "gender"
     t.integer  "happiness"
     t.string   "img_loc"
+    t.string   "previous_owner"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

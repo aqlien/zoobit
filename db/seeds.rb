@@ -12,3 +12,4 @@ admin.pets << Pet.create(name: "Cherri", type: "Cat", breed: "Tuxedo", gender: "
 admin.pets << Pet.create(name: "Monty", type: "Cat", breed: "Flame-point Ragdoll", gender: "male")
 admin.pets << Pet.create(name: "Aram", type: "Bird", breed: "Violet Parakeet", gender: "male")
 admin.pets << Pet.create(name: "Mitsuki", type: "Rabbit", breed: "Hotot", gender: "male")
+User.create(username: "AnimalShelter", email: "shelter@zoobit.net", id: 2, password: "zoobit123")

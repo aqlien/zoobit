@@ -7,6 +7,7 @@ class CreatePets < ActiveRecord::Migration
       t.string :gender
       t.integer :happiness
       t.string :img_loc
+      t.string :previous_owner
       t.references :user, index: true
       t.timestamps
     end
