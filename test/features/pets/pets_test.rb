@@ -10,7 +10,7 @@ feature "Pet Creation" do
 
   scenario "As a user I want to be able to get a new pet so I can use this site." do
     visit root_path
-    sign_in
+    sign_in_capybara
     click_on "new Pet"
     ##Users cannot create their own pets anymore, they must adopt
     # fill_in "Name", with: pets(:spot).name
