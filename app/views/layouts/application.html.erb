@@ -9,15 +9,11 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <div class="content-wrapper">
-      <%= render "layouts/navigation" %>
-      <%= render "layouts/sidenav" %>
-      <div id="main">
-        <%= yield %>
-      </div>
-    </div>
-    <%= javascript_include_tag "application" %>
-  </body>
+  <%= render "layouts/navigation" %>
+  <%= render "layouts/sidenav" %>
+  <div id="main">
+    <%= yield %>
+  </div>
+  <%= javascript_include_tag "application" %>
   <%= render "layouts/footer" %>
 </html>
