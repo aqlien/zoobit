@@ -54,12 +54,34 @@ $body-bg: #DFF0FF;
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: #86BF37;
-$secondary-color: #FFA82D;
-$alert-color: #FF94C3;
-$success-color: #62A1D9;
+
+$green: #86BF37;
+$dark-green: #3A4E1F;
+$bright-green: #95E22C;
+$light-green: #C8FF7D;
+
+$orange: #FFA82D;
+$dark-orange: #8A5100;
+$bright-orange: #FF9500;
+$light-orange: #FFBB5B;
+
+$pink: #F47FB2;
+$dark-pink: #991C53;
+$bright-pink: #FA2D86;
+$light-pink: #FF9EC9;
+
+$blue: #62A1D9;
+$dark-blue: #102E49;
+$bright-blue: #0082F6;
+$light-blue: #86B9E6;
+
+$primary-color: $green;
+$secondary-color: $orange;
+$alert-color: $pink;
+$success-color: $blue;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+
 
 // We use these to make sure border radius matches unless we want it different.
 // $global-radius: 3px;
@@ -802,7 +824,7 @@ $alert-transition-ease: ease-out;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-$panel-bg: #97BC65;
+$panel-bg: $green;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -815,11 +837,11 @@ $panel-margin-bottom: 0;
 $panel-padding: 25px;
 
 // We use these to set default font colors
-$panel-font-color: #102E49;
-// $panel-font-color-alt: #fff;
+$panel-font-color: $dark-green;
+$panel-font-color-alt: $dark-green;
 
 // $panel-header-adjust: true;
-// $callout-panel-link-color: $primary-color;
+$callout-panel-link-color: $dark-green;
 
 // Pricing Tables
 
@@ -1168,7 +1190,7 @@ $panel-font-color: #102E49;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: #95E22C;
+$topbar-bg-color: $bright-green;
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
@@ -1180,9 +1202,9 @@ $topbar-height: 40px;
 // $topbar-title-font-size: rem-calc(17);
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: #95E22C;
-$topbar-dropdown-link-color: #648537;
-$topbar-dropdown-link-bg: #C8FF7D;
+$topbar-dropdown-bg: $bright-green;
+$topbar-dropdown-link-color: $dark-green;
+// $topbar-dropdown-link-bg: #C8FF7D;
 // $topbar-dropdown-link-weight: normal;
 // $topbar-dropdown-toggle-size: 5px;
 // $topbar-dropdown-toggle-color: #fff;
@@ -1197,7 +1219,7 @@ $topbar-dropdown-link-bg: #C8FF7D;
 $topbar-link-font-size: rem-calc(15);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 $topbar-link-bg: $topbar-bg;
-$topbar-link-bg-hover: #648537;
+$topbar-link-bg-hover: $dark-green;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
@@ -1207,11 +1229,11 @@ $topbar-link-bg-hover: #648537;
 // $topbar-button-font-size: 0.75rem;
 // $topbar-button-top: 7px;
 
-$topbar-dropdown-label-color: #648537;
+$topbar-dropdown-label-color: $dark-green;
 // $topbar-dropdown-label-text-transform: uppercase;
 // $topbar-dropdown-label-font-weight: bold;
 // $topbar-dropdown-label-font-size: rem-calc(10);
-$topbar-dropdown-label-bg: #86BF37;
+$topbar-dropdown-label-bg: $green;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
