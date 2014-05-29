@@ -1,16 +1,22 @@
 <%- title "Welcome to ZooBit!" %>
 
-<div style="height: 75px"></div>
-<div class="medium-9 column">
-  <div class="row">
-    <h3>About:</h3>
-    <p>ZooBit is a web-based application centered around adopting and keeping virtual pets. Each user may get up to 10 pets, and must try to keep them all happy through interacting with them. </p>
-    <p>ZooBit is currently in active development. Our database of users and pets is not as permanent as you might expect, and may be reset to default values at any time. We do apologize for any inconvenience, but we thank you for helping us develop and test this application.</p>
-    <p>You can learn more about the developers at their websites:
-      <ul>
-        <li><a href="http://www.samcamus.com">Sam Camus</a></li>
-        <li><a href="http://www.aqlien.com">Alex Lien</a></li>
-      </ul>
-    </p>
+<div class="medium-9 column" style="margin-top: 3em">
+  <div class="row" align="center"><h3>Pet of the Day</h3></div>
+    <div class="row" align="center" style="padding-bottom: 1 em">
+      <% pet = Pet.all.sample %>
+      <%= link_to image_tag(pet.img_loc, width: "50%"), user_pet_path(pet.user, pet) %>
+    </div><br>
+    <div class="row" align="center" style="padding-bottom: 3em">
+      <div class="callout-panel" align="left">
+        <div align="center">
+          <h5><strong>About <%= pet.name %></strong></h5>
+        </div>
+        <strong>Owner:</strong> <%= pet.user.username %><br>
+        <strong>Species:</strong> <%= pet.type %><br>
+        <strong>Breed/color:</strong> <%= pet.breed %><br>
+        <strong>Gender:</strong> <%= pet.gender %><br>
+      </div>
+    </div>
   </div>
 </div>
+

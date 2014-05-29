@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :pets
   end
+
+  get "/about" => "home#about"
+  get "/faq" => "home#faq"
+  get "/contact" => "home#contact"
 end

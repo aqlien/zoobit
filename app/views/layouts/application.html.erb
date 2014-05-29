@@ -8,17 +8,13 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-    <div id="wrapper">
-      <%= render "layouts/navigation" %>
-      <%= render "layouts/sidenav" %>
-      <div id="main">
-        <%= yield %>
-      </div>
-      <div id="push"><div>
-    </div>
-    <%= render "layouts/footer" %>
-    <%= javascript_include_tag "application" %>
+  <%= render "layouts/navigation" %>
+  <%= render "layouts/sidenav" %>
+  <div id="main">
+    <%= yield %>
+  </div>
+  <%= render "layouts/footer" %>
+  <%= javascript_include_tag "application" %>
   </body>
 </html>
