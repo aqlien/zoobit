@@ -23,6 +23,8 @@ $dark-blue: #102E49;
 $bright-blue: #0082F6;
 $light-blue: #86B9E6;
 
+$reveal-modal-bg: $light-blue;
+
 .orange-bar {
   background-color: $orange;
 }
@@ -48,14 +50,28 @@ $light-blue: #86B9E6;
   margin-left: -50%;
 }
 
-.side-panel {
+.list-header {
+  background-color: $orange;
+  width: 25%;
+  height: 4em;
+  position:fixed;
+  margin-left: 75%;
+  padding-top: .4em;
+  z-index: 1;
+}
+
+.pet-list {
   background-color: $light-orange;
   color: $dark-orange;
   width: 25%;
-  position: absolute;
+  height: 74%;
+  position: fixed;
+  margin-top: 4em;
   margin-left: 75%;
-  padding-top: 10px;
+  border-style: solid;
+  border-color: $orange;
   z-index: 1;
+  overflow-y: scroll;
 }
 
 .side-panel a {
@@ -67,3 +83,14 @@ $light-blue: #86B9E6;
   @include panel(
   $bg: $pastel-orange)
 }
+
+.footer-panel {
+  @include sub-nav();
+  background: $blue;
+  width: 110%;
+  position: fixed;
+  bottom: 0px;
+  padding-left: 3em;
+  margin-top: 30%;
+  z-index: 2;
+  }

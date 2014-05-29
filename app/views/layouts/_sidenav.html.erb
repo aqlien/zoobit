@@ -1,20 +1,16 @@
-<div class="side-panel" style="height: 1000%">
+<div class="list-header" align="center">
   <% if current_user.nil? %>
-    <div style="padding-left: 115px; margin-bottom: -5px">
-      <h3><strong>Your pets go here!</strong></h3>
-    </div>
+    <h3><strong>Your pets go here!</strong></h3>
   <% elsif current_user.pets.empty? %>
-    <div style="padding-left: 100px; margin-bottom: -5px">
-      <h4><strong>You don't have any pets!</strong></h4>
-    </div>
+    <h4><strong>You don't have any pets!</strong></h4>
   <% else %>
-    <div style="padding-left: 100px; margin-bottom: -5px">
-      <h3><strong>Your Current Pets:</strong></h3>
-    </div>
+    <h3><strong>Your Current Pets:</strong></h3>
   <% end %>
+</div>
+
+<div class="pet-list">
   <ul class="side-nav">
-    <li class="divider"></li>
-    <% if current_user.nil?  %>
+    <% if current_user.nil? %>
       <div align="center">
         <p><%= link_to 'Sign up', new_user_registration_path %> to adopt a pet!</p>
       </div>
