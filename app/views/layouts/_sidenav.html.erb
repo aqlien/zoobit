@@ -32,7 +32,7 @@
                   <div class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
                     <span class="meter" style="width:<%=h%>%"></span>
                   </div>
-                  <div class="row">
+                  <div class="row <%= pet.name %>">
                     <div class="small-6 columns" align="right" >
                       <%= link_to 'Change Name', edit_pet_path(pet) %>
                     </div>

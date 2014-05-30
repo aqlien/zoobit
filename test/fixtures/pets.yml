@@ -1,12 +1,28 @@
-
 whiskers:
   name: Whiskers
   type: Cat
   gender: Female
   user: sam
+  happiness: 100
 
 spot:
   name: Spot
   type: Dog
   gender: Male
   user: alex
+  happiness: 100
+
+flopsy:
+  name: Flopsy
+  type: Rabbit
+  gender: Female
+  user: alex
+  happiness: 100
+
+tweets:
+  name: Tweety
+  type: Bird
+  gender: Male
+  user: sam
+  happiness: 100
+

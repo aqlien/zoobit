@@ -1,15 +1,21 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+SimpleCov.command_name "MiniTest"
+
 Rails.env ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "minitest/rails"
 require "minitest/rails/capybara"
 
+include Devise::TestHelpers
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
   fixtures :all
 end
 
-def sign_in(login = users(:sam).email, password = "password", fail_sign_in = false)
+def sign_in_capybara(login = users(:sam).email, password = "password", fail_sign_in = false)
   click_on I18n.t(:sign_in_link)
   fill_in "Login", with: login
   fill_in "Password", with: password

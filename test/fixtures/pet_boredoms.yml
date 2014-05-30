@@ -1,0 +1,4 @@
+default:
+  value: 35
+  change: <%= Time.now %>
+  pet: tweets

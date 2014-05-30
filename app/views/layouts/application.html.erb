@@ -8,12 +8,13 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-
+  <body>
   <%= render "layouts/navigation" %>
   <%= render "layouts/sidenav" %>
   <div id="main">
     <%= yield %>
   </div>
-  <%= javascript_include_tag "application" %>
   <%= render "layouts/footer" %>
+  <%= javascript_include_tag "application" %>
+  </body>
 </html>
