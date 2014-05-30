@@ -10,7 +10,7 @@ module PetsHelper
   GENDERS = ["Male", "Female"]
 
   def self.generate_story(name, type, gender, previous_owner = nil)
-    stay = "#{name} has been here at the shelter for #{rand(1..25)} #{["days","weeks","months"].sample}. "
+    stay = "#{name} has been here at the shelter for #{rand(2..25)} #{["days","weeks","months"].sample}. "
     past1 = "We found #{gender == "Female" ? "her":"him" } abandoned, living on the street. "
     past2 = "#{gender == "Female" ? "She":"He" } was dropped off by an elderly #{["gentleman", "lady"].sample} who said they were unable to care for #{name} anymore. "
     past3 = "#{gender == "Female" ? "Her":"His" } owner had to move, and they couldn't take #{name} with them. "
