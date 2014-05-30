@@ -8,7 +8,7 @@ module ApplicationHelper
   def self.obscene_substring?(word_to_check)
     blacklist = YAML.load_file("config/blacklist.yml")
     blacklist.each do |word|
-      return true if word_to_check.downcase.include?(nono)
+      return true if word_to_check.downcase.include?(word)
     end
     return false
   end
