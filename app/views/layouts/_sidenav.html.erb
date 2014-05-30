@@ -1,10 +1,10 @@
 <div class="list-header" align="center">
   <% if current_user.nil? %>
-    <h3><strong>Your pets go here!</strong></h3>
+    <h4><strong>Your pets go here!</strong></h4>
   <% elsif current_user.pets.empty? %>
     <h4><strong>You don't have any pets!</strong></h4>
   <% else %>
-    <h3><strong>Your Current Pets:</strong></h3>
+    <h4><strong>Your Current Pets:</strong></h4>
   <% end %>
 </div>
 

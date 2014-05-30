@@ -2,3 +2,19 @@ default:
   value: 35
   change: <%= Time.now %>
   pet: tweets
+
+default2:
+  value: 35
+  change: <%= Time.now %>
+  pet: whiskers
+
+default3:
+  value: 35
+  change: <%= Time.now %>
+  pet: flopsy
+
+default4:
+  value: 35
+  change: <%= Time.now %>
+  pet: spot
+
