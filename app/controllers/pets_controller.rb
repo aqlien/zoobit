@@ -109,7 +109,8 @@ private
 
   def give_to_shelter
     shelter = User.find(1)
-    @pet.name = "$%*!" if Obscenity.profane?(@pet.name)
+    @pet.name = "My Owner Was a Bad Person" if Obscenity.profane?(@pet.name)
+    @pet.name = PetsHelper::NEUTRAL_NAMES.sample if ApplicationHelper.obscene_substring?(@pet.name)
     shelter.pets.first.destroy if shelter.pets.count >= 20
     shelter.pets << @pet
   end
