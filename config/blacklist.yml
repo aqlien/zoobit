@@ -1,14 +1,24 @@
 #---Banned substrings---
+#Note: some words are intentionally mispelled
 
 #intercourse
 - fuck
 - sex
+- bang
+- screw
+
+#masturbation
+- jack
+- wank
+- jerk
+- fap
 
 #body parts
 - vagina
 - vulva
 - cunt
 - twat
+- clit
 
 - penis
 - dick
@@ -33,9 +43,10 @@
 - dump
 
 - piss
-- urine
+- urin
 - pee
 
+- douch
 
 #slurs
 - bastard
@@ -44,8 +55,19 @@
 - gook
 - chink
 - homo
+- nig
+
+#others
+- pedo
+- hitler
+- castro
+- red rocket
+- erik
 
 #miscellany - might not be obscene, but I'm not taking chances
 - load
 - sack
 - ball
+- mom
+- mother
+

@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.nickname.nil? ? auth.info.name : auth.info.nickname
-      user.email = auth.info.email.nil? ? "#{user.username}-TEMPORARY@zoobit.com" : auth.info.email
+      user.email = auth.info.email.nil? ? "#{user.username}-TEMPORARY@zoobit.net" : auth.info.email
     end
   end
 
