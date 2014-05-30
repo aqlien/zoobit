@@ -14,15 +14,12 @@ class PetsControllerTest < ActionController::TestCase
   end
 
   test "create a new pet" do
-    post :create, pet: {name: "Joe", type: "Dog", gender:"female"}
+    post :create, pet: {name: pets(:spot).name, type: pets(:spot).type, gender: pets(:spot).gender}
     assert_redirected_to pet_path(assigns(:pet))
   end
 
   test "destroy a pet" do
-    pet = Pet.create(name: "Joe", type: "Dog", gender:"female")
-    pet.save
-    users(:sam).pets << pet
-    delete :destroy, id: Pet.find(pet.id)
-    assert_response :success
+    delete :destroy, id: Pet.find(pets(:whiskers).id)
+    assert_redirected_to pets_path, flash[:notice]
   end
 end

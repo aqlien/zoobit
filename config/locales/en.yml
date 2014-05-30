@@ -35,4 +35,5 @@ en:
     play_failure: "%{name} isn't really interested in playing right now."
     new: "Congratulations on your new pet!"
     too_many: "You have enough pets to love, crazy person!"
+    new_name: "Your pet figured out its new name!"
 
