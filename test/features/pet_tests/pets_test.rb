@@ -21,3 +21,10 @@ feature "Pet Creation" do
   end
 end
 
+feature "cannot view your pets without signing in" do
+  scenario "index when not signed in" do
+    visit pets_path
+    page.must_have_content "Please log in first"
+  end
+end
+
