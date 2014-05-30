@@ -74,12 +74,13 @@ $reveal-modal-bg: $light-blue;
 
 .list-header {
   font-family: "39_smoothregular";
+  font-size: 1em;
   background-color: $blue;
   width: 25%;
   height: 4em;
   position: fixed;
   margin-left: 75%;
-  padding-top: 1.5em;
+  padding-top: 1em;
   padding-left: 2em;
   z-index: 2;
 }
