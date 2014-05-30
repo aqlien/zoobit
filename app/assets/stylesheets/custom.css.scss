@@ -24,16 +24,16 @@ $light-blue: #86B9E6;
 
 $reveal-modal-bg: $light-blue;
 
-.header-panel h2 {
-  font-family: "39_smoothregular";
-}
-
-.title-panel {
-    @include panel(
+.header-panel {
+  @include panel(
     $bg: $green,
     $adjust:true
   );
   width: 100%;
+}
+
+.header-panel h2 {
+  font-family: "39_smoothregular";
 }
 
 .orange-bar {
@@ -46,6 +46,22 @@ $reveal-modal-bg: $light-blue;
   width: 75%;
   position: fixed;
   left: 0px;
+}
+
+.title-panel {
+    @include panel(
+    $bg: $blue,
+    $adjust:true
+  );
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 4em;
+  margin-bottom: 1em;
+}
+
+.title-panel h4 {
+  color: $dark-blue;
 }
 
 .flash-panel {
@@ -63,13 +79,13 @@ $reveal-modal-bg: $light-blue;
   height: 4em;
   position: fixed;
   margin-left: 75%;
-  padding-top: .4em;
+  padding-top: .5em;
   padding-left: 2em;
-  z-index: 1;
+  z-index: 2;
 }
 
 .list-header h3{
-  font-family: "39_smoothregular";
+  color: $dark-blue;
 }
 
 .pet-list {
@@ -77,8 +93,8 @@ $reveal-modal-bg: $light-blue;
   color: $dark-orange;
   width: 25%;
   position: fixed;
+  top: 12em;
   bottom: 2em;
-  top: 12.5em;
   margin-left: 75%;
   border-style: solid;
   border-color: $orange;

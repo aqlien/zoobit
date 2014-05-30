@@ -1,12 +1,10 @@
-<div class="title-panel" align="right">
-  <h1>Renaming <%= @pet.name %></h1>
-</div>
+<%- title "Renaming #{@pet.name}" %>
 
 <div style="height: 50px"></div>
+<div class="small-9 columns" align="center">
 <%= render 'nameform' %>
 
 <br />
-<div align="center">
-  <%= link_to 'Show', pet_path(@pet), class: "button round"%>
-  <%= link_to 'Back', pets_path, class: "button round" %>
+<%= link_to "Back to Pet's Page", pet_path(@pet), class: "button round"%>
+<%= link_to "Back to Pet List", pets_path, class: "button round" %>
 </div>

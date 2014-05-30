@@ -5,7 +5,7 @@
     <div class="row" align="center" style="padding-bottom: 1 em">
       <% pet = Pet.all.sample %>
       <% pet.update_happiness(Time.now) %>
-      <%= link_to image_tag(pet.img_loc, width: "50%"), user_pet_path(pet.user, pet) %>
+      <%= link_to image_tag(pet.img_loc, width: "300px"), user_pet_path(pet.user, pet) %>
     </div><br>
     <div class="row" align="center" style="padding-bottom: 3em">
       <div class="small-9 columns" style="padding-left: 27%">
