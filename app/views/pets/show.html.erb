@@ -2,14 +2,14 @@
 
 <div style="height: 75px"></div>
 <div class="small-9 columns">
-  <div class="small-6 columns" align="right">
-    <% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
-    <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
-    <% @pet.save %>
-    <%= image_tag(@pet.img_loc, width: "100%") %>
-  </div>
-  <div class="small-6 columns" align="left">
-    <div class="row">
+  <div class="row">
+    <div class="small-4 columns">
+      <% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
+      <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
+      <% @pet.save %>
+      <%= image_tag(@pet.img_loc, width: "100%") %>
+    </div>
+    <div class="small-8 columns">
       <div class="callout-panel" align="left">
         <div align="center">
           <h5><strong>About <%= @pet.name %></strong></h5>
@@ -22,6 +22,8 @@
         <%= render "pets/status_bars" %>
       </div>
     </div>
+  </div>
+  <div class="small-12 columns">
     <div class="row" align="center" style="padding-top: 2em">
       <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
       <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>

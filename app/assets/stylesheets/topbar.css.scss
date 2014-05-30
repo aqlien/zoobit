@@ -3,15 +3,15 @@
 }
 
 .logo-wrapper .logo {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: auto;
 
     position: absolute;
     left: 75%;
     right: 25%;
     top: 5px;
-    margin-left: -100px;
-    z-index: 2;
+    margin-left: -150px;
+    z-index: 3;
 }
 
 // Right part
@@ -26,7 +26,7 @@
 // Left part
 .top-bar-section ul.left {
     width:  75%;
-    padding-right: 100px;
+    padding-right: 10em;
 }
 .top-bar-section ul.left li {
     float:  right;

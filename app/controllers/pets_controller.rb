@@ -20,6 +20,18 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    current_uri = request.env['PATH_INFO']
+    if current_uri == "/pets"
+      if current_user.nil?
+        redirect_to "/users/sign_in", :alert => "Please log in first!"
+      else
+        owner = current_user
+      end
+    else
+      url_parts = current_uri.split("/")-[""]
+      uid = url_parts[1].to_i
+      owner = User.find(uid)
+    end
   end
 
   def show
