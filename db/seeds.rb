@@ -3,9 +3,9 @@
 
 User.create(username: "Zoobit Shelter", email: "shelter@zoobit.net", id: 1, password: "zoobit123")
 admin = User.create(username: "Admin", email: "admin@zoobit.net", id: 2, password: "zoobit123")
-admin.pets << Pet.create(name: "Kayenne", type: "Dog", breed: "White German Shepherd", gender: "female")
-admin.pets << Pet.create(name: "Cherri", type: "Cat", breed: "Tuxedo", gender: "female")
-admin.pets << Pet.create(name: "Monty", type: "Cat", breed: "Flame-point Ragdoll", gender: "male")
-admin.pets << Pet.create(name: "Aram", type: "Bird", breed: "Violet Parakeet", gender: "male")
-admin.pets << Pet.create(name: "Mitsuki", type: "Rabbit", breed: "Hotot", gender: "male")
+admin.pets << Pet.create(name: "Kayenne", type: "Dog", breed: "White German Shepherd Mix", gender: "Female")
+admin.pets << Pet.create(name: "Cherri", type: "Cat", breed: "Tuxedo", gender: "Female")
+admin.pets << Pet.create(name: "Monty", type: "Cat", breed: "Flame-point Ragdoll", gender: "Male")
+admin.pets << Pet.create(name: "Aram", type: "Bird", breed: "Violet Parakeet", gender: "Male")
+admin.pets << Pet.create(name: "Mitsuki", type: "Rabbit", breed: "Hotot", gender: "Male")
 

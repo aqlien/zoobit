@@ -1,6 +1,5 @@
 @import 'foundation_and_overrides';
 @import 'foundation/components/panels';
-$bright-orange: #FFA82D;
 
 $green: #86BF37;
 $dark-green: #3A4E1F;
@@ -25,21 +24,28 @@ $light-blue: #86B9E6;
 
 $reveal-modal-bg: $light-blue;
 
-.orange-bar {
-  background-color: $orange;
+.header-panel h2 {
+  font-family: "39_smoothregular";
 }
 
 .title-panel {
     @include panel(
-    $bg: $blue,
-    $padding:5px,
+    $bg: $green,
     $adjust:true
   );
+  width: 100%;
+}
+
+.orange-bar {
+  background-color: $orange;
+}
+
+.blue-bar{
+  background-color: $blue;
+  padding-top: .75em;
   width: 75%;
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  margin-left: -50%;
+  position: fixed;
+  left: 0px;
 }
 
 .flash-panel {
@@ -51,14 +57,19 @@ $reveal-modal-bg: $light-blue;
 }
 
 .list-header {
-  background-color: $orange;
+  font-family: "39_smoothregular";
+  background-color: $blue;
   width: 25%;
   height: 4em;
   position: fixed;
   margin-left: 75%;
   padding-top: .4em;
-  padding-left: 5em;
+  padding-left: 2em;
   z-index: 1;
+}
+
+.list-header h3{
+  font-family: "39_smoothregular";
 }
 
 .pet-list {
@@ -71,18 +82,23 @@ $reveal-modal-bg: $light-blue;
   margin-left: 75%;
   border-style: solid;
   border-color: $orange;
+  border-width: 1em;
   z-index: 1;
   overflow-y: scroll;
 }
 
-.side-panel a {
+.side-nav a {
   color: #FFFFFF;
   font-weight: bold;
 }
 
 .callout-panel {
   @include panel(
-  $bg: $pastel-orange)
+  $bg: $pastel-orange);
+}
+
+.callout-panel h5 {
+  color: $dark-orange;
 }
 
 .footer-panel {

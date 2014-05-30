@@ -1,13 +1,15 @@
-<div class="sticky">
+<div class="sticky" style="padding-top: 0px; margin-top: 0px;">
   <div class="logo-wrapper hide-for-small-only">
     <div class="logo">
-      <%= link_to image_tag("button_round_orange.png"), root_path %></a>
+      <%= link_to image_tag("zoobit_logo.png", width: "543px"), root_path %></a>
     </div>
   </div>
 
-  <div class="panel" style="height:85px">
+  <div class="title-panel" style="height:85px">
     <div class="small-9 columns" align="center">
-      <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+      <div class="header-panel">
+        <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
+      </div>
     </div>
   </div>
 
@@ -32,7 +34,7 @@
   <div class="orange-bar" style="height: 10px"></div>
 
   <!-- Title Bar -->
-  <div class="title-panel"></div>
+  <div class="blue-bar"></div>
   <div class="flash-panel" id="flash_notice" align="center">
     <%= render "layouts/flash" %>
   </div>

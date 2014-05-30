@@ -20,9 +20,10 @@
     </div>
     <% else %>
       <% current_user.pets.each do |pet| %>
+      <% pet.update_happiness(Time.now) %>
         <div class="row" style="margin-top: .75em">
           <li>
-            <div class="small-3 columns" align="center" style="padding-top: .5em"><%= link_to image_tag(pet.img_loc, width: "100%"), user_pet_path(current_user, pet) %>
+            <div class="small-3 columns" align="center" style="padding-top: .5em"><%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
             </div>
               <div class="small-9 columns" align="center">
                 <div class="callout-panel radius" style="margin-bottom: 1em; padding-bottom: .25em; padding-top: .5em">
