@@ -78,6 +78,10 @@ ActiveRecord::Schema.define(version: 20140623213100) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "provider"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "points",                 default: 0
     t.integer  "pet_slots",              default: 1
   end
