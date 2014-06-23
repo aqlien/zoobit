@@ -5,8 +5,6 @@ Score: <%#= @user.score %><br>
 <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br><br>
 
-<%= link_to "See #{@user.username}'s friends", user_friends_path(@user) %>
-
 <h3><%= @user.username %>'s Pets</h3>
 <% if @user.pets.empty? %>
   <%= @user.username %> doesn't have any pets!
@@ -32,18 +30,19 @@ Score: <%#= @user.score %><br>
     <% end %>
 <% end %>
 
-Random from <%= @user.username %>'s friends:
+<br><br>
+Random from <%= @user.username %>'s friends:<br>
 <% if @user.friendships.empty? %>
   <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
 <% else %>
-  <% @user.friendships.each do |friendship| %>
-    <% friend = User.find(friendship.friend_id) %>
-    <%#= img_tag friend.avatar %>
-    <%= link_to friend.username, friend %><br>
-    <%= friend.created_at.strftime("Joined on: %m/%d/%Y") %><br>
-    <%= friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br>
-    Pets: <%= friend.pets.length %>
-    Score: <%#= friend.score %>
+  <% random = [] %>
+  <% 3.times do %>
+    <% random << @user.friendships.sample %>
+  <% end %>
+  <% random.uniq.each do |friendship| %>
+    <% @friend = User.find(friendship.friend_id) %>
+    <%= render 'friendships/friend' %>
   <% end %>
 <% end %>
 <br>
+<%= link_to "See all of #{@user.username}'s friends", user_friends_path(@user) %>
