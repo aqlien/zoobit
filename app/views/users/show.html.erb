@@ -2,6 +2,8 @@
 
 <h3>About <%= @user.username %></h3>
 Score: <%#= @user.score %><br>
+<%= image_tag avatar_url(@user) %>
+
 <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br><br>
 
