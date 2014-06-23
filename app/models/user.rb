@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :pets
+  has_many :friendships
   delegate :dogs, :cats, :birds, :rabbits, to: :pets
   validates :username, presence: true, :uniqueness => {:case_sensitive => false}
   # Virtual field representing whether user is logged in.
