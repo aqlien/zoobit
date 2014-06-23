@@ -2,6 +2,7 @@
 <%= form_for(@pet, as: :pet, url: pet_path(@pet)) do |f| %>
 
   <% if @pet.errors.any? %>
+    <!-- @KL let's semantify this as well, once we can get something to generate it. -->
     <div id="error_explanation" class="alert-box alert radius" align="center">
       <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
 
@@ -13,20 +14,13 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-12 columns">
-      <div class="field">
-        <div align="center">
-          <%= f.label :name %>
-        </div>
-        <%= f.text_field :name %>
-      </div>
-      <br />
-      <div align="center">
-        <div class="actions">
-          <%= f.submit "Rename Pet", class: "button round" %>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  <!-- @KL where does this label originate from/point to?  I input the "enter a new name" -->
+  <%= f.label :name, "What would you like to name your pet?" %>
+
+  <!-- @KL I think we should put a placeholder here, if possible, maybe even mess with the label function Dale showed us -->
+  <%= f.text_field :name %>
+
+
+  <%= f.submit "Commit new name", class: "button round" %>
 <% end %>

@@ -10,7 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
+ * require_tree .
+ * require_self
+ * require foundation_and_overrides
+ *= require custom
+ *= require fonts
+ *= require home
+ *= require pets
+ *= require topbar
+
+ custom is importing foundation itself, lines 16-20 replace 13, not sure what 14 does, and line 15 is completely superfluous
  */
