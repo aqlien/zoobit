@@ -1,0 +1,42 @@
+<%- title "#{@user.username}" %>
+
+<h3>About <%= @user.username %></h3>
+<%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
+<%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %>
+
+<% if @user.pets.empty? %>
+  <h3><strong><%= @user.username %> doesn't have any pets!</strong></h3>
+<% else %>
+  <% @user.pets.each do |pet| %>
+      <% pet.update_happiness(Time.now) %>
+        <div class="row" style="margin-top: .75em">
+          <li>
+            <div class="small-3 columns" align="center" style="padding-top: .5em"><%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
+            </div>
+              <div class="small-9 columns" align="center">
+                <div class="callout-panel radius" style="margin-bottom: 1em; padding-bottom: .25em; padding-top: .5em">
+                  <h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
+                  <% h = pet.happiness.nil? ? 0 : pet.happiness %>
+                  <div class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
+                    <span class="meter" style="width:<%=h%>%"></span>
+                  </div>
+                </div>
+              </div>
+          </li>
+        </div>
+        <li class="divider"></li>
+      <% end %>
+<% end %>
+
+<%# if @user.friends.empty? %>
+  <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
+<%# else %>
+  <%# @user.friends.each do |friend| %>
+    <%#= img_tag friend.avatar %>
+    <%#= link_to friend.username, friend %><br>
+    <%#= friend.created_at.strftime("Joined on: %m/%d/%Y") %><br>
+    <%#= friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br>
+    Pets: <%#= friend.pets.length %>
+    Score: <%#= friend.score %>
+  <%# end %>
+<%# end %>
