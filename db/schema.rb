@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623193014) do
+ActiveRecord::Schema.define(version: 20140623213100) do
 
   create_table "friendships", force: true do |t|
     t.integer  "user_id"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20140623193014) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "provider"
+    t.integer  "points",                 default: 0
+    t.integer  "pet_slots",              default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

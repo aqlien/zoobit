@@ -32,7 +32,7 @@ class FriendshipsController < ApplicationController
 
     respond_to do |format|
       if @friendship.save
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
+        format.html { redirect_to user_friends_path, notice: 'Friendship was successfully created.' }
         format.json { render :show, status: :created, location: @friendship }
       else
         format.html { render :new }
@@ -73,6 +73,6 @@ class FriendshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id, :status)
+      params.permit(:user_id, :friend_id, :status)
     end
 end
