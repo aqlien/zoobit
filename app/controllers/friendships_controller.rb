@@ -4,7 +4,11 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
-    @friendships = Friendship.all
+    current_uri = request.env['PATH_INFO']
+    url_parts = current_uri.split("/")-[""]
+    uid = url_parts[1].to_i
+    @user = User.find(uid)
+    @friends = @user.friendships.all
   end
 
   # GET /friendships/1
