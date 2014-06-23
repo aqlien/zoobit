@@ -1,0 +1,12 @@
+<% if @user.friends.empty? %>
+  <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
+<% else %>
+  <% @user.friends.each do |friend| %>
+    <%= img_tag friend.avatar %>
+    <%= link_to friend.username, friend %><br>
+    <%= friend.created_at.strftime("Joined on: %m/%d/%Y") %><br>
+    <%= friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br>
+    Pets: <%= friend.pets.length %>
+    Score: <%= friend.score %>
+  <% end %>
+<% end %>

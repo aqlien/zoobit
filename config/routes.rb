@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :friendships
+  resources :friendships, as: 'friends'
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   root 'home#index'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :pets
-    resources :friendships
+    # resources :friendships, as: 'friends'
   end
 
   get "/about" => "home#about"
