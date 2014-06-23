@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :pets
+    resources :friends
   end
 
   get "/about" => "home#about"
