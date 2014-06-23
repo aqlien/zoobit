@@ -1,35 +1,19 @@
-<%= link_to image_tag("zoobit_logo.png", width: "543px"), root_path %></a>
+<%= link_to image_tag("zoobit_logo.png", width: "543px"), root_path %>
 
+<h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
 
-  <div class="header-panel" style="height:85px">
-    <div class="small-9 columns" align="center">
-      <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
-    </div>
-  </div>
-
-  <nav class="top-bar" data-topbar>
-    <section class="top-bar-section">
-      <ul class="left">
-      <% if current_user.nil? %>
-        <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
-        <li class="divider"></li>
-      <% else %>
-        <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
-        <li class="divider"></li>
-        <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
-        <li class="divider"></li>
-      <% end %>
-      </ul>
-    </section>
-  </nav>
-
-  <div class="orange-bar" style="height: .75em"></div>
-  <div class="blue-bar" style="height: .75em"></div>
-
-  <!-- Title Bar -->
-  <div class="flash-panel" id="flash_notice" align="center">
-    <%= render "layouts/flash" %>
-  </div>
-</div>
+<nav class="top-bar" data-topbar>
+  <section class="top-bar-section">
+    <ul class="left">
+    <% if current_user.nil? %>
+      <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
+      <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
+    <% else %>
+      <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
+      <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+    <% end %>
+    </ul>
+  </section>
+</nav>
+<!-- Title Bar -->
+<%= render "layouts/flash" %>
