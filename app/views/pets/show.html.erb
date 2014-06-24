@@ -14,7 +14,7 @@
         <div align="center">
           <h5><strong>About <%= @pet.name %></strong></h5>
         </div>
-        <strong>Owner:</strong> <%= @pet.user.username %><br>
+        <strong>Owner:</strong> <%= link_to @pet.user.username, @pet.user %><br>
         <strong>Species:</strong> <%= @pet.type %><br>
         <strong>Breed/color:</strong> <%= @pet.breed %><br>
         <strong>Gender:</strong> <%= @pet.gender %><br>

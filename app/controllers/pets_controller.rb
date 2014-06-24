@@ -4,6 +4,12 @@ class PetsController < ApplicationController
 
   def feed
     if @pet.pet_hunger.decrease
+      if @pet.happiness >= 80
+        owner = User.find(@pet.user_id)
+        owner.points += 25
+        owner.save
+      end
+      current_user.earn_points
       redirect_to pet_path(@pet), notice: t("pets.feed_success", name: @pet.name)
     else
       redirect_to pet_path(@pet), notice: t("pets.feed_failure", name: @pet.name)
@@ -12,6 +18,12 @@ class PetsController < ApplicationController
 
   def play
     if @pet.pet_boredom.decrease
+      if @pet.happiness >= 0
+        owner = User.find(@pet.user_id)
+        owner.points += 25
+        owner.save
+      end
+      current_user.earn_points
       redirect_to pet_path(@pet), notice: t("pets.play_success", name: @pet.name)
     else
       redirect_to pet_path(@pet), notice: t("pets.play_failure", name: @pet.name)
@@ -46,7 +58,7 @@ class PetsController < ApplicationController
   end
 
   def create
-    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= 10
+    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
     @pet = Pet.new(pet_params)
     respond_to do |format|
       if @pet.save
@@ -61,7 +73,7 @@ class PetsController < ApplicationController
   end
 
   def adopt
-    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= 10
+    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
@@ -114,4 +126,5 @@ private
     shelter.pets.first.destroy if shelter.pets.count >= 20
     shelter.pets << @pet
   end
+
 end
