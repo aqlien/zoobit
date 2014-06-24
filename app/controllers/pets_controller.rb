@@ -51,7 +51,15 @@ class PetsController < ApplicationController
   end
 
   def new
-    @pet = Pet.new
+    shelter = User.find(1)
+    @pets = shelter.pets
+    if @pets.count < 5
+      until @pets.count == 5
+        @pet = generate_pet
+        give_to_shelter
+      end
+    end
+    @pet = @pets.sample
   end
 
   def edit
@@ -125,6 +133,15 @@ private
     @pet.name = PetsHelper::NEUTRAL_NAMES.sample if ApplicationHelper.obscene_substring?(@pet.name)
     shelter.pets.first.destroy if shelter.pets.count >= 20
     shelter.pets << @pet
+  end
+
+  def generate_pet
+    @pet = Pet.new
+    @pet.gender = PetsHelper::GENDERS.sample
+    @pet.name = @pet.gender == "Female" ? (PetsHelper::FEMALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample : (PetsHelper::MALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample
+    @pet.type = PetsHelper::TYPES.sample
+    @pet.breed = @pet.type.constantize::BREEDS.sample
+    @pet
   end
 
 end
