@@ -6,11 +6,11 @@
   <% end %>
   <% pet.update_happiness(Time.now) %>
   <%= link_to image_tag(pet.img_loc, width: "300px"), user_pet_path(pet.user, pet) %>
-  
-  <h5><strong>About <%= pet.name %></strong></h5>
 
-  <strong>Owner:</strong> <%= pet.user.username %><br>
-  <strong>Species:</strong> <%= pet.type %><br>
-  <strong>Breed/color:</strong> <%= pet.breed %><br>
-  <strong>Gender:</strong> <%= pet.gender %><br>
+  <h5>About <%= pet.name %></h5>
+
+  Owner: <%= pet.user.username %><br>
+  Species: <%= pet.type %><br>
+  Breed/color: <%= pet.breed %><br>
+  Gender: <%= pet.gender %><br>
 
