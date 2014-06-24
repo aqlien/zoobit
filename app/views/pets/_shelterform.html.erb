@@ -23,7 +23,7 @@
                 </div>
                 <div class="small-6 columns" align="right">
                   <div class="actions">
-                    <%= button_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "button round" %>
+                    <%= button_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ pet.name }?" } %>
                   </div>
                 </div>
               </div>

@@ -49,6 +49,7 @@ class PetsController < ApplicationController
   def show
     @pet.update_happiness(Time.now)
     @owner = User.find(@pet.user_id)
+    event
   end
 
   def new
@@ -86,6 +87,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
+        normalize_pet_stats
         format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
         format.json { render :show, status: :created, location: @pet }
       else
@@ -110,6 +112,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.previous_owner = current_user.username
     current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
+    current_user.points = current_user.points/2
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
@@ -142,7 +145,29 @@ private
     @pet.name = @pet.gender == "Female" ? (PetsHelper::FEMALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample : (PetsHelper::MALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample
     @pet.type = PetsHelper::TYPES.sample
     @pet.breed = @pet.type.constantize::BREEDS.sample
+    @story = PetsHelper.generate_story(@pet.name, @pet.type, @pet.gender)
     @pet
+  end
+
+  def normalize_pet_stats
+    @pet.happiness = 15
+    @pet.save
+    @pet.pet_hunger.value = 20
+    @pet.pet_tiredness.value = 0
+    @pet.pet_boredom.value = 75
+    @pet.pet_hunger.save
+    @pet.pet_tiredness.save
+    @pet.pet_boredom.save
+  end
+
+  def event
+    if @pet.pet_boredom.value > 90
+      flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    elsif @pet.pet_hunger.value > 90
+      flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    elsif @pet.happiness > 90
+      flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    end
   end
 
 end

@@ -17,8 +17,8 @@ class PetBoredom < ActiveRecord::Base
   end
 
   def increase(current_time)
-    if ((current_time - self.change).round / 60) > 5 #only update if 5 minutes passed
-      self.value += (current_time - self.change).round / 60 / 5
+    if ((current_time - self.change).round / 60) > 1 #only update if 5 minutes passed
+      self.value += (current_time - self.change).round / 60 * 10
       self.change = current_time
     end
     self.value = 100 if self.value > 100
