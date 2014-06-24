@@ -1,0 +1,8 @@
+<% if @user.friendships.empty? %>
+  <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
+<% else %>
+  <% @user.friendships.each do |friendship| %>
+    <% @friend = User.find(friendship.friend_id) %>
+    <%= render 'friend' %>
+  <% end %>
+<% end %>
