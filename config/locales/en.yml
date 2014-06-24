@@ -22,11 +22,11 @@
 en:
   hello: "Hello world"
   sign_up_link: "New user? Sign up here!"
-  sign_up_link_html: "New user? <strong>Sign up</strong> here!"
+  sign_up_link_html: "New user? Sign up here!"
   sign_in_link: "Need to check on your pets? Sign in!"
-  sign_in_link_html: "Need to check on your pets? <strong>Sign in</strong>!"
+  sign_in_link_html: "Need to check on your pets? Sign in!"
   sign_out_link: "Leaving? Sign out here."
-  sign_out_link_html: "Leaving? <strong>Sign out</strong> here."
+  sign_out_link_html: "Leaving? Sign out here."
   sign_in_media_link: "Sign in with social media"
   pets:
     feed_success: "%{name} ate all of the food you offered."

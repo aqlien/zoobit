@@ -16,10 +16,10 @@
 
 
   <!-- @KL where does this label originate from/point to?  I input the "enter a new name" -->
-  <%= f.label :name, "What would you like to name your pet?" %>
+  <%= f.label :name, "What would you like to rename #{@pet.name}?" %>
 
   <!-- @KL I think we should put a placeholder here, if possible, maybe even mess with the label function Dale showed us -->
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: "New Name", value: "" %>
 
 
   <%= f.submit "Commit new name", class: "button round" %>

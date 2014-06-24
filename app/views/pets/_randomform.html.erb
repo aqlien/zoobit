@@ -20,14 +20,14 @@
 
 <% img_loc = "#{t.downcase}_happy.jpg" %>
 <%= image_tag(img_loc, width: "70%") %>
-<h5><strong>About this pet:</strong></h5>
-<strong>Name:</strong> <%= n %><br>
+<h5>About this pet:</h5>
+Name: <%= n %>
 <%= f.hidden_field :name, value: n %>
-<strong>Species:</strong> <%= t %><br>
+Species: <%= t %>
 <%= f.hidden_field :type, value: t %>
-<strong>Breed/color:</strong> <%= b %><br>
+Breed/color: <%= b %>
 <%= f.hidden_field :breed, value: b %>
-<strong>Gender:</strong> <%= g %><br>
+Gender: <%= g %>
 <%= f.hidden_field :gender, value: g %>
 <%= PetsHelper.generate_story(n,t,g) %>
 <%= f.submit "Adopt Pet", class: "button round" %>

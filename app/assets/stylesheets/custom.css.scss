@@ -1,4 +1,41 @@
+<<<<<<< HEAD
 $secondary: #5DB475;
+=======
+@import 'foundation_and_overrides';
+//@import 'foundation/components/panels';
+
+$green: #86BF37;
+$dark-green: #3A4E1F;
+$bright-green: #95E22C;
+$light-green: #C8FF7D;
+
+$orange: #FFA82D;
+$dark-orange: #8A5100;
+$bright-orange: #FF9500;
+$light-orange: #FFBB5B;
+$pastel-orange: #FFEACD;
+
+$pink: #F47FB2;
+$dark-pink: #991C53;
+$bright-pink: #FA2D86;
+$light-pink: #FF9EC9;
+
+$blue: #62A1D9;
+$dark-blue: #102E49;
+$bright-blue: #0082F6;
+$light-blue: #86B9E6;
+
+$reveal-modal-bg: $light-blue;
+
+
+.flash-panel {
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -50%;
+}
+>>>>>>> 6de078f88c8348629dc7e374baa07abc4f387ff7
 
 * {
   margin: 0;
