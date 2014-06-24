@@ -16,8 +16,6 @@
   <% t = @pet.type %>
   <% b = @pet.breed %>
 
-
-
   <div class="small-9 columns">
     <div class="row">
       <div class="small-4 columns" align="right">
@@ -39,7 +37,7 @@
             <strong>Gender:</strong> <%= g %><br>
             <%= f.hidden_field :gender, value: g %>
             <br>
-            <%= PetsHelper.generate_story(n,t,g) %>
+            <%= @story %>
           </div>
         </div>
       </div>
