@@ -16,7 +16,7 @@
               </div>
               <div class="row <%= pet.name %>">
                 <div class="small-6 columns">
-                  <strong>Abondoned By:</strong> <%= pet.previous_owner %><br>
+                  <strong>Abandoned By:</strong> <%= pet.previous_owner ? pet.previous_owner : "Unknown" %><br>
                   <strong>Species:</strong> <%= pet.type %><br>
                   <strong>Breed/color:</strong> <%= pet.breed %><br>
                   <strong>Gender:</strong> <%= pet.gender %><br>

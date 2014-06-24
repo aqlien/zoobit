@@ -14,7 +14,7 @@
         <div align="center">
           <h5><strong>About <%= @pet.name %></strong></h5>
         </div>
-        <strong>Owner:</strong> <%= @pet.user.username %><br>
+        <strong>Owner:</strong> <%= link_to @owner.username, @owner %><br>
         <strong>Species:</strong> <%= @pet.type %><br>
         <strong>Breed/color:</strong> <%= @pet.breed %><br>
         <strong>Gender:</strong> <%= @pet.gender %><br>
@@ -25,10 +25,12 @@
   </div>
   <div class="small-12 columns">
     <div class="row" align="center" style="padding-top: 2em">
-      <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
-      <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
+      <% if current_user && !current_user.friendships.where(friend_id: @owner.id).empty? && !@owner.friendships.where(friend_id: current_user.id).empty? || current_user == @owner %>
+        <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
+        <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
+      <% end %>
       <br /><br />
-      <%= link_to 'Back', :back, class: "button small round success" %>
+      <%= link_to 'Back to User Profile', @owner, class: "button small round success" %>
     </div>
   </div>
 </div>

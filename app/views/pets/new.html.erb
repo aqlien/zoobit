@@ -1,7 +1,7 @@
 <%- title "Animal Shelter" %>
 
 <div class="small-9 columns" style="padding-bottom: 5em"><div class="title-panel" align="center" style="width: 100%; padding: 1em"><h4>Featured Pet</h4></div></div>
-<%= render "randomform" %><br>
+<%= render 'randomform' %><br>
 
 <div class="small-9 columns" style="padding-top: 2em; padding-bottom: 5em"><div class="title-panel" align="center" style="padding: 1em"><h4>Browse Pets</h4></div></div><br>
   <%= render "shelterform" unless User.first.id != 1 %>

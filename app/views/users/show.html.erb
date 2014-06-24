@@ -2,17 +2,18 @@
 
 <h3>About <%= @user.username %></h3>
 
-Score: <%= @user.points %><br>
+<%= image_tag avatar_url(@user) %><br>
 
-<%= image_tag avatar_url(@user) %>
+Score: <%= @user.points %> | Pet slots: <%= @user.pet_slots %><br>
 
 <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br><br>
-<% if current_user && current_user.friendships.where(friend_id=@user.id).empty? %>
+<% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
   <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
 <% end %>
 
 <h3><%= @user.username %>'s Pets</h3>
+(<%= @user.pets.count %> out of <%= @user.pet_slots %> allowed <%= @user.pet_slots == 1 ? "pet" : "pets" %>.)<br>
 <% if @user.pets.empty? %>
   <%= @user.username %> doesn't have any pets!
 <% else %>

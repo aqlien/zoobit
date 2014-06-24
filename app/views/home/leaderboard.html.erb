@@ -1,0 +1,8 @@
+<%- title "Leaderboard" %>
+
+<h3>Most Responsible Owners</h3>
+<% @users = User.all.order(:points).reverse %>
+<% @users.each do |user| %>
+  <%= link_to user.username, user %><br>
+  Score: <%= user.points %><br><br>
+<% end %>
