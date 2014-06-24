@@ -1,17 +1,18 @@
-<nav class="nav-main">
+<header class="header-main">
   <%= link_to image_tag("zoobit-logo.svg", width: "60px"), root_path %>
-  <h1 class="nav-main-heading">Zoobit</h1>
-
-  <ul class="left">
-  <% if current_user.nil? %>
-    <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
-    <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
-  <% else %>
-    <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
-    <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
-  <% end %>
-  </ul>
-</nav>
+  <h1 class="header-main-heading">Zoobit</h1>
+  <nav class="">
+    <ul class="left">
+    <% if current_user.nil? %>
+      <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
+      <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
+    <% else %>
+      <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
+      <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+    <% end %>
+    </ul>
+  </nav>
+</header>
 
 <h2><%= content_for?(:title) ? yield(:title) : "Zoobit" %></h2>
 <!-- Title Bar -->
