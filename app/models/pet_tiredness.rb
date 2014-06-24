@@ -17,11 +17,11 @@ class PetTiredness < ActiveRecord::Base
     if ((current_time - self.change).round / 60) > 10 #only update if 10 minutes passed
       self.value += (current_time - self.change).round / 60 / 10
       self.change = current_time
-    end
-    self.value = 100 if self.value > 100
-    @asleep = true if self.value == 100 #simulates sleeping, doesn't take any time yet
-    if @asleep
-      self.decrease(current_time)
+      self.value = 100 if self.value > 100
+      @asleep = true if self.value >= 90
+      if @asleep
+        self.decrease(current_time)
+      end
     end
     self.save
   end

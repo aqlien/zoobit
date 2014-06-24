@@ -5,7 +5,8 @@ class PetBoredom < ActiveRecord::Base
   def decrease
     if self.value > 10 && pet.pet_tiredness.value < 100
       self.value -= 10
-      pet.pet_tiredness.value += 25
+      pet.pet_tiredness.value += 10
+      pet.pet_tiredness.value = 100 if pet.pet_tiredness.value > 100
       pet.pet_tiredness.save
       pet.pet_hunger.value += 5
       pet.pet_hunger.save
@@ -17,8 +18,8 @@ class PetBoredom < ActiveRecord::Base
   end
 
   def increase(current_time)
-    if ((current_time - self.change).round / 60) > 1 #only update if 5 minutes passed
-      self.value += (current_time - self.change).round / 60 * 10
+    if ((current_time - self.change).round / 60) > 5 #only update if 5 minutes passed
+      self.value += (current_time - self.change).round / 60 / 5
       self.change = current_time
     end
     self.value = 100 if self.value > 100
