@@ -67,4 +67,8 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def self.search(query)
+    where("username like ?", "%#{query}%")
+  end
+
 end
