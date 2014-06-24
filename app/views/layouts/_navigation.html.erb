@@ -2,19 +2,14 @@
   <%= link_to image_tag("zoobit-logo.svg", width: "60px"), root_path %>
   <h1 class="header-main-heading">Zoobit</h1>
   <nav class="">
-    <ul class="left">
     <% if current_user.nil? %>
-      <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
-      <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
+    <%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %>
+    <%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %>
     <% else %>
-      <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
-      <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+      <%= link_to "Adopt a new Pet!", new_pet_path %>
+      <%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %>
     <% end %>
-    </ul>
-    <ul class="right">
-      <li><%= link_to "Leaderboard", "/leaderboard" %></li>
-      <li class="divider"></li>
-    </ul>
+    <%= link_to "Leaderboard", "/leaderboard" %>
   </nav>
 </header>
 
