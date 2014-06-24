@@ -1,7 +1,11 @@
 <%- title "#{@user.username}" %>
 
 <h3>About <%= @user.username %></h3>
+
 Score: <%= @user.points %><br>
+
+<%= image_tag avatar_url(@user) %>
+
 <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br><br>
 <% if current_user && current_user.friendships.where(friend_id=@user.id).empty? %>
