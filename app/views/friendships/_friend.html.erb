@@ -1,6 +1,6 @@
-<%#= img_tag @friend.avatar %>
+<%= image_tag avatar_url(@user) %><br>
 <%= link_to @friend.username, @friend %><br>
 <%= @friend.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br>
 Pets: <%= @friend.pets.length %><br>
-Score: <%#= @friend.score %><br>
+Score: <%= @friend.points%><br>
