@@ -30,6 +30,12 @@ class PetsController < ApplicationController
     end
   end
 
+  def event
+    if @pet.pet_boredom.value > 90
+      flash[:alert] = "Uh oh, you left #{@pet.name} alone too long, so #{ @pet.gender == 'Male' ? 'he' : 'she' } made a mess!"
+    end
+  end
+
   def index
     @pets = Pet.all
     current_uri = request.env['PATH_INFO']
@@ -111,6 +117,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.previous_owner = current_user.username
     current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
+    current_user.points = current_user.points/2
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
@@ -149,13 +156,13 @@ private
 
   def normalize_pet_stats
     @pet.happiness = 15
+    @pet.save
     @pet.pet_hunger.value = 20
     @pet.pet_tiredness.value = 0
     @pet.pet_boredom.value = 75
     @pet.pet_hunger.save
     @pet.pet_tiredness.save
     @pet.pet_boredom.save
-    @pet.save
-  end
+      end
 
 end

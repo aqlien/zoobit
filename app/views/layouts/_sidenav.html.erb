@@ -37,7 +37,7 @@
                       <%= link_to 'Change Name', edit_pet_path(pet) %>
                     </div>
                     <div class="small-6 columns" align="left">
-                      <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone?" } %>
+                      <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
                     </div>
                   </div>
                 </div>

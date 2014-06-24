@@ -3,15 +3,14 @@ class PetTiredness < ActiveRecord::Base
   belongs_to :pet
 
   def decrease(current_time)
-    if ((current_time - self.change).round / 60) > 10 #only update if 10 minutes passed
-      self.value = 10
-      pet.happiness += 10
-      pet.save
-      pet.pet_hunger.value += 5 if pet.pet_hunger.value < 95
-      pet.pet_hunger.save
-    end
+    self.value = 10
+    pet.happiness += 10
+    pet.save
+    pet.pet_hunger.value += 5 if pet.pet_hunger.value < 95
+    pet.pet_hunger.save
     self.last_interaction = Time.now
     self.save
+    @asleep = false
   end
 
   def increase(current_time)
@@ -20,7 +19,10 @@ class PetTiredness < ActiveRecord::Base
       self.change = current_time
     end
     self.value = 100 if self.value > 100
-    self.decrease(current_time) if self.value == 100 #simulates sleeping, doesn't take any time yet
+    @asleep = true if self.value == 100 #simulates sleeping, doesn't take any time yet
+    if @asleep
+      self.decrease(current_time)
+    end
     self.save
   end
 
