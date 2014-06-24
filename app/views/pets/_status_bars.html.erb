@@ -1,21 +1,21 @@
 
 <% v = @pet.happiness %>
-  <strong style="vertical-align:sub;">Happiness:
+Happiness:
 <div class="small-9 column progress round <%= v > 40 ? "" : "alert"%>">
   <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
 </div>
 <% v = @pet.pet_hunger.value %>
-<strong style="vertical-align:sub;">Hunger:
+Hunger:
 <div class="small-9 column progress round <%= v < 60 ? "" : "alert"%>">
   <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
 </div>
 <% v = @pet.pet_tiredness.value %>
-<strong style="vertical-align:sub;">Tiredness:
+Tiredness:
 <div class="small-9 column progress round <%= v < 80 ? "" : "alert"%>">
   <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
 </div>
 <% v = @pet.pet_boredom.value %>
-<strong style="vertical-align:sub;">Boredom:
+Boredom:
 <div class="small-9 column progress round <%= v < 50 ? "" : "alert"%>">
   <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
 </div>
