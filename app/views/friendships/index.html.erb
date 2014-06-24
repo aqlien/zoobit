@@ -7,4 +7,5 @@
 <% @user.friendships.each do |friendship| %>
   <% @friend = User.find(friendship.friend_id) %>
   <%= render 'friend' %>
+  <%= link_to 'Delete Friendship.', user_friend_path(@user.id, friendship.id), method: :delete%><br>
 <% end %>

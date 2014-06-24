@@ -61,7 +61,7 @@ class FriendshipsController < ApplicationController
     @friendship.destroy
     friend = User.find(friendship_params["friend_id"]).username
     respond_to do |format|
-      format.html { redirect_to friendships_url, notice: 'Unfriended #{friend}.' }
+      format.html { redirect_to user_friends_path, notice: "Unfriended #{friend}." }
       format.json { head :no_content }
     end
   end
