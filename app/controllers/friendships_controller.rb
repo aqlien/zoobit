@@ -28,6 +28,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
+
     @friendship = Friendship.new(friendship_params)
 
     respond_to do |format|
