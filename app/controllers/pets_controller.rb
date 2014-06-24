@@ -48,6 +48,7 @@ class PetsController < ApplicationController
 
   def show
     @pet.update_happiness(Time.now)
+    @owner = User.find(@pet.user_id)
   end
 
   def new

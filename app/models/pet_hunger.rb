@@ -5,6 +5,7 @@ class PetHunger < ActiveRecord::Base
   def decrease
     if self.value > 15
       self.value = 0
+      pet.tiredness.value -= 10
       self.last_interaction = Time.now
       self.save
       return true
