@@ -26,7 +26,7 @@
   <%= f.hidden_field :breed, value: b %>
   Gender: <%= g %>
   <%= f.hidden_field :gender, value: g %>
-  <%= PetsHelper.generate_story(n,t,g) %>
+  <%= story = PetsHelper.generate_story(n,t,g) %>
   <%= f.submit "Adopt Pet", class: "button round" %>
   <%= link_to "See Another Pet", new_pet_path, class: "button round" %>
 <% end %>
