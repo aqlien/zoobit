@@ -59,9 +59,8 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1.json
   def destroy
     @friendship.destroy
-    friend = User.find(friendship_params["friend_id"]).username
     respond_to do |format|
-      format.html { redirect_to user_friends_path, notice: "Unfriended #{friend}." }
+      format.html { redirect_to user_friends_path, notice: "Unfriended #{User.find(@friendship.friend_id).username}." }
       format.json { head :no_content }
     end
   end
