@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
   has_one :pet_boredom, dependent: :destroy
   validates :name, presence: true
   validates :type, presence: true, inclusion: { in: %w(Dog Cat Bird Rabbit),
-    message: "%{value} is not a type of pet that's here." }
+    message: "%{value} is not an available type of pet." }
   validates :gender, presence: true, inclusion: { in: %w(Female Male)}
   before_create :initialize_pet
 
