@@ -1,6 +1,9 @@
 <%- title "#{@user.username}" %>
 
 <h3>About <%= @user.username %></h3>
+
+<%= image_tag avatar_url(@user) %><br>
+
 Score: <%= @user.points %><br>
 <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %><br>
 <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br><br>
