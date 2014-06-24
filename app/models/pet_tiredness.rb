@@ -4,12 +4,11 @@ class PetTiredness < ActiveRecord::Base
 
   def decrease(current_time)
     if ((current_time - self.change).round / 60) > 10 #only update if 10 minutes passed
-      self.value = 25
-      pet.pet_happiness += 10
-      pet.pet_happiness.save
-      pet.pet_hunger += 5
+      self.value = 10
+      pet.happiness += 10
+      pet.save
+      pet.pet_hunger.value += 5 if pet.pet_hunger.value < 95
       pet.pet_hunger.save
-      self.change = current_time
     end
     self.last_interaction = Time.now
     self.save
