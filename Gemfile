@@ -35,3 +35,5 @@ group :development do
   gem "binding_of_caller"
   gem 'spring'
 end
+
+gem 'gravtastic'

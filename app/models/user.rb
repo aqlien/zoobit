@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
+  include Gravtastic
+  gravtastic
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :pets
+  has_many :friendships
   delegate :dogs, :cats, :birds, :rabbits, to: :pets
   validates :username, presence: true, :uniqueness => {:case_sensitive => false}
   # Virtual field representing whether user is logged in.
@@ -52,5 +55,15 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def earn_points
+    self.points += 10
+    self.save
+    self.pet_slots = 5 if self.points >= 1000 && self.pet_slots < 5
+    self.pet_slots = 4 if self.points >= 500 && self.pet_slots < 4
+    self.pet_slots = 3 if self.points >= 250 && self.pet_slots < 3
+    self.pet_slots = 2 if self.points >= 100 && self.pet_slots < 2
+    self.save
   end
 end

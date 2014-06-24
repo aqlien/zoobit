@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527225712) do
+ActiveRecord::Schema.define(version: 20140623213100) do
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pet_boredoms", force: true do |t|
     t.integer  "pet_id"
@@ -70,7 +78,8 @@ ActiveRecord::Schema.define(version: 20140527225712) do
     t.datetime "updated_at"
     t.string   "username"
     t.string   "provider"
-    t.string   "uid"
+    t.integer  "points",                 default: 0
+    t.integer  "pet_slots",              default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,16 +1,16 @@
-  <%- title "Welcome to ZooBit!" %>
-  <h3>Featured Pet</h3>
+<%- title "Welcome to ZooBit!" %>
+<h3>Featured Pet</h3>
+<% pet = Pet.all.sample %>
+<% while ApplicationHelper.obscene_substring?(pet.name) %>
   <% pet = Pet.all.sample %>
-  <% while ApplicationHelper.obscene_substring?(pet.name) %>
-    <% pet = Pet.all.sample %>
-  <% end %>
-  <% pet.update_happiness(Time.now) %>
-  <%= link_to image_tag(pet.img_loc, width: "300px"), user_pet_path(pet.user, pet) %>
+<% end %>
+<% pet.update_happiness(Time.now) %>
+<%= link_to image_tag(pet.img_loc, width: "300px"), user_pet_path(pet.user, pet) %>
 
-  <h5>About <%= pet.name %></h5>
+<h5>About <%= pet.name %></h5>
 
-  Owner: <%= pet.user.username %><br>
-  Species: <%= pet.type %><br>
-  Breed/color: <%= pet.breed %><br>
-  Gender: <%= pet.gender %><br>
+Owner: <%= pet.user.username %><br>
+Species: <%= pet.type %><br>
+Breed/color: <%= pet.breed %><br>
+Gender: <%= pet.gender %><br>
 

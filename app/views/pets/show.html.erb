@@ -1,5 +1,4 @@
 <%- title @pet.name %>
-
 <% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
 <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
 <% @pet.save %>
@@ -13,4 +12,5 @@ Gender: <%= @pet.gender %>
 <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
 <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
 <%= link_to 'Back', :back, class: "button small round success" %>
+
 

@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
   has_one :pet_boredom, dependent: :destroy
   validates :name, presence: true
   validates :type, presence: true, inclusion: { in: %w(Dog Cat Bird Rabbit),
-    message: "%{value} is not a type of pet that's here." }
+    message: "%{value} is not an available type of pet." }
   validates :gender, presence: true, inclusion: { in: %w(Female Male)}
   before_create :initialize_pet
 
@@ -22,7 +22,7 @@ class Pet < ActiveRecord::Base
   end
 
   def calculate_happiness
-    self.happiness = ((100 - self.pet_hunger.value)*3 + (100-self.pet_tiredness.value) + (100 - self.pet_boredom.value)*2)/6
+    self.happiness = ((100 - self.pet_hunger.value)*3 + (100 - self.pet_boredom.value)*3)/6
   end
 
 private

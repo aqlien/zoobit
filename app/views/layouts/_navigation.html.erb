@@ -11,6 +11,10 @@
       <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
     <% end %>
     </ul>
+    <ul class="right">
+      <li><%= link_to "Leaderboard", "/leaderboard" %></li>
+      <li class="divider"></li>
+    </ul>
   </nav>
 </header>
 
