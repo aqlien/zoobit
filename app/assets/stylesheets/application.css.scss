@@ -19,5 +19,5 @@
  *= require pets
  *= require topbar
 
- custom is importing foundation itself, lines 16-20 replace 13, not sure what 14 does, and line 15 is completely superfluous
+@KL custom is importing foundation itself, lines 16-20 replace 13, not sure what 14 does, and line 15 is completely superfluous.  Once we get the styles up and running, let's change this from the require to @import
  */
