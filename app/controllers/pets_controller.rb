@@ -86,6 +86,7 @@ class PetsController < ApplicationController
     respond_to do |format|
       if @pet.save
         current_user.pets << @pet
+        normalize_pet_stats
         format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
         format.json { render :show, status: :created, location: @pet }
       else
@@ -144,6 +145,17 @@ private
     @pet.breed = @pet.type.constantize::BREEDS.sample
     @story = PetsHelper.generate_story(@pet.name, @pet.type, @pet.gender)
     @pet
+  end
+
+  def normalize_pet_stats
+    @pet.happiness = 15
+    @pet.pet_hunger.value = 20
+    @pet.pet_tiredness.value = 0
+    @pet.pet_boredom.value = 75
+    @pet.pet_hunger.save
+    @pet.pet_tiredness.save
+    @pet.pet_boredom.save
+    @pet.save
   end
 
 end

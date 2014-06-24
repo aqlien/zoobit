@@ -22,7 +22,7 @@
     <strong style="vertical-align:sub;">Tiredness:</strong>
   </div>
   <div class="small-9 column progress round <%= v < 80 ? "" : "alert"%>">
-    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%=v%></strong></span>
+    <span class="meter" style="width:<%=v%>%; text-align:center;"><strong><%= v < 100 ? v : "Sleeping" %></strong></span>
   </div>
 </div>
 <div class="row">
