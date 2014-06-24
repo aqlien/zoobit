@@ -1,14 +1,14 @@
 <% shelter = User.find(1) %>
   <% if shelter.pets.empty? %>
-    <h3><strong>The Animal Shelter doesn't currenty have any pets available for browsing.</strong></h3>
+    <h3>The Animal Shelter doesn't currenty have any pets available for browsing.</h3>
   <% else %>
     <% shelter.pets.each do |pet| %>
       <%= link_to image_tag(pet.img_loc, width: "100%"), user_pet_path(current_user, pet) %>
-        <h5><strong>About <%= pet.name %></strong></h5>
-        <strong>Abandoned By:</strong> <%= pet.previous_owner %>
-        <strong>Species:</strong> <%= pet.type %>
-        <strong>Breed/color:</strong> <%= pet.breed %>
-        <strong>Gender:</strong> <%= pet.gender %>
+        <h5>About <%= pet.name %></h5>
+        Abandoned By: <%= pet.previous_owner %>
+        Species: <%= pet.type %>
+        Breed/color: <%= pet.breed %>
+        Gender: <%= pet.gender %>
         <%= button_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "button round" %>
     <% end %>
 <% end %>

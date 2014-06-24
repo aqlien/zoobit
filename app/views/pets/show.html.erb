@@ -4,11 +4,11 @@
 <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
 <% @pet.save %>
 <%= image_tag(@pet.img_loc, width: "100%") %>
-<h5>About <%= @pet.name %></strong></h5>
-Owner:</strong> <%= @pet.user.username %>
-Species:</strong> <%= @pet.type %>
-Breed/color:</strong> <%= @pet.breed %>
-Gender:</strong> <%= @pet.gender %>
+<h5>About <%= @pet.name %></h5>
+Owner: <%= @pet.user.username %>
+Species: <%= @pet.type %>
+Breed/color: <%= @pet.breed %>
+Gender: <%= @pet.gender %>
 <%= render "pets/status_bars" %>
 <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
 <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
