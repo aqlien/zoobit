@@ -28,12 +28,11 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-
     @friendship = Friendship.new(friendship_params)
-
     respond_to do |format|
       if @friendship.save
-        format.html { redirect_to user_friends_path, notice: 'Friendship was successfully created.' }
+        friend = User.find(friendship_params["friend_id"]).username
+        format.html { redirect_to user_friends_path, notice: "#{friend} was added as a friend." }
         format.json { render :show, status: :created, location: @friendship }
       else
         format.html { render :new }
@@ -60,8 +59,9 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1.json
   def destroy
     @friendship.destroy
+    friend = User.find(friendship_params["friend_id"]).username
     respond_to do |format|
-      format.html { redirect_to friendships_url, notice: 'Friendship was successfully destroyed.' }
+      format.html { redirect_to friendships_url, notice: 'Unfriended #{friend}.' }
       format.json { head :no_content }
     end
   end

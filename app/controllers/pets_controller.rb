@@ -30,12 +30,6 @@ class PetsController < ApplicationController
     end
   end
 
-  def event
-    if @pet.pet_boredom.value > 90
-      flash[:alert] = "Uh oh, you left #{@pet.name} alone too long, so #{ @pet.gender == 'Male' ? 'he' : 'she' } made a mess!"
-    end
-  end
-
   def index
     @pets = Pet.all
     current_uri = request.env['PATH_INFO']
@@ -55,6 +49,7 @@ class PetsController < ApplicationController
   def show
     @pet.update_happiness(Time.now)
     @owner = User.find(@pet.user_id)
+    event
   end
 
   def new
@@ -163,6 +158,16 @@ private
     @pet.pet_hunger.save
     @pet.pet_tiredness.save
     @pet.pet_boredom.save
-      end
+  end
+
+  def event
+    if @pet.pet_boredom.value > 90
+      flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    elsif @pet.pet_hunger.value > 90
+      flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    elsif @pet.happiness > 90
+      flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    end
+  end
 
 end
