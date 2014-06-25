@@ -1,53 +1,54 @@
-<section class="user-info"><%- title "#{@user.username}" %>
+<article class="user-dashboard">
+  <section class="user-info"><%- title "#{@user.username}" %>
+    <!-- <h3>About <%= @user.username %></h3> -->
+    <%= image_tag avatar_url(@user) %>
 
-  <!-- <h3>About <%= @user.username %></h3> -->
-
-  <%= image_tag avatar_url(@user) %>
-
-  Score: <%= @user.points %> | Pet slots: <%= @user.pet_slots %>
-  <%= @user.created_at.strftime("Joined on: %m/%d/%Y") %>
-  <%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %>
-  <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
-    <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
-  <% end %>
-  <!-- <h3><%= @user.username %>'s Pets</h3> -->
-  <p>(<%= @user.pets.count %> out of <%= @user.pet_slots %> allowed <%= @user.pet_slots == 1 ? "pet" : "pets" %>.)</p>
-</section>
+    <p>Score: <%= @user.points %></p>
+    <p>Pet slots: <%= @user.pet_slots %></p>
+    <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+    <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+    <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
+      <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
+    <% end %>
+    <!-- <h3><%= @user.username %>'s Pets</h3> -->
+    <p>(<%= @user.pets.count %> out of <%= @user.pet_slots %> allowed <%= @user.pet_slots == 1 ? "pet" : "pets" %>.)</p>
+  </section>
 
 
 
-  <% if @user.pets.empty? %>
-    <%= @user.username %>: You don't have any pets yet!
-  <% else %>
-    <% @user.pets.each do |pet| %>
-      <% pet.update_happiness(Time.now) %>
-      <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-      <article class="pet-profile ten fcolumns">
-        <section class="two fcolumns"><%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %></section>
-        <!-- @KL the image is not reflecting the happiness status effectively -->
-        <section class="ten fcolumns"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4></section>
-        <div class="<%= h > 40 ? "happy":"unhappy"%>">
-          <div class="meter" style="width:<%=h%>%">
-            <p><%= h %></p>
+    <% if @user.pets.empty? %>
+      <%= @user.username %>: You don't have any pets yet!
+    <% else %>
+      <% @user.pets.each do |pet| %>
+        <% pet.update_happiness(Time.now) %>
+        <% h = pet.happiness.nil? ? 0 : pet.happiness %>
+        <article class="pet-profile ten fcolumns">
+          <section class="two fcolumns"><%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %></section>
+          <!-- @KL the image is not reflecting the happiness status effectively -->
+          <section class="ten fcolumns"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4></section>
+          <div class="<%= h > 40 ? "happy":"unhappy"%>">
+            <div class="meter" style="width:<%=h%>%">
+              <p><%= h %></p>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      <% end %>
     <% end %>
-  <% end %>
 
-<section class="user-friends">
-  <p>Random from <%= @user.username %>'s friends:</p>
-  <% if @user.friendships.empty? %>
-    <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
-  <% else %>
-    <% random = [] %>
-    <% 3.times do %>
-      <% random << @user.friendships.sample %>
+  <section class="user-friends">
+    <p>Random from <%= @user.username %>'s friends:</p>
+    <% if @user.friendships.empty? %>
+      <h3><%= @user.username %> doesn't have any friends!</h3>
+    <% else %>
+      <% random = [] %>
+      <% 3.times do %>
+        <% random << @user.friendships.sample %>
+      <% end %>
+      <% random.uniq.each do |friendship| %>
+        <% @friend = User.find(friendship.friend_id) %>
+        <%= render 'friendships/friend' %><br>
+      <% end %>
     <% end %>
-    <% random.uniq.each do |friendship| %>
-      <% @friend = User.find(friendship.friend_id) %>
-      <%= render 'friendships/friend' %><br>
-    <% end %>
-  <% end %>
-  <%= link_to "See all of #{@user.username}'s friends", user_friends_path(@user) %>
-</section>
+    <%= link_to "See all of #{@user.username}'s friends", user_friends_path(@user) %>
+  </section>
+</article>

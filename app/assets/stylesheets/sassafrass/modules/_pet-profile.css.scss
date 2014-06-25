@@ -1,0 +1,29 @@
+.pet-profile {
+  background-color: $charlie-color;
+  // overflow: auto;
+  margin-bottom: 0.5em;
+}
+
+.pet-profile img {
+  min-height: 75px;
+  min-width: 75px;
+}
+
+.pet-profile h4 {
+  float: right;
+}
+
+.meter {
+  background-color: blue;
+  height: 20px;
+}
+
+.unhappy {
+  background-color: red;
+  height: 20px;
+}
+
+.happy {
+  background-color: green;
+  height: 20px;
+}

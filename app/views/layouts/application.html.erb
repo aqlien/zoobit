@@ -16,8 +16,8 @@
         <%#= render "layouts/sidenav" %>
         <main id="main">
           <%= yield %>
+          <%= render "layouts/footer" %>
         </main>
-        <%= render "layouts/footer" %>
         <%= javascript_include_tag "application" %>
       </div>
     <!--/#inner-wrap-->
