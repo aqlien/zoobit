@@ -31,6 +31,10 @@
             <p><%= h %></p>
           </div>
         </div>
+        <% if current_user == pet.user %>
+          <%= link_to 'Change Name', edit_pet_path(pet) %>
+          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+        <% end %>
       </article>
     <% end %>
   <% end %>
@@ -49,5 +53,6 @@
       <% @friend = User.find(friendship.friend_id) %>
       <%= render 'friendships/friend' %><br>
     <% end %>
+    <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
   <% end %>
 </section>

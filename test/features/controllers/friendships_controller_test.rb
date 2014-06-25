@@ -1,9 +1,10 @@
 require "test_helper"
 
-class FriendshipsControllerTest < ActionController::TestCase
-
-  def friendship
+feature "Friendship" do
+  before do
+    seed_db
     @friendship ||= friendships :one
+    @user = users :alex
   end
 
   def test_index
@@ -18,11 +19,13 @@ class FriendshipsControllerTest < ActionController::TestCase
   end
 
   def test_create
-    assert_difference('Friendship.count') do
-      post :create, friendship: { friend_id: @friendship.friend_id, status: @friendship.status, user_id: @friendship.user_id }
-    end
-
-    assert_redirected_to friendship_path(assigns(:friendship))
+    user = users :sam
+    visit root_path
+    sign_in_capybara
+    visit user_friends_path(user)
+    click_on "Search"
+    click_on "Add ZoobitDev"
+    assert_equal(user.friendships.count, 1)
   end
 
   def test_show

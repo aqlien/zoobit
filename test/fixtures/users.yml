@@ -1,9 +1,14 @@
 sam:
+  id: 14
   email: admin@zoobit.net
   username: ZoobitAdmin
   encrypted_password: <%= User.new.send(:password_digest, "password") %>
+  created_at: <%= Time.now %>
+  last_sign_in_at: <%= Time.now %>
 
 alex:
+  id: 15
   email: developer@zoobit.net
   username: ZoobitDev
-  encrypted_password: <%= User.new.send(:password_digest, "password") %>
+  created_at: <%= Time.now %>
+  last_sign_in_at: <%= Time.now %>
