@@ -27,12 +27,18 @@
       <article class="profile">
         <section class=""><%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %></section>
         <!-- @KL the image is not reflecting the happiness status effectively -->
-        <section class=""><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4></section>
-        <div class="<%= h > 40 ? "happy":"unhappy"%>">
-          <div class="meter" style="width:<%=h%>%">
+        <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
+          <p><%= pet.type %></p>
+          <p><%= pet.breed %></p>
+          <p class="<%= pet.pet_hunger.value > 50 ? "hungry":""%>">hello</p>
+        <div class="<%= h > 40 ? "meter-happy":"meter-unhappy"%>">
+          <div class="<%= h > 40 ? "happy":"unhappy"%>" style="width:<%=h%>%">
             <p><%= h %></p>
           </div>
-        </article>
+          </section>
+
+        </div>
+      </article>
       <% end %>
     <% end %>
 
