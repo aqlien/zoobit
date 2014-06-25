@@ -10,10 +10,10 @@
   </head>
   <body>
   <%= render "layouts/navigation" %>
-  <%= render "layouts/sidenav" %>
-  <div id="main">
+  <%#= render "layouts/sidenav" %>
+  <main id="main">
     <%= yield %>
-  </div>
+  </main>
   <%= render "layouts/footer" %>
   <%= javascript_include_tag "application" %>
   </body>

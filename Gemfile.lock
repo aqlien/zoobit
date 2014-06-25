@@ -64,9 +64,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    foundation-rails (5.2.2.0)
-      railties (>= 3.1.0)
-      sass (>= 3.2.0)
     gravtastic (3.2.6)
     hashie (2.1.1)
     hike (1.2.3)
@@ -207,7 +204,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   figaro
-  foundation-rails
   gravtastic
   jbuilder (~> 2.0)
   jquery-rails

@@ -1,0 +1,24 @@
+.pet-profile {
+  width: 60%;
+  background-color: $alpha-color;
+  margin: 1em auto;
+}
+
+.pet-profile h4 {
+  float: right;
+}
+
+.meter {
+  background-color: blue;
+  height: 20px;
+}
+
+.unhappy {
+  background-color: red;
+  height: 20px;
+}
+
+.happy {
+  background-color: green;
+  height: 20px;
+}

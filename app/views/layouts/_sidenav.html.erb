@@ -1,54 +1,32 @@
-<div class="list-header" align="center">
-  <% if current_user.nil? %>
-    <h4><strong>Your pets go here!</strong></h4>
-  <% elsif current_user.pets.empty? %>
-    <h4><strong>You don't have any pets!</strong></h4>
-  <% else %>
-    <h4><strong>Your Current Pets:</strong></h4>
-  <% end %>
-</div>
 
-<div class="pet-list">
-  <ul class="side-nav">
-    <% if current_user.nil? %>
-      <div align="center">
-        <p><%= link_to 'Sign up', new_user_registration_path %> to adopt a pet!</p>
-      </div>
-    <% elsif current_user.pets.empty? %>
-    <div align="center">
-      <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
-    </div>
-    <% else %>
-      <% current_user.pets.each do |pet| %>
+<% if current_user.nil? %>
+  <h4>Your pets go here!</h4>
+  <% elsif current_user.pets.empty? %>
+    <h4>You don't have any pets!</h4>
+  <% else %>
+    <h4>Your Current Pets:</h4>
+<% end %>
+
+<ul class="side-nav">
+  <% if current_user.nil? %>
+    <p><%= link_to 'Sign up', new_user_registration_path %> to adopt a pet!</p>
+  <% elsif current_user.pets.empty? %>
+    <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
+  <% else %>
+    <% current_user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
-        <div class="row" style="margin-top: .75em">
-          <li>
-            <div class="small-3 columns" align="center" style="padding-top: .5em"><%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
-            </div>
-              <div class="small-9 columns" align="center">
-                <div class="callout-panel radius" style="margin-bottom: 1em; padding-bottom: .25em; padding-top: .5em">
-                  <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4>
-                  <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-                  <div class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
-                    <span class="meter" style="width:<%=h%>%"></span>
-                  </div>
-                  <div class="row <%= pet.name %>">
-                    <div class="small-6 columns" align="right" >
-                      <%= link_to 'Change Name', edit_pet_path(pet) %>
-                    </div>
-                    <div class="small-6 columns" align="left">
-                      <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </li>
-        </div>
-        <li class="divider"></li>
-      <% end %>
-      <div align="center" style="margin-bottom: -2em">
-      <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
-      </div>
+      <li>
+        <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
+        <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4>
+        <% h = pet.happiness.nil? ? 0 : pet.happiness %>
+        <section class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
+          <span class="meter" style="width:<%=h%>%"></span>
+        </section>
+        <%= link_to 'Change Name', edit_pet_path(pet) %>
+        <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+      </li>
+      <li class="divider"></li>
     <% end %>
-  </ul>
-</div>
+      <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
+  <% end %>
+</ul>
