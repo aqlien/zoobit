@@ -1,37 +1,16 @@
 <%- title @pet.name %>
+<% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
+<% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
+<% @pet.save %>
+<%= image_tag(@pet.img_loc) %>
+<h5>About <%= @pet.name %></h5>
+Owner: <%= @pet.user.username %>
+Species: <%= @pet.type %>
+Breed/color: <%= @pet.breed %>
+Gender: <%= @pet.gender %>
+<%= render "pets/status_bars" %>
+<%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
+<%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
+<%= link_to 'Back', :back, class: "button small round success" %>
 
-<div style="height: 75px"></div>
-<div class="small-9 columns">
-  <div class="row">
-    <div class="small-4 columns">
-      <% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
-      <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
-      <% @pet.save %>
-      <%= image_tag(@pet.img_loc, width: "100%") %>
-    </div>
-    <div class="small-8 columns">
-      <div class="callout-panel" align="left">
-        <div align="center">
-          <h5><strong>About <%= @pet.name %></strong></h5>
-        </div>
-        <strong>Owner:</strong> <%= link_to @owner.username, @owner %><br>
-        <strong>Species:</strong> <%= @pet.type %><br>
-        <strong>Breed/color:</strong> <%= @pet.breed %><br>
-        <strong>Gender:</strong> <%= @pet.gender %><br>
-        <br>
-        <%= render "pets/status_bars" %>
-      </div>
-    </div>
-  </div>
-  <div class="small-12 columns">
-    <div class="row" align="center" style="padding-top: 2em">
-      <% if current_user && !current_user.friendships.where(friend_id: @owner.id).empty? && !@owner.friendships.where(friend_id: current_user.id).empty? || current_user == @owner %>
-        <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
-        <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
-      <% end %>
-      <br /><br />
-      <%= link_to 'Back to User Profile', @owner, class: "button small round success" %>
-    </div>
-  </div>
-</div>
 

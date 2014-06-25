@@ -86,8 +86,8 @@ class PetsController < ApplicationController
     redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
     respond_to do |format|
       if @pet.save
-        current_user.pets << @pet
         normalize_pet_stats
+        current_user.pets << @pet
         format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
         format.json { render :show, status: :created, location: @pet }
       else
@@ -100,7 +100,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to pet_path(@pet), notice: t("pets.new_name") }
+        format.html { redirect_to pet_path(@pet) }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
