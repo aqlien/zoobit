@@ -60,9 +60,9 @@ class User < ActiveRecord::Base
   def earn_points
     self.points += 10
     self.save
-    self.pet_slots = 5 if self.points >= 1000 && self.pet_slots < 5
-    self.pet_slots = 4 if self.points >= 500 && self.pet_slots < 4
-    self.pet_slots = 3 if self.points >= 250 && self.pet_slots < 3
+    self.pet_slots = 5 if self.points >= 2000 && self.pet_slots < 5
+    self.pet_slots = 4 if self.points >= 750 && self.pet_slots < 4
+    self.pet_slots = 3 if self.points >= 300 && self.pet_slots < 3
     self.pet_slots = 2 if self.points >= 100 && self.pet_slots < 2
     self.save
   end

@@ -39,7 +39,7 @@ en:
     bored_1: "Uh oh, you left %{name} alone too long, so %{gender} chewed up your toilet paper!"
     bored_2: "%{name} got too bored and destroyed your couch."
     hungry_1: "%{name} was hungry so %{gender} went through your cupboard and ate your snacks."
-    hungry_2: "%{name} ate a plastic bag while you were away because %{gender } was really hungry!"
+    hungry_2: "%{name} ate a plastic bag while you were away because %{gender} was really hungry!"
     hungry_3: "%{name} is staring at you expectantly."
     happy_1: "%{name} is really excited!"
     happy_2: "%{name} came over to be petted."

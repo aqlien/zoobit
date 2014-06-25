@@ -22,7 +22,7 @@ class Pet < ActiveRecord::Base
   end
 
   def calculate_happiness
-    self.happiness = ((100 - self.pet_hunger.value)*3 + (100 - self.pet_boredom.value)*3)/5
+    self.happiness = ((100 - self.pet_hunger.value)*2 + (100 - self.pet_boredom.value)*3)/4
     self.happiness = 100 if self.happiness > 100
   end
 

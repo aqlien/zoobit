@@ -1,12 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
-
     if params[:search]
       @users = User.search(params[:search]).order("created_at DESC")
     else
-      @users = User.all
+      @users = User.all.reject { |user| ApplicationHelper.obscene_substring?(user.username) }
     end
   end
 

@@ -18,7 +18,7 @@ class PetsController < ApplicationController
 
   def play
     if @pet.pet_boredom.decrease
-      if @pet.happiness >= 0
+      if @pet.happiness >= 80
         owner = User.find(@pet.user_id)
         owner.points += 25
         owner.save
