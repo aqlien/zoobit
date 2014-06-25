@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get "/faq" => "home#faq"
   get "/contact" => "home#contact"
   get "/leaderboard" => "home#leaderboard"
+  get "/shelter" => "pets#new"
 end

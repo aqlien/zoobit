@@ -12,7 +12,10 @@ Hunger:
 <% v = @pet.pet_tiredness.value %>
 Tiredness:
 <div class="small-9 column progress round <%= v < 80 ? "" : "alert"%>">
-  <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
+  <span class="meter" style="width:<%=v%>%; text-align:center;">
+    <%=v%>
+    <%= v < 100 ? v : "Sleeping" %>
+  </span>
 </div>
 <% v = @pet.pet_boredom.value %>
 Boredom:

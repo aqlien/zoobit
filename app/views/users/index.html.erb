@@ -1,3 +1,10 @@
-<% @users.each do |user| %>
-<%= link_to user.username, user %><br>
-<% end %>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.username, user %>
+      <% if current_user && current_user.friendships.where(friend_id: user.id).empty? && current_user != user %>
+        <%= link_to "Add #{user.username}", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

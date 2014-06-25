@@ -66,4 +66,9 @@ class User < ActiveRecord::Base
     self.pet_slots = 2 if self.points >= 100 && self.pet_slots < 2
     self.save
   end
+
+  def self.search(query)
+    where("username like ?", "%#{query}%")
+  end
+
 end

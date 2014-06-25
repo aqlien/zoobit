@@ -23,7 +23,7 @@
           <span class="meter" style="width:<%=h%>%"></span>
         </section>
         <%= link_to 'Change Name', edit_pet_path(pet) %>
-        <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone?" } %>
+        <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
       </li>
       <li class="divider"></li>
     <% end %>

@@ -1,4 +1,4 @@
-<%= form_for(new_pet_path) do |f| %>
+<%= form_for(@pet, as: :pet, url: pet_path(@pet)) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation" class="alert-box alert radius" align="center">
       <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
@@ -26,8 +26,8 @@
   <%= f.hidden_field :breed, value: b %>
   Gender: <%= g %>
   <%= f.hidden_field :gender, value: g %>
-  <%= story = PetsHelper.generate_story(n,t,g) %>
-  <%= f.submit "Adopt Pet", class: "button round" %>
+  <%= @story %>
+  <%= button_to "Adopt Pet", pet_adopt_path(@pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ @pet.name }?" } %>
   <%= link_to "See Another Pet", new_pet_path, class: "button round" %>
 <% end %>
 
