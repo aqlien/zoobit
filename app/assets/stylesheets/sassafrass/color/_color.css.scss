@@ -3,3 +3,7 @@ $bravo-color: #5db475; //green
 $charlie-color: #007f78; //blue
 $delta-color: #84c5bd; //light blue
 $echo-color: #fcda80; //yellow
+
+$bravo-color-light: lighten($bravo-color, 15%);
+
+$alpha-color-light: lighten($alpha-color, 15%);

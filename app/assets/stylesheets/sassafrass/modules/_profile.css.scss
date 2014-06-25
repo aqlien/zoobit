@@ -5,7 +5,7 @@
   border-bottom: 7px solid $charlie-color;
   // overflow: auto;
   margin-bottom: 0.5em;
-  padding: 1.25em;
+  padding: 1.0em;
 }
 
 .profile img {
@@ -18,25 +18,41 @@
 }
 
 .profile h4 {
-  float: right;
 }
 
 .stats {
   @include span-columns(6);
   @include omega();
 }
-
-.meter {
-  background-color: blue;
+.meter-happy {
+  @include span-columns(6);
+  @include omega();
+  width: 60%;
   height: 20px;
+  background-color: $bravo-color-light;
+  border-radius: 1.5em;
 }
-
 .unhappy {
-  background-color: red;
+  background-color: $alpha-color;
   height: 20px;
+  border-radius: 1.5em;
 }
 
 .happy {
-  background-color: green;
+  background-color: $bravo-color;
   height: 20px;
+  border-radius: 1.5em;
+}
+
+.meter-unhappy {
+  @include span-columns(6);
+  @include omega();
+  width: 60%;
+  height: 20px;
+  background-color: $alpha-color-light;
+  border-radius: 1.5em;
+}
+
+.hungry {
+  color: red;
 }
