@@ -1,12 +1,12 @@
 <%- title "Welcome to ZooBit!" %>
 <!--@KL lines 3 and 5 are repetitive, if comment out 3, it breaks, if comment out 5, it works.  Also, the obscene needs to take as another argument the username-->
 <% pet = Pet.all.sample %>
-<% while ApplicationHelper.obscene_substring?(pet.name) %>
+<% while ApplicationHelper.obscene_substring?(pet.name) && ApplicationHelper.obscene_substring?(pet.user.username) %>
   <% pet = Pet.all.sample %>
 <% end %>
 <% pet.update_happiness(Time.now) %>
 <h3>Pet of the Day! Meet <%= pet.user.username %>'s <%= pet.name %></h3>
-<%= link_to image_tag(pet.img_loc, width: "300px"), user_pet_path(pet.user, pet) %>
+<%= link_to image_tag(pet.img_loc), user_pet_path(pet.user, pet) %>
 
 <h5>About <%= pet.name %></h5>
 
