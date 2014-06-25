@@ -16,7 +16,7 @@
   <% b = @pet.breed %>
 
   <% img_loc = "#{t.downcase}_happy.jpg" %>
-  <%= image_tag(img_loc, width: "70%") %>
+  <%= image_tag(img_loc) %>
   <h5>About this pet:</h5>
   Name: <%= n %>
   <%= f.hidden_field :name, value: n %>

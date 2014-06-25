@@ -2,7 +2,7 @@
 <% happy_value = @pet.happiness < 40 ? "sad" : "happy" %>
 <% @pet.img_loc = "#{@pet.type.downcase}_#{happy_value}.jpg" %>
 <% @pet.save %>
-<%= image_tag(@pet.img_loc, width: "100%") %>
+<%= image_tag(@pet.img_loc) %>
 <h5>About <%= @pet.name %></h5>
 Owner: <%= @pet.user.username %>
 Species: <%= @pet.type %>
