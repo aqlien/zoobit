@@ -22,10 +22,10 @@
     <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
       <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-      <article class="pet-profile push-1 ten fcolumns">
-        <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet), class: "pet-image" %>
+      <article class="pet-profile ten fcolumns">
+        <section class="two fcolumns"><%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %></section>
         <!-- @KL the image is not reflecting the happiness status effectively -->
-        <h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
+        <section class="ten fcolumns"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4></section>
         <div class="<%= h > 40 ? "happy":"unhappy"%>">
           <div class="meter" style="width:<%=h%>%">
             <p><%= h %></p>
