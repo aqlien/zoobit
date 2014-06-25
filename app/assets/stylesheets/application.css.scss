@@ -35,4 +35,10 @@
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries/media_queries';
 
+.user-dashboard {
+  @include span-columns(12);
+  @include omega();
+  background-color: $echo-color;
+}
+
 

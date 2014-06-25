@@ -1,0 +1,42 @@
+.profile {
+  @include outer-container;
+  background-color: $delta-color;
+  border-radius: 10px;
+  border-bottom: 7px solid $charlie-color;
+  // overflow: auto;
+  margin-bottom: 0.5em;
+  padding: 1.25em;
+}
+
+.profile img {
+  @include span-columns(2);
+  min-height: 100px;
+  min-width: 100px;
+  max-width: 100px;
+  border-radius: 50%;
+  background-color: $delta-color;
+}
+
+.profile h4 {
+  float: right;
+}
+
+.stats {
+  @include span-columns(6);
+  @include omega();
+}
+
+.meter {
+  background-color: blue;
+  height: 20px;
+}
+
+.unhappy {
+  background-color: red;
+  height: 20px;
+}
+
+.happy {
+  background-color: green;
+  height: 20px;
+}
