@@ -2,6 +2,6 @@
 <h4>Featured Pet</h4>
 <%= render "randomform" %>
 <h4>Browse Pets</h4>
- <%= render "shelterform" unless User.first.id != 1 %>
+<%= render "shelterform" unless User.first.id != 1 %>
 <!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly-->
 <!-- So far, this is only a problem in the test environment. -->
