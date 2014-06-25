@@ -8,12 +8,18 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <%= render "layouts/navigation" %>
-  <%#= render "layouts/sidenav" %>
-  <main id="main">
-    <%= yield %>
-  </main>
-  <%= render "layouts/footer" %>
-  <%= javascript_include_tag "application" %>
+    <div id="outer-wrap">
+      <div id="inner-wrap">
+        <%= render "layouts/navigation" %>
+        <%#= render "layouts/sidenav" %>
+        <main id="main">
+          <%= yield %>
+        </main>
+        <%= render "layouts/footer" %>
+        <%= javascript_include_tag "application" %>
+      </div>
+    <!--/#inner-wrap-->
+    </div>
+    <!--/#outer-wrap-->
   </body>
 </html>
