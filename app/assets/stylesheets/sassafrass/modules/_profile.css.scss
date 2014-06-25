@@ -1,5 +1,6 @@
 .profile {
-  @include outer-container;
+  @include span-columns(6);
+  @include shift(3);
   background-color: $delta-color;
   border-radius: 10px;
   border-bottom: 7px solid $charlie-color;
@@ -7,14 +8,22 @@
   margin-bottom: 0.5em;
   padding: 1.0em;
 }
+.profile:first-of-type {
+  margin-top: 0.5em;
+}
 
+.user-friends {
+  @include span-columns(6);
+  @include shift(3);
+}
 .profile img {
   @include span-columns(2);
-  min-height: 100px;
-  min-width: 100px;
-  max-width: 100px;
+  // min-height: 100px;
+  min-width: 75px;
+  max-width: 75px;
   border-radius: 50%;
   background-color: $delta-color;
+  margin-right: 2em !important;
 }
 
 .profile h4 {
@@ -52,7 +61,18 @@
   background-color: $alpha-color-light;
   border-radius: 1.5em;
 }
-
 .hungry {
-  color: red;
+  width: 1.25em;
+  display: inline-block;
+}
+.hungry:after {
+  content: url('hungry.svg');
+}
+
+.bored {
+  width: 1.25em;
+  display: inline-block;
+}
+.bored:after {
+  content: url('bored.svg');
 }
