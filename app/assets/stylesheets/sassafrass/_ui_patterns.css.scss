@@ -13,7 +13,7 @@
   h1 {
     font-size: 30px;
     display: inline-block;
-  } 
+  }
 }
 
 .main-nav {
@@ -187,6 +187,18 @@ footer[role="contentinfo"] {
   }
   #nav li a {
     padding: 0.42857em 0.85714em;
+  }
+}
+
+footer {
+  background-color: gray;
+  padding: 1em;
+  text-align: center;
+  a {
+    padding: 0 0.5em;
+    &:hover {
+      color: white;
+    }
   }
 }
 
