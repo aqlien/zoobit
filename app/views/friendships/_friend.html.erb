@@ -1,8 +1,11 @@
-<%= link_to image_tag(avatar_url(@friend)), @friend %><br>
-<%= link_to @friend.username, @friend %><br>
-<%= @friend.created_at.strftime("Joined on: %m/%d/%Y") %><br>
-<%= @friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %><br>
-Pets: <%= @friend.pets.length %><br>
-Score: <%= @friend.points%><br>
+<article class="profile"><%= link_to image_tag(avatar_url(@friend)), @friend %>
+<section class="stats">
+<%= link_to @friend.username, @friend %>
+<p><%= @friend.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+<p><%= @friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+<p>Pets: <%= @friend.pets.length %></p>
+<p>Score: <%= @friend.points%></p>
+</section>
+</article>
 
 

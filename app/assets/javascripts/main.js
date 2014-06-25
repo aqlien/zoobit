@@ -5,7 +5,6 @@
  */
 (function(window, document, undefined)
 {
-
     // helper functions
 
     var trim = function(str)
