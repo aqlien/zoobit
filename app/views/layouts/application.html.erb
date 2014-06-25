@@ -5,16 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= content_for?(:title) ? yield(:title)+ " | ZooBit" : "ZooBit" %></title>
     <%= stylesheet_link_tag  "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag  "main" %>
+    <%= javascript_include_tag  "modernizr" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <%= render "layouts/navigation" %>
-  <%#= render "layouts/sidenav" %>
-  <main id="main">
-    <%= yield %>
-  </main>
-  <%= render "layouts/footer" %>
-  <%= javascript_include_tag "application" %>
+    <div id="outer-wrap">
+      <div id="inner-wrap">
+        <%= render "layouts/navigation" %>
+        <%#= render "layouts/sidenav" %>
+        <main id="main">
+          <%= yield %>
+        </main>
+        <%= render "layouts/footer" %>
+        <%= javascript_include_tag "application" %>
+      </div>
+    <!--/#inner-wrap-->
+    </div>
+    <!--/#outer-wrap-->
   </body>
 </html>
