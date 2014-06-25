@@ -1,32 +1,20 @@
 @import "ui_patterns/manifest";
 
 .header-main {
-  background-color: $bravo-color;
+	background-color: $bravo-color;
   padding: 10px;
-  h1 {
-    font-size: 30px;
-    display: inline-block;
+  .header-btn-menu {
+  	width: 30px;
   }
+  .header-logo {
+  	width: 50px;
+  }
+  h1 {
+    font-size: 40px;
+    display: inline-block;
+  } 
 }
 
-// #nav-main {
-//   background-color: $charlie-color;
-//   color: #fff;
-//   margin: 0;  
-//   position: absolute;  
-//   top: 0;  
-//   right: 0;  
-//   left: 0;  
-//   z-index: 1000;
-//   #nav-main a {
-//     border-bottom-width: 0;  
-//     overflow: hidden;  
-//     height: 0;  
-//     line-height: 0;  
-//     padding: 0 1em;
-//   }
-//   #nav-main:target a {  
-//     border-bottom-width: 1px;  
-//     line-height: 3em;  
-//     height: 3em;}
-// }
+.main-nav {
+	background-color: #313131;
+}
