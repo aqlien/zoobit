@@ -14,10 +14,10 @@
       <div id="inner-wrap">
         <%= render "layouts/navigation" %>
         <%#= render "layouts/sidenav" %>
-        <main id="main">
+        <main id="main" class="main">
           <%= yield %>
+          <%= render "layouts/footer" %>
         </main>
-        <%= render "layouts/footer" %>
         <%= javascript_include_tag "application" %>
       </div>
     <!--/#inner-wrap-->
