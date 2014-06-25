@@ -3,6 +3,10 @@
 <h3>Most Responsible Owners</h3>
 <% @users = User.all.order(:points).reverse %>
 <% @users.each do |user| %>
-  <%= link_to user.username, user %><br>
-  Score: <%= user.points %><br><br>
+  <% if ApplicationHelper.obscene_substring?(user.username) %>
+    *Censored Username* ( User ID: <%= user.id %> )
+  <% else %>
+    <%= link_to user.username, user %>
+  <% end %>
+  <br>Score: <%= user.points %><br><br>
 <% end %>

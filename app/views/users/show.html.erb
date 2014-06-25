@@ -17,7 +17,7 @@
 
 
   <% if @user.pets.empty? %>
-    <%= @user.username %>: You don't have any pets yet!
+    No pets yet!
   <% else %>
     <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
@@ -38,7 +38,8 @@
 <section class="user-friends">
   <p>Random from <%= @user.username %>'s friends:</p>
   <% if @user.friendships.empty? %>
-    <h3><strong><%= @user.username %> doesn't have any friends!</strong></h3>
+    <%= @user.username %> doesn't have any friends listed.
+    <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
   <% else %>
     <% random = [] %>
     <% 3.times do %>
@@ -49,5 +50,4 @@
       <%= render 'friendships/friend' %><br>
     <% end %>
   <% end %>
-  <%= link_to "See all of #{@user.username}'s friends", user_friends_path(@user) %>
 </section>

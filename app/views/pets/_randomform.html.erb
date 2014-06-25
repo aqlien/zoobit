@@ -1,34 +1,29 @@
-<%= form_for(@pet, as: :pet, url: pet_path(@pet)) do |f| %>
-  <% if @pet.errors.any? %>
-    <div id="error_explanation" class="alert-box alert radius" align="center">
-      <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
+<% if @pet.errors.any? %>
+  <div id="error_explanation" class="alert-box alert radius" align="center">
+    <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
 
-      <ul>
-      <% @pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <% g = @pet.gender %>
-  <% n = @pet.name %>
-  <% t = @pet.type %>
-  <% b = @pet.breed %>
-
-  <% img_loc = "#{t.downcase}_happy.jpg" %>
-  <%= image_tag(img_loc) %>
-  <h5>About this pet:</h5>
-  Name: <%= n %>
-  <%= f.hidden_field :name, value: n %>
-  Species: <%= t %>
-  <%= f.hidden_field :type, value: t %>
-  Breed/color: <%= b %>
-  <%= f.hidden_field :breed, value: b %>
-  Gender: <%= g %>
-  <%= f.hidden_field :gender, value: g %>
-  <%= @story %>
-  <%= button_to "Adopt Pet", pet_adopt_path(@pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ @pet.name }?" } %>
-  <%= link_to "See Another Pet", new_pet_path, class: "button round" %>
-  <%= label_tag "Tip: You can always rename your pet after adopting it." %>
+    <ul>
+    <% @pet.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
+
+<% img_loc = "#{@pet.type.downcase}_happy.jpg" %>
+<%= image_tag(img_loc) %>
+<h5>About this pet:</h5>
+Name: <%= @pet.name %>
+
+Species: <%= @pet.type %>
+
+Breed/color: <%= @pet.breed %>
+
+Gender: <%= @pet.gender %>
+
+<%= @story %>
+<%= button_to "Adopt Pet", pet_adopt_path(@pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ @pet.name }?" } %>
+<%= link_to "See Another Pet", new_pet_path, class: "button round" %>
+<%= label_tag "Tip: You can always rename your pet after adopting it." %>
+
 
