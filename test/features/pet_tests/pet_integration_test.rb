@@ -27,7 +27,7 @@ feature "abandon a pet" do
     visit new_pet_path
     click_on "new Pet"
     page.must_have_content "Whiskers"
-    first(:button, "Adopt Pet").click
+    first(:link, "Adopt Pet").click
     page.must_have_content I18n.t("pets.new")
   end
 end

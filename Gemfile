@@ -10,8 +10,8 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'sqlite3', group: :development, group: :test
 gem 'uglifier', '>= 1.3.0'
-gem 'bourbon' 
-gem 'neat' 
+gem 'bourbon'
+gem 'neat'
 gem 'sass'
 
 gem "obscenity"
@@ -26,6 +26,8 @@ group :test do
   gem "launchy"
   gem "minitest-rails-capybara"
   gem "simplecov"
+  gem "pry"
+  gem "pry-nav"
 end
 
 group :production do

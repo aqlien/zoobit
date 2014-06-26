@@ -16,7 +16,7 @@ feature "Pet Creation" do
     visit root_path
     sign_in_capybara
     click_on "new Pet"
-    first(:button, "Adopt Pet").click
+    first(:link, "Adopt Pet").click
     page.must_have_content I18n.t("pets.new")
   end
 end
