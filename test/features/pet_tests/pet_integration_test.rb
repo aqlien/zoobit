@@ -10,7 +10,7 @@ feature "edit a pet test" do
     visit edit_pet_path(pets :tweets)
     fill_in "pet[name]", with: "New animal!"
     click_on "Rename Pet"
-    page.must_have_content I18n.t("pets.new_name")
+    page.must_have_content "New animal!"
   end
 end
 
