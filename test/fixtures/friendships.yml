@@ -2,11 +2,11 @@
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  user_id: 
-  friend_id: 
+  user_id: 23
+  friend_id: 32
   status: MyString
 
 two:
-  user_id: 
-  friend_id: 
+  user_id: 32
+  friend_id: 23
   status: MyString

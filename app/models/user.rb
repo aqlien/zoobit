@@ -26,9 +26,9 @@ class User < ActiveRecord::Base
   #Below methods for omniauth are from
   #https://gist.github.com/ivanoats/7076128
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
+    where(auth.slice(:provider, :id)).first_or_create do |user|
       user.provider = auth.provider
-      user.uid = auth.uid
+      user.id = auth.uid
       user.username = auth.info.nickname.nil? ? auth.info.name : auth.info.nickname
       user.email = auth.info.email.nil? ? "#{user.username}-TEMPORARY@zoobit.net" : auth.info.email
     end

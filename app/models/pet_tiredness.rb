@@ -2,7 +2,7 @@ class PetTiredness < ActiveRecord::Base
   before_create :initialize_tiredness
   belongs_to :pet
 
-  def decrease(current_time)
+  def decrease
     self.value = 10
     pet.happiness += 10
     pet.save
@@ -20,7 +20,7 @@ class PetTiredness < ActiveRecord::Base
       self.value = 100 if self.value > 100
       @asleep = true if self.value >= 90
       if @asleep
-        self.decrease(current_time)
+        self.decrease
       end
     end
     self.save

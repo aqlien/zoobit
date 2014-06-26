@@ -1,6 +1,10 @@
 require "test_helper"
 
 feature "Pet Creation" do
+  before do
+    seed_db
+  end
+
   scenario "As a developer, I want a model for each species to track pet attributes." do
     kayenne = Dog.create(name: "Kayenne", type:"Dog", gender:"Female")
     assert_equal kayenne.name, "Kayenne"
@@ -12,11 +16,7 @@ feature "Pet Creation" do
     visit root_path
     sign_in_capybara
     click_on "new Pet"
-    ##Users cannot create their own pets anymore, they must adopt
-    # fill_in "Name", with: pets(:spot).name
-    # select pets(:spot).type, from: "Type"
-    # select pets(:spot).gender, from: "Gender"
-    click_on "Adopt Pet"
+    first(:button, "Adopt Pet").click
     page.must_have_content I18n.t("pets.new")
   end
 end
