@@ -8,7 +8,7 @@ Gender: <%= @pet.gender %>
 <%= render "pets/status_bars" %>
 <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "button round"%>
 <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "button round" %>
-<%= link_to 'Back', pets_path, class: "button small round success" %>
+<%= link_to 'Back', user_path(@pet.user), class: "button small round success" %>
 <%= link_to 'Temporary Abandon Link', pet_path(@pet), method: :delete, data: { confirm: "Leave #{ @pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
 
 

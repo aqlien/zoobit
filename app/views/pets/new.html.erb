@@ -1,7 +1,12 @@
 <%- title "Animal Shelter" %>
 <h4>Featured Pet</h4>
 <%= render "randomform" %>
+<%= link_to "Dogs", new_pet_path(:type => "Dog") %>
+<%= link_to "Cats", new_pet_path(:type => "Cat") %>
+<%= link_to "Birds", new_pet_path(:type => "Bird") %>
+<%= link_to "Rabbits", new_pet_path(:type => "Rabbit") %>
 <h4>Browse Pets</h4>
 <%= render "shelterform" unless User.first.id != 1 %>
 <!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly-->
 <!-- So far, this is only a problem in the test environment. -->
+
