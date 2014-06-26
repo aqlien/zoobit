@@ -13,14 +13,12 @@
   h1 {
     font-size: 30px;
     display: inline-block;
-  } 
+  }
 }
 
 .main-nav {
-	background-color: #313131;
+	background-color: $charlie-color;
 }
-
-
 
 // OFF CANVAS
 .nav-btn {
@@ -190,3 +188,14 @@ footer[role="contentinfo"] {
   }
 }
 
+footer {
+  background-color: gray;
+  padding: 1em;
+  text-align: center;
+  a {
+    padding: 0 0.5em;
+    &:hover {
+      color: white;
+    }
+  }
+}
