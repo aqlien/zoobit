@@ -11,8 +11,7 @@
 <% end %>
 
 <article class="profile">
-	<% img_loc = "#{@featured.type.downcase}_happy.jpg" %>
-	<%= image_tag(img_loc) %>
+	<%= image_tag(@featured.img_loc) %>
 	<h5>About this pet:</h5>
 	Name: <%= @featured.name %>
 
