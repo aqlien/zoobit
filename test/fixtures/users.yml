@@ -14,3 +14,11 @@ alex:
   created_at: <%= Time.now %>
   last_sign_in_at: <%= Time.now %>
   pet_slots: 5
+
+obscene:
+  id: 56
+  email: obscene@test.com
+  username: Fucker
+  created_at: <%= Time.now %>
+  last_sign_in_at: <%= Time.now %>
+  pet_slots: 1

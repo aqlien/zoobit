@@ -10,20 +10,21 @@
   </div>
 <% end %>
 
-<% img_loc = "#{@featured.type.downcase}_happy.jpg" %>
-<%= image_tag(img_loc) %>
-<h5>About this pet:</h5>
-Name: <%= @featured.name %>
+<article class="profile">
+	<%= image_tag(@featured.img_loc) %>
+	<h5>About this pet:</h5>
+	Name: <%= @featured.name %>
 
-Species: <%= @featured.type %>
+	Species: <%= @featured.type %>
 
-Breed/color: <%= @featured.breed %>
+	Breed/color: <%= @featured.breed %>
 
-Gender: <%= @featured.gender %>
+	Gender: <%= @featured.gender %>
 
-<%= @story %>
-<%= button_to "Adopt Pet", pet_adopt_path(@featured), method: :patch, class: "button round", data: { confirm: "Adopt #{ @featured.name }?" } %>
-<%= link_to "See Another Pet", new_pet_path, class: "button round" %>
-<%= label_tag "Tip: You can always rename your pet after adopting it." %>
+	<%= @story %>
+	<%= link_to "Adopt Pet", pet_adopt_path(@featured), method: :patch, class: "button round", data: { confirm: "Adopt #{ @featured.name }?" } %>
+	<%= link_to "See Another Pet", new_pet_path, class: "button round" %>
+	<%= label_tag "Tip: You can always rename your pet after adopting it." %>
+</article>
 
 

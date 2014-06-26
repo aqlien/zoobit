@@ -30,15 +30,28 @@
 @import 'sassafrass/typography';
 @import 'sassafrass/buttons';
 @import 'sassafrass/forms';
-@import 'sassafrass/layouts/manifest';
-@import 'sassafrass/modules/manifest';
+@import 'sassafrass/layout';
+@import 'sassafrass/modules';
 @import 'sassafrass/ui_patterns';
-@import 'sassafrass/media_queries/media_queries';
+@import 'sassafrass/media_queries';
 
-.user-dashboard {
-  @include span-columns(12);
-  @include omega();
-  background-color: $echo-color;
+.full-pet {
+	@include outer-container;
+	position: relative;
+	width: 5em;
 }
 
+.pet-head {
+	position: absolute;
+	left: 15px;
+	top: 0;
+	width: 63%;
+	z-index: 100;
+}
 
+.pet-body {
+	position: absolute;
+	top: 66px;
+	width: 100%;
+
+}

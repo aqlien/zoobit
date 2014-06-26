@@ -26,6 +26,8 @@ group :test do
   gem "launchy"
   gem "minitest-rails-capybara"
   gem "simplecov"
+  gem "pry"
+  gem "pry-nav"
 end
 
 group :production do

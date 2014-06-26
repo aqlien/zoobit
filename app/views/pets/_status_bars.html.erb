@@ -1,21 +1,31 @@
+<article class="profile">
+  <% v = @pet.happiness %>
+  <h2 class="sub-heading">Happiness:</h2>
+  <div class="<%= v > 40 ? "meter-container-happy":"meter-container-unhappy"%>">
+    <div class="<%= v > 40 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
+      <p><%= v %></p>
+    </div>
+  </div>
+  <% v = @pet.pet_hunger.value %>
+  <h2 class="sub-heading">Hunger:</h2>
+  <div class="<%= v < 60 ? "meter-container-happy":"meter-container-unhappy"%>">
+    <div class="<%= v < 60 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
+      <p><%= v %></p>
+    </div>
+  </div>
+  <% v = @pet.pet_tiredness.value %>
+  <h2 class="sub-heading">Tiredness:</h2>
+  <div class="<%= v < 80 ? "meter-container-happy":"meter-container-unhappy"%>">
+    <div class="<%= v < 80 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
+      <p><%= v < 100 ? v : "Sleeping" %></p>
+    </div>
+  </div>
+  <% v = @pet.pet_boredom.value %>
+  <h2 class="sub-heading">Boredom:</h2>
+  <div class="<%= v < 50 ? "meter-container-happy":"meter-container-unhappy"%>">
+    <div class="<%= v < 50 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
+      <p><%= v %></p>
+    </div>
+  </div>
+</article>
 
-<% v = @pet.happiness %>
-Happiness:
-<div class="small-9 column progress round <%= v > 40 ? "" : "alert"%>">
-  <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
-</div>
-<% v = @pet.pet_hunger.value %>
-Hunger:
-<div class="small-9 column progress round <%= v < 60 ? "" : "alert"%>">
-  <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
-</div>
-<% v = @pet.pet_tiredness.value %>
-Tiredness:
-<div class="small-9 column progress round <%= v < 80 ? "" : "alert"%>">
-  <span class="meter" style="width:<%=v%>%; text-align:center;"><%= v < 100 ? v : "Sleeping" %></span>
-</div>
-<% v = @pet.pet_boredom.value %>
-Boredom:
-<div class="small-9 column progress round <%= v < 50 ? "" : "alert"%>">
-  <span class="meter" style="width:<%=v%>%; text-align:center;"><%=v%></span>
-</div>

@@ -1,0 +1,28 @@
+@import "modules/manifest";
+
+.meter-container-happy {
+  @include meter-container($bravo-color-light);
+}
+
+.meter-container-unhappy {
+  @include meter-container($alpha-color-light);
+}
+
+// @KL the above contain two width calls, one from the neat columns, one hard coded. play with inspector to see what's what.
+
+.meter-happy {
+  @include meter($bravo-color);
+}
+
+.meter-unhappy {
+  @include meter($alpha-color);
+}
+
+.hungry {
+  @include need-icon(hungry);
+}
+
+.bored {
+  @include need-icon(bored);
+}
+

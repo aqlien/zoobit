@@ -1,12 +1,12 @@
 <header class="header-main" id="top" role="banner">
   <%= image_tag("barger.svg", class: "nav-btn", id:"nav-open-btn", href: "#nav", width: "30px") %>
   <%= link_to image_tag("zoobit-logo.svg", class: "header-logo"), root_path %>
-  <h1 class="header-main-heading">Zoobit</h1>
+  <h1 class="header-main-heading"><%= link_to "Zoobit", root_path %></h1>
 </header>
 <nav class="main-nav" id="nav" role="navigation">
   <ul>
     <% if current_user.nil? %>
-      <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></a>
+      <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %><li>
       <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
     <% else %>
       <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>

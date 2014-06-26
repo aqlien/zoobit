@@ -1,63 +1,13 @@
 <article class="user-dashboard">
-  <article class="profile"><%- title "#{@user.username}" %>
-    <%= link_to image_tag avatar_url(@user) %>
-    <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
-    <section class="stats">
-      <h3><%= @user.username %></h3>
-      <p>Score: <%= @user.points %></p>
-      <p>Pet slots: <%= @user.pet_slots %></p>
-      <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
-      <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
 
-      <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
-        <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
-      <% else %>
-        <%= "#{@user.username} is in your Friends List!" unless current_user == @user %>
-      <% end %>
-      <!-- <h3><%= @user.username %>'s Pets</h3> -->
-      <p>(<%= @user.pets.count %> out of <%= @user.pet_slots %> allowed <%= @user.pet_slots == 1 ? "pet" : "pets" %>.)</p>
-    </section>
-  </article>
+  <%= render "users/user_profile" %>
 
-  <h2 class="sub-heading"><%= @user.username %>'s Pets</h2>
-  <% if @user.pets.empty? %>
-    No pets yet!
-  <% else %>
-    <% @user.pets.each do |pet| %>
-      <% pet.update_happiness(Time.now) %>
-      <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-      <article class="profile">
-        <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
-        <!-- @KL the image is not reflecting the happiness status effectively -->
-        <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
-          <p><%= pet.type %></p>
-          <p><%= pet.breed %></p>
-          <p class="<%= pet.pet_hunger.value > 50 ? "hungry":""%>"></p>
-          <p class="<%= pet.pet_boredom.value > 50 ? "bored":""%>"></p>
-          <div class="<%= h > 40 ? "meter-happy":"meter-unhappy"%>">
-            <div class="<%= h > 40 ? "happy":"unhappy"%>" style="width:<%=h%>%">
-              <p><%= h %></p>
-            </div>
-          </div>
-        </section>
-        <% if current_user == pet.user %>
-          <%= link_to 'Change Name', edit_pet_path(pet) %>
-          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
-        <% end %>
-      </article>
-    <% end %>
-  <% end %>
+  <h2 class="sub-heading"><%= @user.username %>'s Pets:</h2>
 
-  <h2 class="sub-heading">Some of <%= @user.username %>'s friends:</h2>
-  <% if @user.friendships.empty? %>
-    <%= @user.username %> doesn't have any friends listed.
-    <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
-  <% else %>
-    <% random = @user.friendships.sample(3) %>
-    <% random.uniq.each do |friendship| %>
-      <% @friend = User.find(friendship.friend_id) %>
-      <%= render 'friendships/friend' %>
-    <% end %>
-    <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
-  <% end %>
+  <%= render "users/pet_profile" %>
+
+  <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
+
+  <%= render "users/friend_profile" %>
+
 </article>

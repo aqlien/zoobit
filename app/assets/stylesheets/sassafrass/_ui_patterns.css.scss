@@ -20,7 +20,24 @@
 	background-color: $charlie-color;
 }
 
-// OFF CANVAS
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  padding: 1em;
+  text-align: center;
+  color: black;
+  margin-top: 1em;
+  a {
+    padding: 0 0.5em;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// OFF CANVAS - I pulled this from sassafrass/ui_patterns
 .nav-btn {
   display: block;
   width: 2.625em;
@@ -188,14 +205,3 @@ footer[role="contentinfo"] {
   }
 }
 
-footer {
-  background-color: gray;
-  padding: 1em;
-  text-align: center;
-  a {
-    padding: 0 0.5em;
-    &:hover {
-      color: white;
-    }
-  }
-}

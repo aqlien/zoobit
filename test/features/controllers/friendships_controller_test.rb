@@ -4,51 +4,29 @@ feature "Friendship" do
   before do
     seed_db
     @friendship ||= friendships :one
-    @user = users :alex
+    @user = users :sam
   end
 
   def test_index
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:friendships)
-  end
-
-  def test_new
-    get :new
-    assert_response :success
+    visit user_friends_path(@user)
+    page.must_have_content User.find(@friendship.friend_id).username
   end
 
   def test_create
-    user = users :sam
     visit root_path
     sign_in_capybara
-    visit user_friends_path(user)
+    visit user_friends_path(@user)
+    assert_equal(1, @user.friendships.count)
     click_on "Search"
-    click_on "Add ZoobitDev"
-    assert_equal(user.friendships.count, 1)
-  end
-
-  def test_show
-    get :show, id: friendship
-    assert_response :success
-  end
-
-  def test_edit
-    get :edit, id: friendship
-    assert_response :success
-  end
-
-  def test_update
-    put :update, id: friendship, friendship: { friend_id: @friendship.friend_id, status: @friendship.status, user_id: @friendship.user_id }
-    assert_redirected_to friendship_path(assigns(:friendship))
+    first(:link, "Add Friend").click
+    assert_equal(2, @user.friendships.count)
   end
 
   def test_destroy
-    user = users :sam
-    assert_difference('user.friendships.count', -1) do
-      delete :destroy, id: friendship
+    assert_equal(@user.friendships.count, 1)
+    assert_difference('@user.friendships.count', -1) do
+      visit user_friends_path(@user)
+      click_on "Unfriend"
     end
-
-    assert_redirected_to friendships_path
   end
 end

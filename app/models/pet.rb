@@ -25,13 +25,14 @@ class Pet < ActiveRecord::Base
     self.happiness = ((100 - self.pet_hunger.value)/2 + (100 - self.pet_boredom.value)/2)
     self.happiness = 100 if self.happiness > 100
     happy_value = self.happiness < 40 ? "sad" : "happy"
-    self.img_loc = "#{self.type.downcase}_#{happy_value}.jpg"
+    self.img_loc = "#{self.type.downcase}_#{happy_value}.svg"
+    self.body_img = "#{self.type.downcase}.svg"
   end
 
 private
   def initialize_pet
     self.happiness = 100
-    self.img_loc = "#{self.type.downcase}_happy.jpg"
+    self.img_loc = "#{self.type.downcase}_happy.svg"
     self.pet_hunger = PetHunger.new(pet_id: self.id)
     self.pet_tiredness = PetTiredness.new(pet_id: self.id)
     self.pet_boredom = PetBoredom.new(pet_id: self.id)
