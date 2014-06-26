@@ -1,13 +1,9 @@
 @import "buttons/manifest";
 
-.profile a.btn-profile {
-	background-color: $bravo-color;
-	padding: .75em;
-	border-radius: 10px;
-	border-bottom: 5px solid $charlie-color;
-	&:active {
-		border-bottom: none;
-		position: relative;
-		top: 5px;
-	}
+.btn-profile {
+	@include button($bravo-color, $charlie-color);
+}
+
+.btn-profile-neg {
+  @include button($alpha-color, $alpha-color-dark);
 }

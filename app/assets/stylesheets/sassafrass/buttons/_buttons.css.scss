@@ -1,0 +1,19 @@
+@mixin button($color, $border-color) {
+  @include span-columns(2);
+  margin-top: 0.5em;
+  background-color: $color;
+  padding: .75em;
+  border-radius: 10px;
+  border-bottom: 5px solid $border-color;
+  text-align: center;
+  &:active {
+    border-bottom: none;
+    position: relative;
+    top: 5px;
+  }
+  @media screen and (max-width: 45em) {
+    display: inline-block;
+    width: 90%;
+    margin: 0.5em 5%;
+  }
+}

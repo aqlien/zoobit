@@ -1,0 +1,28 @@
+<% if @user.pets.empty? %>
+    No pets yet!
+  <% else %>
+    <% @user.pets.each do |pet| %>
+      <% pet.update_happiness(Time.now) %>
+      <% h = pet.happiness.nil? ? 0 : pet.happiness %>
+      <article class="profile">
+        <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
+        <!-- @KL the image is not reflecting the happiness status effectively -->
+        <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
+          <p><%= pet.type %></p>
+          <p><%= pet.breed %></p>
+          <p class="<%= pet.pet_hunger.value > 50 ? "hungry":""%>"></p>
+          <p class="<%= pet.pet_boredom.value > 50 ? "bored":""%>"></p>
+          <div class="<%= h > 40 ? "meter-container-happy":"meter-container-unhappy"%>">
+            <div class="<%= h > 40 ? "meter-happy":"meter-unhappy"%>" style="width:<%=h%>%">
+              <p><%= h %></p>
+            </div>
+          </div>
+        </section>
+        <% if current_user == pet.user %>
+          <%= link_to 'Change Name', edit_pet_path(pet) %>
+
+          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." }, :class => "btn-profile-neg" %>
+        <% end %>
+      </article>
+    <% end %>
+  <% end %>

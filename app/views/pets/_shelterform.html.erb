@@ -1,11 +1,12 @@
 <% @results.each do |pet| %>
-  <% pet.update_happiness(Time.now) %>
-  <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
-  <h5>About <%= pet.name %></h5>
-  <strong>Abandoned By:</strong> <%= pet.previous_owner && !ApplicationHelper.obscene_substring?(pet.previous_owner) ? pet.previous_owner : "Unknown" %><br>
-  Species: <%= pet.type %>
-  Breed/color: <%= pet.breed %>
-  Gender: <%= pet.gender %>
-  <%= button_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ pet.name }?" } %>
+	<article class="profile">
+	  <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
+	  <h5>About <%= pet.name %></h5>
+	  <strong>Relinquished By:</strong> <%= pet.previous_owner && !ApplicationHelper.obscene_substring?(pet.previous_owner) ? pet.previous_owner : "Animal Control" %><br>
+	  Species: <%= pet.type %>
+	  Breed/color: <%= pet.breed %>
+	  Gender: <%= pet.gender %>
+	  <%= link_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "btn-profile", data: { confirm: "Adopt #{ pet.name }?" } %>
+	</article>
 <% end %>
 
