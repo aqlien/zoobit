@@ -1,27 +1,13 @@
-<!-- <%#- title "#{current_user.username}'s Pets" %>
-
-<%# if current_user.pets.empty? %>
-    <h3><%#= current_user.username %> doesn't have any pets!</h3>
-  <%# else %>
-    <%# current_user.pets.each do |pet| %>
-      <%#= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
-      <h4><%#= link_to pet.name, user_pet_path(current_user, pet) %></h4>
-    <%# end %>
-<%# end %> -->
-
-<%- title "#{current_user.username}'s Pets" %>
-<article class="user-dashboard">
-<% if current_user.pets.empty? %>
-    <h3><%= current_user.username %> doesn't have any pets!</h3>
+<% if @user.pets.empty? %>
+    <h3>No pets yet!</h3>
   <% else %>
-    <% current_user.pets.each do |pet| %>
-
+    <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
       <% h = pet.happiness.nil? ? 0 : pet.happiness %>
       <article class="profile">
-        <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
+        <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
         <!-- @KL the image is not reflecting the happiness status effectively -->
-        <section class="stats"><h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4>
+        <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
           <p><%= pet.type %></p>
           <p><%= pet.breed %></p>
           <p class="<%= pet.pet_hunger.value > 50 ? "hungry":""%>"></p>
@@ -40,4 +26,3 @@
       </article>
     <% end %>
   <% end %>
-</article>
