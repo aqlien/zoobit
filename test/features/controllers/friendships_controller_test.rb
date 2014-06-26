@@ -45,8 +45,9 @@ feature "Friendship" do
 
   def test_destroy
     user = users :sam
+    assert_equal(user.friendships.count, 1)
     assert_difference('user.friendships.count', -1) do
-      delete :destroy, id: friendship
+      user.friendships.delete(@friendship)
     end
 
     assert_redirected_to friendships_path
