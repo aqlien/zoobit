@@ -18,14 +18,15 @@ feature "Friendship" do
     visit user_friends_path(@user)
     assert_equal(1, @user.friendships.count)
     click_on "Search"
-    click_on "Add Friend"
+    first(:link, "Add Friend").click
     assert_equal(2, @user.friendships.count)
   end
 
   def test_destroy
     assert_equal(@user.friendships.count, 1)
     assert_difference('@user.friendships.count', -1) do
-      @user.friendships.delete(@friendship)
+      visit user_friends_path(@user)
+      click_on "Unfriend"
     end
   end
 end

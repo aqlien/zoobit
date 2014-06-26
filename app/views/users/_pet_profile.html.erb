@@ -1,5 +1,5 @@
 <% if @user.pets.empty? %>
-    No pets yet!
+    <h3>No pets yet!</h3>
   <% else %>
     <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>

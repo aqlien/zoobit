@@ -30,22 +30,6 @@ class PetsController < ApplicationController
     end
   end
 
-  def index
-    @pets = Pet.all
-    current_uri = request.env['PATH_INFO']
-    if current_uri == "/pets"
-      if current_user.nil?
-        redirect_to "/users/sign_in", :alert => "Please log in first!"
-      else
-        owner = current_user
-      end
-    else
-      url_parts = current_uri.split("/")-[""]
-      uid = url_parts[1].to_i
-      owner = User.find(uid)
-    end
-  end
-
   def show
     @pet.update_happiness(Time.now)
     @owner = User.find(@pet.user_id)
@@ -68,26 +52,8 @@ class PetsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def create
-    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
-    @pet = Pet.new(pet_params)
-    respond_to do |format|
-      if @pet.save
-        current_user.pets << @pet
-        format.html { redirect_to pet_path(@pet), notice: t("pets.new") }
-        format.json { render :show, status: :created, location: @pet }
-      else
-        format.html { render :new }
-        format.json { render json: @pet.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def adopt
-    redirect_to pets_path, notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
+    redirect_to user_path(current_user), notice: t("pets.too_many") and return if current_user.pets.count >= current_user.pet_slots
     respond_to do |format|
       if @pet.save
         normalize_pet_stats
@@ -104,7 +70,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to pet_path(@pet) }
+        format.html { redirect_to user_path(current_user) }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
@@ -119,7 +85,7 @@ class PetsController < ApplicationController
     current_user.points = current_user.points/2
     current_user.save
     respond_to do |format|
-      format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
+      format.html { redirect_to user_path(current_user), notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
     end
     give_to_shelter

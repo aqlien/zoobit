@@ -17,11 +17,14 @@
         <main id="main" class="main">
           <%= yield %>
         </main>
-        <%= render "layouts/footer" %>
         <%= javascript_include_tag "application" %>
       </div>
     <!--/#inner-wrap-->
     </div>
     <!--/#outer-wrap-->
+    <%= render "layouts/footer" %>
   </body>
 </html>
+
+
+
