@@ -1,6 +1,5 @@
 <article class="user-dashboard">
   <article class="profile"><%- title "#{@user.username}" %>
-
     <%= link_to image_tag avatar_url(@user) %>
     <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
     <section class="stats">
@@ -39,30 +38,27 @@
           </div>
         </section>
         <% if current_user == pet.user %>
-          <%#= link_to 'Change Name', edit_pet_path(pet) %>
+          <%= link_to 'Change Name', edit_pet_path(pet) %>
 
-          <%#= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." }, :class => "btn-profile-neg" %>
+          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." }, :class => "btn-profile-neg" %>
         <% end %>
       </article>
     <% end %>
   <% end %>
 
-  <p><%= @user.username %>'s friends:</p>
-    <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
-
-
-    <% if @user.friendships.empty? %>
-      <%= @user.username %> doesn't have any friends listed.
-      <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
-    <% else %>
-      <% random = [] %>
-      <% 3.times do %>
-        <% random << @user.friendships.sample %>
-      <% end %>
-      <% random.uniq.each do |friendship| %>
-        <% @friend = User.find(friendship.friend_id) %>
-        <%= render 'friendships/friend' %>
-      <% end %>
+  <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
+  <% if @user.friendships.empty? %>
+    <%= @user.username %> doesn't have any friends listed.
+    <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
+  <% else %>
+    <% random = [] %>
+    <% 3.times do %>
+      <% random << @user.friendships.sample %>
     <% end %>
-  <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
+    <% random.uniq.each do |friendship| %>
+      <% @friend = User.find(friendship.friend_id) %>
+      <%= render 'friendships/friend' %>
+    <% end %>
+    <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
+  <% end %> 
 </article>
