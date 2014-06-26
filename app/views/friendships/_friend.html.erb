@@ -1,11 +1,10 @@
 <article class="profile"><%= link_to image_tag(avatar_url(@friend)), @friend %>
-<section class="stats">
-<%= link_to @friend.username, @friend %>
-<p><%= @friend.created_at.strftime("Joined on: %m/%d/%Y") %></p>
-<p><%= @friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
-<p>Pets: <%= @friend.pets.length %></p>
-<p>Score: <%= @friend.points%></p>
-</section>
+  <section class="stats">
+    <%= link_to @friend.username, @friend %>
+    <p><%= @friend.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+    <p><%= @friend.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+    <p>Pets: <%= @friend.pets.length %></p>
+    <p>Score: <%= @friend.points%></p>
+    <%= link_to 'Delete Friendship.', user_friend_path(@user.id, Friendship.where(friend_id: @friend.id)[0].id), method: :delete, class: "btn-profile" %>
+  </section>
 </article>
-
-

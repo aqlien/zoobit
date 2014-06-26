@@ -34,3 +34,24 @@
 @import 'sassafrass/modules';
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries';
+
+.full-pet {
+	@include outer-container;
+	position: relative;
+	width: 5em;
+}
+
+.pet-head {
+	position: absolute;
+	left: 15px;
+	top: 0;
+	width: 63%;
+	z-index: 100;
+}
+
+.pet-body {
+	position: absolute;
+	top: 66px;
+	width: 100%;
+
+}

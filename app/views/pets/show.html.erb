@@ -1,11 +1,20 @@
 <article class="user-dashboard">
   <%- title @pet.name %>
-  <%= image_tag(@pet.img_loc) %>
-  <h5>About <%= @pet.name %></h5>
-  Owner: <%= @pet.user.username %>
-  Species: <%= @pet.type %>
-  Breed/color: <%= @pet.breed %>
-  Gender: <%= @pet.gender %>
+  <section class="profile">
+    <h5><%= @pet.name %></h5>
+    Owner: <%= @pet.user.username %>
+    Species: <%= @pet.type %>
+    Breed/color: <%= @pet.breed %>
+    Gender: <%= @pet.gender %>
+  </section>
+  <div class="full-pet">
+  	<div class="pet-head">
+  		<%= image_tag(@pet.img_loc) %>
+  	</div>
+  	<div class="pet-body">
+  		<%= image_tag(@pet.body_img) %>
+  	</div>
+  </div>
   <%= render "pets/status_bars" %>
   <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "btn-profile"%>
   <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "btn-profile" %>
