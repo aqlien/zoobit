@@ -20,14 +20,14 @@ feature "abandon a pet" do
     visit root_path
     sign_in_capybara
     visit user_path(users :sam)
-    first(:link, "Abandon Pet").click
-    page.must_have_content "You abandoned Tweety"
+    first(:link, "Abandon").click
+    page.must_have_content "You abandoned Whiskers."
 
     #adopt back from the shelter
     visit new_pet_path
     click_on "new Pet"
-    page.must_have_content "Tweety"
-    click_on "Adopt Pet"
+    page.must_have_content "Whiskers"
+    first(:button, "Adopt Pet").click
     page.must_have_content I18n.t("pets.new")
   end
 end

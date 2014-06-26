@@ -44,7 +44,8 @@ feature "Friendship" do
   end
 
   def test_destroy
-    assert_difference('Friendship.count', -1) do
+    user = users :sam
+    assert_difference('user.friendships.count', -1) do
       delete :destroy, id: friendship
     end
 
