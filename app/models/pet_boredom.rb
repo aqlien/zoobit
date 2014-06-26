@@ -3,7 +3,7 @@ class PetBoredom < ActiveRecord::Base
   belongs_to :pet
 
   def decrease
-    if self.value > 10 && pet.pet_tiredness.value < 100
+    if self.value >= 10 && pet.pet_tiredness.value < 100
       self.value -= 10
       pet.pet_tiredness.value += 10
       pet.pet_tiredness.value = 100 if pet.pet_tiredness.value > 100

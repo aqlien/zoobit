@@ -30,3 +30,6 @@ def setup_omniauth_for_testing
   click_on I18n.t(:sign_in_link)
 end
 
+def seed_db
+  User.create(username: "Zoobit Shelter", email: "shelter@zoobit.net", id: 1, password: "zoobit123")
+end
