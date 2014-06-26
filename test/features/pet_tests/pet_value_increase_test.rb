@@ -5,7 +5,7 @@ class PetValueIncreaseTest < ActiveSupport::TestCase
 
   def setup
     @time = Time.now
-    @pet = pets(:tweets)
+    @pet = pets :tweets
   end
 
   describe "Happiness" do
@@ -79,6 +79,11 @@ class PetValueIncreaseTest < ActiveSupport::TestCase
   end
 
   describe "Tiredness Increase" do
+
+    before do
+      @pet.pet_tiredness.value = 0
+    end
+
     it "should start at 0" do
       assert_equal 0, @pet.pet_tiredness.value
     end
