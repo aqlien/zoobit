@@ -28,7 +28,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
+    @friendship = Friendship.new(friendship_params) unless current_user.friendships.any? { |f| f.friend_id == :friend_id }
     respond_to do |format|
       if @friendship.save
         friend = User.find(friendship_params["friend_id"]).username

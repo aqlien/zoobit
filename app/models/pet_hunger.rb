@@ -16,7 +16,7 @@ class PetHunger < ActiveRecord::Base
 
   def increase(current_time)
     if ((current_time - self.change).round / 60) > 8 #only update if 8 minutes passed
-      self.value += (current_time - self.change).round / 60 / 8
+      self.value += (current_time - self.change).round / 60 / 16
       self.change = current_time
     end
     self.value = 100 if self.value > 100
