@@ -25,7 +25,7 @@
 @import 'neat/neat';
 @import 'sassafrass/reset';
 @import 'sassafrass/config';
-@import 'sassafrass/color/manifest';
+@import 'sassafrass/color';
 @import 'sassafrass/vendors/manifest';
 @import 'sassafrass/typography';
 @import 'sassafrass/buttons';
@@ -34,5 +34,11 @@
 @import 'sassafrass/modules/manifest';
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries/media_queries';
+
+.user-dashboard {
+  @include span-columns(12);
+  @include omega();
+  background-color: $echo-color;
+}
 
 

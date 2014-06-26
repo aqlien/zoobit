@@ -24,6 +24,8 @@ class Pet < ActiveRecord::Base
   def calculate_happiness
     self.happiness = ((100 - self.pet_hunger.value)/2 + (100 - self.pet_boredom.value)/2)
     self.happiness = 100 if self.happiness > 100
+    happy_value = self.happiness < 40 ? "sad" : "happy"
+    self.img_loc = "#{self.type.downcase}_#{happy_value}.jpg"
   end
 
 private
