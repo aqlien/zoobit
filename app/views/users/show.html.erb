@@ -39,8 +39,9 @@
           </div>
         </section>
         <% if current_user == pet.user %>
-          <%= link_to 'Change Name', edit_pet_path(pet) %>
-          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+          <%#= link_to 'Change Name', edit_pet_path(pet) %>
+
+          <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." }, :class => "btn-profile-neg" %>
         <% end %>
       </article>
     <% end %>
@@ -62,8 +63,6 @@
         <% @friend = User.find(friendship.friend_id) %>
         <%= render 'friendships/friend' %>
       <% end %>
-
     <% end %>
-  <% end %>
   <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
 </article>

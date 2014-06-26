@@ -1,10 +1,28 @@
 @import "buttons/manifest";
 
-.profile a.btn-profile {
+a.btn-profile {
+	@include span-columns(3);	
+	margin-top: 1em;
 	background-color: $bravo-color;
 	padding: .75em;
 	border-radius: 10px;
 	border-bottom: 5px solid $charlie-color;
+	text-align: center;
+	&:active {
+		border-bottom: none;
+		position: relative;
+		top: 5px;
+	}
+}
+
+a.btn-profile-neg {
+	@include span-columns(3);
+	margin-top: 1em;
+	background-color: $alpha-color;
+	padding: .75em;
+	border-radius: 10px;
+	border-bottom: 5px solid $alpha-color-dark;
+	text-align: center;
 	&:active {
 		border-bottom: none;
 		position: relative;
