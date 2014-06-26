@@ -36,7 +36,7 @@
 .meter-happy {
   @include span-columns(6);
   @include omega();
-  width: 60%;
+  width: 80%;
   height: 20px;
   background-color: $bravo-color-light;
   border-radius: 1.5em;
@@ -56,7 +56,7 @@
 .meter-unhappy {
   @include span-columns(6);
   @include omega();
-  width: 60%;
+  width: 80%;
   height: 20px;
   background-color: $alpha-color-light;
   border-radius: 1.5em;

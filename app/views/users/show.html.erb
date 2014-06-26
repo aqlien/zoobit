@@ -1,6 +1,5 @@
 <article class="user-dashboard">
   <article class="profile"><%- title "#{@user.username}" %>
-
     <%= link_to image_tag avatar_url(@user) %>
     <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
     <section class="stats">
@@ -12,12 +11,15 @@
 
       <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
         <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
+      <% else %>
+        <%= "#{@user.username} is in your Friends List!" unless current_user == @user %>
       <% end %>
       <!-- <h3><%= @user.username %>'s Pets</h3> -->
       <p>(<%= @user.pets.count %> out of <%= @user.pet_slots %> allowed <%= @user.pet_slots == 1 ? "pet" : "pets" %>.)</p>
     </section>
   </article>
 
+  <h2 class="sub-heading"><%= @user.username %>'s Pets</h2>
   <% if @user.pets.empty? %>
     No pets yet!
   <% else %>
@@ -46,20 +48,16 @@
     <% end %>
   <% end %>
 
-  <p><%= @user.username %>'s friends:</p>
-
+  <h2 class="sub-heading">Some of <%= @user.username %>'s friends:</h2>
   <% if @user.friendships.empty? %>
     <%= @user.username %> doesn't have any friends listed.
     <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
   <% else %>
-    <% random = [] %>
-    <% 3.times do %>
-      <% random << @user.friendships.sample %>
-    <% end %>
+    <% random = @user.friendships.sample(3) %>
     <% random.uniq.each do |friendship| %>
       <% @friend = User.find(friendship.friend_id) %>
       <%= render 'friendships/friend' %>
     <% end %>
+    <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
   <% end %>
-  <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
 </article>

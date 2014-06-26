@@ -49,7 +49,5 @@ feature "Friendship" do
     assert_difference('user.friendships.count', -1) do
       user.friendships.delete(@friendship)
     end
-
-    assert_redirected_to friendships_path
   end
 end

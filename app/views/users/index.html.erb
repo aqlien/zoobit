@@ -1,10 +1,17 @@
-<ul>
+<article class="user-dashboard">
   <% @users.each do |user| %>
-    <li>
-      <%= link_to user.username, user %>
+    <article class="profile">
+      <%= link_to image_tag(avatar_url(user)), user %>
+      <section class="stats">
+        <%= link_to user.username, user %>
+        <p>Pets: <%= user.pets.length %></p>
+        <p>Score: <%= user.points%></p>
+      </section>
       <% if current_user && current_user.friendships.where(friend_id: user.id).empty? && current_user != user %>
-        <%= link_to "Add #{user.username}", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post %>
+
+        <%= link_to "Add Friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post, :class => "btn-profile" %>
+
       <% end %>
-    </li>
+    </article>
   <% end %>
-</ul>
+</article>
