@@ -26,6 +26,7 @@ class Pet < ActiveRecord::Base
     self.happiness = 100 if self.happiness > 100
     happy_value = self.happiness < 40 ? "sad" : "happy"
     self.img_loc = "#{self.type.downcase}_#{happy_value}.svg"
+    self.body_img = "#{self.type.downcase}.svg"
   end
 
 private
