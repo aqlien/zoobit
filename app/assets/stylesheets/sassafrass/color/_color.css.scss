@@ -7,3 +7,5 @@ $echo-color: #fcda80; //yellow
 $bravo-color-light: lighten($bravo-color, 15%);
 
 $alpha-color-light: lighten($alpha-color, 15%);
+
+$alpha-color-dark: darken($alpha-color, 15%);

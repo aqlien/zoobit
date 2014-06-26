@@ -1,0 +1,11 @@
+@mixin button($color, $border-color) {
+  background-color: $color;
+  padding: .75em;
+  border-radius: 10px;
+  border-bottom: 5px solid $border-color;
+  &:active {
+    border-bottom: none;
+    position: relative;
+    top: 5px;
+  }
+}

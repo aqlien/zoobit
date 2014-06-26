@@ -30,10 +30,10 @@
 @import 'sassafrass/typography';
 @import 'sassafrass/buttons';
 @import 'sassafrass/forms';
-@import 'sassafrass/layouts/manifest';
-@import 'sassafrass/modules/manifest';
+@import 'sassafrass/layout';
+@import 'sassafrass/modules';
 @import 'sassafrass/ui_patterns';
-@import 'sassafrass/media_queries/media_queries';
+@import 'sassafrass/media_queries';
 
 .user-dashboard {
   @include span-columns(12);
