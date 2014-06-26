@@ -118,6 +118,7 @@ class PetsController < ApplicationController
     @pet.previous_owner = current_user.username
     current_user.pets = current_user.pets.to_a.reject! { |p| p.id == @pet.id }
     current_user.points = current_user.points/2
+    current_user.save
     respond_to do |format|
       format.html { redirect_to pets_path, notice: "You abandoned #{@pet.name}." }
       format.json { head :no_content }
@@ -155,8 +156,6 @@ private
   end
 
   def normalize_pet_stats
-    @pet.happiness = 15
-    @pet.save
     @pet.pet_hunger.value = 20
     @pet.pet_tiredness.value = 0
     @pet.pet_boredom.value = 75
