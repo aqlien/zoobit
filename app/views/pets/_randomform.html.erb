@@ -1,29 +1,31 @@
-<% if @pet.errors.any? %>
+<% if @featured.errors.any? %>
   <div id="error_explanation" class="alert-box alert radius" align="center">
-    <h5><%= pluralize(@pet.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
+    <h5><%= pluralize(@featured.errors.count, "error") %> prohibited your pet's info from being saved:</h5>
 
     <ul>
-    <% @pet.errors.full_messages.each do |message| %>
+    <% @featured.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
     </ul>
   </div>
 <% end %>
 
-<% img_loc = "#{@pet.type.downcase}_happy.jpg" %>
-<%= image_tag(img_loc) %>
-<h5>About this pet:</h5>
-Name: <%= @pet.name %>
+<article class="profile">
+	<% img_loc = "#{@featured.type.downcase}_happy.jpg" %>
+	<%= image_tag(img_loc) %>
+	<h5>About this pet:</h5>
+	Name: <%= @featured.name %>
 
-Species: <%= @pet.type %>
+	Species: <%= @featured.type %>
 
-Breed/color: <%= @pet.breed %>
+	Breed/color: <%= @featured.breed %>
 
-Gender: <%= @pet.gender %>
+	Gender: <%= @featured.gender %>
 
-<%= @story %>
-<%= button_to "Adopt Pet", pet_adopt_path(@pet), method: :patch, class: "button round", data: { confirm: "Adopt #{ @pet.name }?" } %>
-<%= link_to "See Another Pet", new_pet_path, class: "button round" %>
-<%= label_tag "Tip: You can always rename your pet after adopting it." %>
+	<%= @story %>
+	<%= link_to "Adopt Pet", pet_adopt_path(@featured), method: :patch, class: "button round", data: { confirm: "Adopt #{ @featured.name }?" } %>
+	<%= link_to "See Another Pet", new_pet_path, class: "button round" %>
+	<%= label_tag "Tip: You can always rename your pet after adopting it." %>
+</article>
 
 
