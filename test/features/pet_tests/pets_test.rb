@@ -21,10 +21,27 @@ feature "Pet Creation" do
   end
 end
 
-feature "cannot view your pets without signing in" do
-  scenario "index when not signed in" do
-    visit pets_path
-    page.must_have_content "Please log in first"
-  end
-end
+# Capybara has trouble checking flash messages. :(
+# feature "Pet Behavior" do
+#   before do
+#     seed_db
+#   end
+
+#   scenario "happy pet" do
+
+#   end
+
+#   scenario "hungry pet" do
+
+#   end
+
+#   scenario "tired pet" do
+
+#   end
+
+#   scenario "bored pet" do
+
+#   end
+
+# end
 

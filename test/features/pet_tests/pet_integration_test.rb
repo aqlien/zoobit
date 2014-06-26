@@ -38,8 +38,9 @@ feature "interacting with a pet" do
   end
 
   scenario "playing" do
-    visit pets_path
+    visit root_path
     sign_in_capybara
+    visit user_path(users :sam)
     click_on "Tweety"
     click_on "Play"
     page.must_have_content I18n.t("pets.play_success", name: "Tweety")
@@ -47,8 +48,9 @@ feature "interacting with a pet" do
     page.must_have_content I18n.t("pets.play_failure", name: "Tweety")
   end
   scenario "feeding" do
-    visit pets_path
+    visit root_path
     sign_in_capybara
+    visit user_path(users :sam)
     click_on "Tweety"
     click_on "Feed"
     page.must_have_content I18n.t("pets.feed_success", name: "Tweety")
@@ -57,3 +59,33 @@ feature "interacting with a pet" do
   end
 end
 
+feature "Shelter" do
+  before do
+    seed_db
+  end
+
+  scenario "filter pets" do
+    visit root_path
+    sign_in_capybara
+    visit "/shelter"
+    click_on "Dogs"
+    page.has_no_content?("Cat")
+    page.has_no_content?("Bird")
+    page.has_no_content?("Rabbit")
+
+    click_on "Cats"
+    page.has_no_content?("Dog")
+    page.has_no_content?("Bird")
+    page.has_no_content?("Rabbit")
+
+    click_on "Birds"
+    page.has_no_content?("Cat")
+    page.has_no_content?("Dog")
+    page.has_no_content?("Rabbit")
+
+    click_on "Rabbits"
+    page.has_no_content?("Cat")
+    page.has_no_content?("Bird")
+    page.has_no_content?("Dog")
+  end
+end
