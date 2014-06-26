@@ -33,21 +33,27 @@ class PetValueIncreaseTest < ActiveSupport::TestCase
       assert_equal 30, @pet.pet_hunger.value
     end
 
-    it "increases by 1 about every 8 minutes" do
-      @pet.pet_hunger.change = @time - (60*7)
+    it "increases by 1 about every 7.5 minutes" do
+      @pet.pet_hunger.change = @time - (60*1)
       @pet.update_happiness(@time)
       assert_equal 30, @pet.pet_hunger.value
       #no increase, hasn't been long enough
 
-      @pet.pet_hunger.change = @time - (60*9)
+      @pet.pet_hunger.change = @time - (60*8)
       @pet.update_happiness(@time)
       assert_equal 31, @pet.pet_hunger.value
-      #increase by 1 in 8 minutes
+      #increase by 1 in 20 minutes
 
       #refresh again
+      @pet.pet_hunger.change = @time - (60*1)
       @pet.update_happiness(@time)
       assert_equal 31, @pet.pet_hunger.value
       #no increase, hasn't been long enough since last update
+
+      @pet.pet_hunger.change = @time - (60*60*12)
+      @pet.update_happiness(@time)
+      assert_equal 100, @pet.pet_hunger.value
+      #Should reach 100% after about 12 hours
     end
   end
 
@@ -56,23 +62,23 @@ class PetValueIncreaseTest < ActiveSupport::TestCase
       assert_equal 35, @pet.pet_boredom.value
     end
 
-    it "increases by 1 about every 5 minutes" do
+    it "increases by 1 about every 10 minutes" do
       @pet.pet_boredom.change = @time - (60*2)
       @pet.update_happiness(@time)
       assert_equal 35, @pet.pet_boredom.value
       #no increase, hasn't been long enough
 
-      @pet.pet_boredom.change = @time - (60*6)
+      @pet.pet_boredom.change = @time - (60*10)
       @pet.update_happiness(@time)
       assert_equal 36, @pet.pet_boredom.value
-      #increase by 1 after 5 minutes
+      #increase by 1 after 10 minutes
 
       #refresh again
       @pet.update_happiness(@time)
       assert_equal 36, @pet.pet_boredom.value
       #no increase, hasn't been long enough since last update
 
-      @pet.pet_boredom.change = @time - (60*480)
+      @pet.pet_boredom.change = @time - (60*680)
       @pet.update_happiness(@time)
       assert_equal 100, @pet.pet_boredom.value
     end

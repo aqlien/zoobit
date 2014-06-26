@@ -53,12 +53,6 @@ class PetsController < ApplicationController
   end
 
   def new
-    if params[:type]
-      @results = User.find(1).pets.where(:type => params[:type])
-    else
-      @results = User.find(1).pets
-    end
-    # shelter = User.find(1)
     @pets = User.find(1).pets
     if @pets.count < 15
       until @pets.count == 15
@@ -66,7 +60,12 @@ class PetsController < ApplicationController
         give_to_shelter
       end
     end
-    @featured = @pets.sample
+    if params[:type]
+      @results = User.find(1).pets.where(:type => params[:type])
+    else
+      @results = User.find(1).pets
+      @featured = @pets.sample
+    end
   end
 
   def edit
