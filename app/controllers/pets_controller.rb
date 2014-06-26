@@ -57,11 +57,12 @@ class PetsController < ApplicationController
       @results = User.find(1).pets.where(:type => params[:type])
     else
       @results = User.find(1).pets
+      @paginate = @results.page(params[:page]).per_page(2)
     end
     # shelter = User.find(1)
     @pets = User.find(1).pets
-    if @pets.count < 15
-      until @pets.count == 15
+    if @pets.count < 5
+      until @pets.count == 5
         @pet = generate_pet
         give_to_shelter
       end
