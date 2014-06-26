@@ -1,6 +1,5 @@
 <article class="user-dashboard">
   <article class="profile"><%- title "#{@user.username}" %>
-
     <%= link_to image_tag avatar_url(@user) %>
     <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
     <section class="stats">
@@ -18,6 +17,7 @@
     </section>
   </article>
 
+  <h2 class="sub-heading"><%= @user.username %>'s Pets</h2>
   <% if @user.pets.empty? %>
     No pets yet!
   <% else %>
@@ -42,22 +42,19 @@
     <% end %>
   <% end %>
 
-
-    <p><%= @user.username %>'s friends:</p>
-
-
-    <% if @user.friendships.empty? %>
-      <%= @user.username %> doesn't have any friends listed.
-      <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
-    <% else %>
-      <% random = [] %>
-      <% 3.times do %>
-        <% random << @user.friendships.sample %>
-      <% end %>
-      <% random.uniq.each do |friendship| %>
-        <% @friend = User.find(friendship.friend_id) %>
-        <%= render 'friendships/friend' %>
-      <% end %>
+  <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
+  <% if @user.friendships.empty? %>
+    <%= @user.username %> doesn't have any friends listed.
+    <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
+  <% else %>
+    <% random = [] %>
+    <% 3.times do %>
+      <% random << @user.friendships.sample %>
     <% end %>
+    <% random.uniq.each do |friendship| %>
+      <% @friend = User.find(friendship.friend_id) %>
+      <%= render 'friendships/friend' %>
+    <% end %>
+  <% end %>
 </article>
 
