@@ -20,6 +20,8 @@
   background-repeat:no-repeat;
   background-position:center;
   margin-top: 0.5em;
+  position: relative;
+  height: 30em;
 }
 
 .info-controls,
@@ -29,6 +31,11 @@
   @media screen and (max-width: 45em) {
     @include span-columns(11);
   }
+}
+
+.form {
+  @include span-columns(4);
+  @include shift(4);
 }
 
 .shelter {
