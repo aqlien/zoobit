@@ -124,3 +124,6 @@
 /*ANIMATIONS
 ---------------------------------------------------------*/
 
+@-webkit-keyframes head-move {
+  50% { -webkit-transform: rotate(-1.5deg); }
+}

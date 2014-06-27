@@ -1,0 +1,6 @@
+$('#pets').append('<%= j render(:partial => "pets/shelterform") %>');
+<% if @pets.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate @pets %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

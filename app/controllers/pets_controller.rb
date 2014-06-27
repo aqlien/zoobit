@@ -38,17 +38,22 @@ class PetsController < ApplicationController
 
   def new
     @pets = User.find(1).pets
-    if @pets.count < 15
-      until @pets.count == 15
+    if @pets.count < 18
+      until @pets.count == 18
         @pet = generate_pet
         give_to_shelter
       end
     end
     if params[:type]
-      @results = User.find(1).pets.where(:type => params[:type])
+      @pets = @pets.where(:type => params[:type])
+      @pets = @pets.page(params[:page]).per_page(5)
     else
-      @results = User.find(1).pets
       @featured = @pets.sample
+      @pets = @pets.page(params[:page]).per_page(5)
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
