@@ -1,17 +1,20 @@
 @import "layouts/manifest";
 
-.main, .user-dashboard {
+ 
+.dashboard {
   @include outer-container;
 }
 
-.user-dashboard {
-  @include span-columns(12);
-  @include omega();
-  background-color: $echo-color;
-}
+// .main {
+// 	@include outer-container;
+// }
+
+// .dashboard {
+//   @include span-columns(12);
+//   background-color: $echo-color;
+// }
 
 .sub-heading{
-  @include span-columns(6);
-  @include shift(3);
+  @include span-columns(4);
 }
 
