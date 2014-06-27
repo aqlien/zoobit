@@ -92,7 +92,7 @@
   }
 
   .js-ready #side-nav {
-    height: 100%;
+    // height: 100%; @KL this allows pet views and user view in the nav, but only scrolls the height of the main BUG.
     width: 70%;
     background: #333333;
     -webkit-box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);

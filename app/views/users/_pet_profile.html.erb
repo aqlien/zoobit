@@ -4,7 +4,7 @@
     <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
       <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-      <section class="pet profile">
+      <section class="pet profile shelter">
         <section class="image">
         <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
       </section>

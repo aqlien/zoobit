@@ -25,13 +25,15 @@
 }
 
 .info-controls,
-.pet, 
+.pet,
 .user {
   @include span-columns(4);
   @media screen and (max-width: 45em) {
     @include span-columns(11);
   }
 }
+
+
 
 .form {
   @include span-columns(4);
@@ -40,6 +42,15 @@
 
 .shelter {
   @include span-columns(4 of 8);
+  &:last-child {
+    margin-right: 3.57866% !important;
+  }
+}
+
+.index {
+  @media screen and (max-width: 45em) {
+    @include span-columns(11);
+  }
 }
 
 .feature {
