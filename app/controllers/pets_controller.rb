@@ -38,8 +38,8 @@ class PetsController < ApplicationController
 
   def new
     @pets = User.find(1).pets
-    if @pets.count < 15
-      until @pets.count == 15
+    if @pets.count < 18
+      until @pets.count == 18
         @pet = generate_pet
         give_to_shelter
       end
@@ -53,7 +53,7 @@ class PetsController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.js { render "_shelterform"}
+      format.js
     end
   end
 

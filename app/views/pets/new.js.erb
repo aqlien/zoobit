@@ -1,8 +1,6 @@
-<%= raise "anything" %>
-$('#products').append('<%= j render(:partial => "pets/shelterform") %>');
-
+$('#pets').append('<%= j render(:partial => "pets/shelterform") %>');
 <% if @pets.next_page %>
-$('.pagination').replaceWith('<%= j will_paginate @pets %>');
+  $('.pagination').replaceWith('<%= j will_paginate @pets %>');
 <% else %>
-$('.pagination').remove();
+  $('.pagination').remove();
 <% end %>

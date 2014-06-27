@@ -9,6 +9,3 @@
     <%= link_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "btn-profile", data: { confirm: "Adopt #{ pet.name }?" } %>
   </section>
 <% end %>
-
-<%= will_paginate @pets %>
-
