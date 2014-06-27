@@ -1,8 +1,8 @@
-<article class="user-dashboard">
+<article class="dashboard">
 
   <%= render "users/user_profile" %>
   <%= render 'new_friend' %>
-  <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
+  <!-- <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2> -->
 
   <% if current_user.nil? && @user.friendships.empty? %>
     <%= @user.username %> doesn't have any friends listed!
