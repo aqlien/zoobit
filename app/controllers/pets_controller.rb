@@ -37,6 +37,7 @@ class PetsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @pets = User.find(1).pets
     if @pets.count < 18
       until @pets.count == 18
