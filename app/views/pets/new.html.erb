@@ -1,24 +1,34 @@
 <%- title "Animal Shelter" %>
 
-<article class="user-dashboard">
+<article class="dashboard">
+  <section class="user profile">
+   <%= link_to image_tag avatar_url(current_user) %>
+   <h3><%= current_user.username %></h3>
+   <p>Score: <%= current_user.points %></p>
+ 	</section>
 
-  <% unless request.url.include? "type"%>
-  	<h4 class="sub-heading">Featured Pet</h4>
-  	<%= render "randomform" %>
-  <% end %>
+	<!-- <h4>Browse Pets</h4> -->
 
-	<h4 class="sub-heading">Browse Pets</h4>
-
-	<section class="sub-heading">
+	<!-- <section>
 		<p>Sort by type:</p>
-		<%= link_to "Dogs", new_pet_path(:type => "Dog") %>
-		<%= link_to "Cats", new_pet_path(:type => "Cat") %>
-		<%= link_to "Birds", new_pet_path(:type => "Bird") %>
-		<%= link_to "Rabbits", new_pet_path(:type => "Rabbit") %>
-    <%= link_to "All", new_pet_path %>
-	</section>
+		<%#= link_to "Dogs", new_pet_path(:type => "Dog") %>
+		<%#= link_to "Cats", new_pet_path(:type => "Cat") %>
+		<%#= link_to "Birds", new_pet_path(:type => "Bird") %>
+		<%#= link_to "Rabbits", new_pet_path(:type => "Rabbit") %>
+    <%#= link_to "All", new_pet_path %>
+	</section> -->
+	<section class="right-columns">
 
-	<%= render "shelterform" unless User.first.id != 1 %>
+		<section class="pet profile feature">
+			<% unless request.url.include? "type"%>
+	  	<h4>Featured Pet</h4>
+	  	<%= render "randomform" %>
+	  	<% end %>
+		</section>
+		<%= render "shelterform" unless User.first.id != 1 %>
+
+	
+	</section>
 
 	<!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly-->
 	<!-- So far, this is only a problem in the test environment. -->

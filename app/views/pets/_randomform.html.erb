@@ -10,18 +10,15 @@
   </div>
 <% end %>
 
-<article class="profile">
-	<%= image_tag(@featured.img_loc) %>
-	<h5>About this pet:</h5>
-	<p>Name: <%= @featured.name %></p>
-	<p>Species: <%= @featured.type %></p>
-  <p>Breed/color: <%= @featured.breed %></p>
-  <p>Gender: <%= @featured.gender %></p>
-	<p><%= @featured.story %></p>
+<%= link_to image_tag(@featured.img_loc), user_pet_path(current_user, @featured) %>
+<h5>About this pet:</h5>
+<p>Name: <%= @featured.name %></p>
+<p>Species: <%= @featured.type %></p>
+<p>Breed: <%= @featured.breed %></p>
+<p>Gender: <%= @featured.gender %></p>
+<p><%= @featured.story %></p>
 
-	<%= link_to "Adopt Pet", pet_adopt_path(@featured), method: :patch, class: "btn-profile", data: { confirm: "Adopt #{ @featured.name }?" } %>
-	<%= link_to "See Another Pet", new_pet_path, class: "btn-profile" %>
-	<%= label_tag "Tip: You can always rename your pet after adopting it." %>
-</article>
+<%= link_to "Adopt Pet", pet_adopt_path(@featured), method: :patch, class: "btn-profile", data: { confirm: "Adopt #{ @featured.name }?" } %>
+<%= link_to "See Another Pet", new_pet_path, class: "btn-profile" %>
 
 

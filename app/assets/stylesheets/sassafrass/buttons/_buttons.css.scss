@@ -1,5 +1,5 @@
 @mixin button($color, $border-color) {
-  @include span-columns(2);
+  @include span-columns(2 of 4);
   margin-top: 0.5em;
   background-color: $color;
   padding: .75em;
