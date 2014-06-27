@@ -1,10 +1,11 @@
 <%- title "Leaderboard" %>
 
-<h3>Most Responsible Owners</h3>
-
+<h1>Most Responsible Owners</h1>
+<article class="dashboard">
 <% @users = User.all.order(:points).reverse %>
 <% @users.each do |user| %>
-  <article class="profile">
+
+  <section class="user profile index shelter">
     <%= link_to image_tag avatar_url(user) %>
     <section class="stats">
       <h3>
@@ -23,5 +24,6 @@
         <%= link_to "Add #{user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post %>
       <% end %>
     </section>
-  </article>
+  </section>
 <% end %>
+</article>

@@ -2,5 +2,5 @@
   <%= @user.username %> doesn't have any friends listed.
   <%= (link_to "Add friends", user_friends_path(@user)) if current_user == @user %>
 <% else %>
-  <%= (link_to "See all #{@user.username}'s friends", user_friends_path(@user)) %>
+  <%= link_to "See all #{@user.username}'s friends", user_friends_path(@user), class: "btn-profile" %>
 <% end %>
