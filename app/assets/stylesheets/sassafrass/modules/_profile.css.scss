@@ -8,7 +8,7 @@
   @media screen and (max-width: 45em) {
     display: inline-block;
     width: 90%;
-    margin: 0.5em 5%;
+    margin-left: 0.5em;
   }
 }
 .right-columns {
@@ -22,6 +22,9 @@
   margin-top: 0.5em;
   position: relative;
   height: 30em;
+   @media screen and (max-width: 45em) {
+    margin-left: 0.5em;
+  }
 }
 
 .info-controls,
