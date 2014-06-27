@@ -21,6 +21,7 @@ class PetTiredness < ActiveRecord::Base
       @asleep = true if self.value >= 90
       if @asleep
         self.decrease
+        pet.img_loc = "#{pet.type.downcase}_#{sleeping}.svg"
       end
     end
     self.save

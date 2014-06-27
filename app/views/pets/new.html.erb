@@ -2,9 +2,10 @@
 
 <article class="user-dashboard">
 
-	<h4 class="sub-heading">Featured Pet</h4>
-
-	<%= render "randomform" %>
+  <% unless request.url.include? "type"%>
+  	<h4 class="sub-heading">Featured Pet</h4>
+  	<%= render "randomform" %>
+  <% end %>
 
 	<h4 class="sub-heading">Browse Pets</h4>
 
@@ -14,6 +15,7 @@
 		<%= link_to "Cats", new_pet_path(:type => "Cat") %>
 		<%= link_to "Birds", new_pet_path(:type => "Bird") %>
 		<%= link_to "Rabbits", new_pet_path(:type => "Rabbit") %>
+    <%= link_to "All", new_pet_path %>
 	</section>
 
 	<%= render "shelterform" unless User.first.id != 1 %>
