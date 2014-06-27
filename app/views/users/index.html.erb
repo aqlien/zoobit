@@ -1,6 +1,7 @@
-<article class="user-dashboard">
+<article class="dashboard">
   <% @users.each do |user| %>
-    <section class="shelter profile">
+    <!--@KL this section class is hacky as hell, figure out grid sytem better.  If remove shelter and index, it has multiple profiles spanning three columns, is it getting height for some reason? -->
+    <section class="user profile">
       <%= link_to image_tag(avatar_url(user)), user %>
       <section class="stats">
         <%= link_to user.username, user %>
