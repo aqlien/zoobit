@@ -116,7 +116,7 @@ private
     @pet.name = @pet.gender == "Female" ? (PetsHelper::FEMALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample : (PetsHelper::MALE_NAMES + PetsHelper::NEUTRAL_NAMES).sample
     @pet.type = PetsHelper::TYPES.sample
     @pet.breed = @pet.type.constantize::BREEDS.sample
-    @story = PetsHelper.generate_story(@pet.name, @pet.type, @pet.gender)
+    @pet.story = PetsHelper.generate_story(@pet.name, @pet.type, @pet.gender)
     @pet
   end
 
