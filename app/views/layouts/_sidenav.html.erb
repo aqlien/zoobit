@@ -6,27 +6,49 @@
   <% else %>
     <h4>Your Current Pets:</h4>
 <% end %>
-
-<ul class="side-nav">
+<nav id="side-nav">
+<ul>
   <% if current_user.nil? %>
-    <p><%= link_to 'Sign up', new_user_registration_path %> to adopt a pet!</p>
+    <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>
+    <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
   <% elsif current_user.pets.empty? %>
-    <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
+    <li>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</li>
   <% else %>
+    <li><article class="profile"><%- title "#{@user.username}" %>
+    <%= link_to image_tag avatar_url(@user) %>
+    <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
+    <section class="stats">
+      <h3><%= @user.username %></h3>
+      <p>Score: <%= @user.points %></p>
+      <p>Pets: <%= @user.pets.count %>/<%= @user.pet_slots %></p>
+      <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+      <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+
+      <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
+        <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
+      <% end %>
+    </section>
+  </article></li>
     <% current_user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
       <li>
+        <article class="profile">
         <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
         <h4><%= link_to pet.name, user_pet_path(current_user, pet) %></h4>
         <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-        <section class="progress round small <%= h > 40 ? "":"alert"%>" align="left" style="margin-top: -.5em; margin-bottom: 0em">
-          <span class="meter" style="width:<%=h%>%"></span>
-        </section>
-        <%= link_to 'Change Name', edit_pet_path(pet) %>
-        <%= link_to 'Abandon', pet_path(pet), method: :delete, data: { confirm: "Leave #{ pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+        <div class="<%= h > 40 ? "meter-container-happy":"meter-container-unhappy"%>">
+            <div class="<%= h > 40 ? "meter-happy":"meter-unhappy"%>" style="width:<%=h%>%">
+              <p><%= h %></p>
+            </div>
+          </div>
+        <%= link_to "View Pet", user_pet_path(current_user, pet), class: "btn-profile" %>
+      </article>
       </li>
       <li class="divider"></li>
+
     <% end %>
-      <p>Adopt a <%= link_to 'New Pet', new_pet_path, id: "newpet" %>?</p>
+    <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "Leaderboard", "/leaderboard" %></li>
   <% end %>
 </ul>
+</nav>

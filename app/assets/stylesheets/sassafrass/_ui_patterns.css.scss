@@ -1,5 +1,6 @@
 @import "ui_patterns/manifest";
 
+//HEADER -------
 .header-main {
 	background-color: $bravo-color;
   padding: 10px;
@@ -73,17 +74,17 @@ footer {
   width: 100%;
 }
 
-#nav {
+#side-nav {
   z-index: 200;
   position: relative;
   overflow: hidden;
   width: 100%;
   color: #fff;
 }
-#nav .close-btn {
+#side-nav .close-btn {
   display: none;
 }
-#nav .block-title {
+#side-nav .block-title {
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -93,27 +94,27 @@ footer {
   position: absolute;
   width: 1px;
 }
-#nav .block {
+#side-nav .block {
   z-index: 2;
   position: relative;
   padding: 0.75em 1.25em;
   background: #333333;
 }
-#nav ul {
+#side-nav ul {
   *zoom: 1;
   display: block;
 }
-#nav ul:before, #nav ul:after {
+#side-nav ul:before, #nav ul:after {
   content: "";
   display: table;
 }
-#nav ul:after {
+#side-nav ul:after {
   clear: both;
 }
-#nav li {
+#side-nav li {
   display: block;
 }
-#nav li a {
+#side-nav li a {
   display: block;
   color: #ccc;
   font-size: 0.875em;
@@ -121,11 +122,11 @@ footer {
   font-weight: bold;
   outline: none;
 }
-#nav li a:focus, #nav li a:hover {
+#side-nav li a:focus, #side-nav li a:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.1);
 }
-#nav li.is-active a {
+#side-nav li.is-active a {
   color: #fff;
 }
 
@@ -166,7 +167,7 @@ footer[role="contentinfo"] {
     width: 1px;
   }
 
-  #nav .close-btn {
+  #side-nav .close-btn {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -176,7 +177,7 @@ footer[role="contentinfo"] {
     position: absolute;
     width: 1px;
   }
-  #nav .block-title {
+  #side-nav .block-title {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -186,18 +187,18 @@ footer[role="contentinfo"] {
     position: absolute;
     width: 1px;
   }
-  #nav ul {
+  #side-nav ul {
     text-align: center;
     white-space: nowrap;
   }
-  #nav li {
+  #side-nav li {
     display: inline-block;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
-  #nav li:last-child {
+  #side-nav li:last-child {
     border-right: none;
   }
-  #nav li a {
+  #side-nav li a {
     padding: 0.42857em 0.85714em;
   }
 }

@@ -54,7 +54,7 @@
 	width: 131.7%;
 	border: 1px solid red;
   z-index: 100;
-  -webkit-animation: head-move 1s ease-in-out infinite;
+  -webkit-animation: head-move 0.25s ease-in-out infinite;
 }
 
 .Rabbit .pet-body {
@@ -108,6 +108,6 @@
 ---------------------------------------------------------*/
 
 @-webkit-keyframes head-move {
-  50% { -webkit-transform: rotate(-1.5deg); }
+  100% { -webkit-transform: rotate(-360.5deg); }
 }
 
