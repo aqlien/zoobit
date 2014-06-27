@@ -2,9 +2,19 @@
   <article class="dashboard">
     <!-- PROFILE -->
     <section class="user profile">
-      <%= link_to image_tag avatar_url(current_user) %>
-      <h3><%= current_user.username %></h3>
-      <p>Score: <%= current_user.points %></p>
+      <h3>Owner</h3>
+      <%= link_to image_tag avatar_url(@owner) %>
+      <section class="stats">
+        <h3><%= @owner.username %></h3>
+        <p>Score: <%= @owner.points %></p>
+        <p>Pets: <%= @owner.pets.count %>/<%= @owner.pet_slots %></p>
+        <p><%= @owner.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+        <p><%= @owner.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+
+        <% if current_user && current_user.friendships.where(friend_id: @owner.id).empty? && current_user != @owner %>
+          <%= link_to "Add #{@owner.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @owner.id}, method: :post %>
+        <% end %>
+      </section>
     </section>
 
     <!-- PETVIEW -->

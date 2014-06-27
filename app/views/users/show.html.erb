@@ -1,13 +1,8 @@
+<%- title "#{@user.username}" %>
 <article class="dashboard">
-
   <%= render "users/user_profile" %>
-
-  <h2><%= @user.username %>'s Pets:</h2>
 
   <section class="right-columns">
 
   <%= render "users/pet_profile" %>
-
-  </section>
-
 </article>

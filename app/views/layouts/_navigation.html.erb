@@ -13,6 +13,7 @@
       <li><%= link_to "Animal Shelter", new_pet_path %></li>
       <li><%= link_to "Leaderboard", "/leaderboard" %></li>
       <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
+      <li><p>Signed in as <%= current_user.username %></p></li>
     <% end %>
   </ul>
   <a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>

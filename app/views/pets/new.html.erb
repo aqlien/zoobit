@@ -1,11 +1,8 @@
 <%- title "Animal Shelter" %>
 
 <article class="dashboard">
-  <section class="user profile">
-   <%= link_to image_tag avatar_url(current_user) %>
-   <h3><%= current_user.username %></h3>
-   <p>Score: <%= current_user.points %></p>
- 	</section>
+  <%= render "users/user_profile" %>
+</section>
 
 	<!-- <h4>Browse Pets</h4> -->
 
@@ -25,13 +22,13 @@
 	  	<%= render "randomform" %>
 	  	<% end %>
 		</section>
-		<%= render "shelterform" unless User.first.id != 1 %>
-
-
+    <div id="pets">
+		  <%= render "shelterform" unless User.first.id != 1 %>
+    </div>
+    </div class="hide"><%= will_paginate @pets%></div>
 	</section>
 
 	<!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly-->
 	<!-- So far, this is only a problem in the test environment. -->
 
 </article>
-

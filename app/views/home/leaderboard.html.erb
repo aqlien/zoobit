@@ -1,6 +1,6 @@
 <%- title "Leaderboard" %>
 
-<h3>Most Responsible Owners</h3>
+<h1>Most Responsible Owners</h1>
 <article class="dashboard">
 <% @users = User.all.order(:points).reverse %>
 <% @users.each do |user| %>

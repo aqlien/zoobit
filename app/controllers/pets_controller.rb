@@ -37,18 +37,24 @@ class PetsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @pets = User.find(1).pets
-    if @pets.count < 15
-      until @pets.count == 15
+    if @pets.count < 18
+      until @pets.count == 18
         @pet = generate_pet
         give_to_shelter
       end
     end
     if params[:type]
-      @results = User.find(1).pets.where(:type => params[:type])
+      @pets = @pets.where(:type => params[:type])
+      @pets = @pets.page(params[:page]).per_page(5)
     else
-      @results = User.find(1).pets
       @featured = @pets.sample
+      @pets = @pets.page(params[:page]).per_page(5)
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -130,13 +136,13 @@ private
   end
 
   def event
-    unless @pet.user_id == 1
+    unless @pet.user_id == 1 || flash[:notice]
       if @pet.pet_boredom.value > 90
-        flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+        flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she', owner: current_user == @pet.user ? "your" : @pet.user.username )
       elsif @pet.pet_hunger.value > 90
-        flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+        flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she', owner: current_user == @pet.user ? "your" : @pet.user.username )
       elsif @pet.happiness > 90
-        flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+        flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she', owner: current_user == @pet.user ? "your" : @pet.user.username )
       end
     end
   end

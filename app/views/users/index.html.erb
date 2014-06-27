@@ -4,9 +4,11 @@
     <section class="user profile shelter index">
       <%= link_to image_tag(avatar_url(user)), user %>
       <section class="stats">
-        <%= link_to user.username, user %>
-        <p>Pets: <%= user.pets.length %></p>
-        <p>Score: <%= user.points%></p>
+        <h3><%= user.username %></h3>
+        <p>Score: <%= user.points %></p>
+        <p>Pets: <%= user.pets.count %>/<%= user.pet_slots %></p>
+        <p><%= user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+        <p><%= user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
       </section>
       <% if current_user && current_user.friendships.where(friend_id: user.id).empty? && current_user != user %>
 
