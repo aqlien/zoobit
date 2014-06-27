@@ -10,7 +10,7 @@ feature "Mock Twitter Authentication" do
   end
   scenario "sign in with Twitter" do
     click_on "Sign in with Twitter"
-    page.must_have_content I18n.t("devise.sessions.signed_in")
+    page.must_have_content "Signed in as test_twitter_user"
   end
 end
 
@@ -24,7 +24,7 @@ feature "Mock Facebook Authentication" do
   end
   scenario "sign in with Facebook" do
     click_on "Sign in with Facebook"
-    page.must_have_content I18n.t("devise.sessions.signed_in")
+    page.must_have_content "Signed in as test_facebook_user"
   end
 end
 

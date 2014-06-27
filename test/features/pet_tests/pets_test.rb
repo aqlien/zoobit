@@ -15,7 +15,7 @@ feature "Pet Creation" do
   scenario "As a user I want to be able to get a new pet so I can use this site." do
     visit root_path
     sign_in_capybara
-    click_on "new Pet"
+    visit new_pet_path
     first(:link, "Adopt Pet").click
     page.must_have_content I18n.t("pets.new")
   end

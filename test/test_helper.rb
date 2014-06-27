@@ -16,7 +16,6 @@ class ActiveSupport::TestCase
 end
 
 def sign_in_capybara(login = users(:sam).email, password = "password", fail_sign_in = false)
-  click_on I18n.t(:sign_in_link)
   fill_in "Login", with: login
   fill_in "Password", with: password
   click_on "Submit"
@@ -27,7 +26,6 @@ def setup_omniauth_for_testing
   visit root_path
   OmniAuth.config.test_mode = true
   Capybara.current_session.driver.request.env['devise.mapping'] = Devise.mappings[:user]
-  click_on I18n.t(:sign_in_link)
 end
 
 def seed_db

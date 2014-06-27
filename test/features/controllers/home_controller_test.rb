@@ -9,7 +9,7 @@ feature "landing page" do
     visit root_path
     sign_in_capybara
     visit root_path
-    page.must_have_content "#{users(:sam).username}'s Pets:"
+    page.must_have_content "Tweety"
   end
 
 end
