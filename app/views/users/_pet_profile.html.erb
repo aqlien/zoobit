@@ -4,8 +4,10 @@
     <% @user.pets.each do |pet| %>
       <% pet.update_happiness(Time.now) %>
       <% h = pet.happiness.nil? ? 0 : pet.happiness %>
-      <article class="profile">
+      <section class="pet profile shelter">
+        <section class="image">
         <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
+      </section>
         <!-- @KL the image is not reflecting the happiness status effectively -->
         <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
           <p><%= pet.type %></p>
@@ -19,6 +21,6 @@
           </div>
         </section>
         <%= link_to "View Pet", user_pet_path(@user, pet), class: "btn-profile" %>
-      </article>
+      </section>
     <% end %>
   <% end %>

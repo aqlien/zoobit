@@ -42,3 +42,5 @@ group :development do
 end
 
 gem 'gravtastic'
+gem 'will_paginate', '~> 3.0'
+

@@ -1,15 +1,16 @@
-<article class="profile"><%- title "#{@user.username}" %>
-    <%= link_to image_tag avatar_url(@user) %>
-    <!-- <h2><%#= content_for?(:title) ? yield(:title) : "Zoobit" %></h2> -->
-    <section class="stats">
-      <h3><%= @user.username %></h3>
-      <p>Score: <%= @user.points %></p>
-      <p>Pets: <%= @user.pets.count %>/<%= @user.pet_slots %></p>
-      <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
-      <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+<%- title "#{@user.username}" %>
+<section class="user profile">
+  <%= link_to image_tag avatar_url(@user) %>
+  <section class="stats">
+    <h3><%= @user.username %></h3>
+    <p>Score: <%= @user.points %></p>
+    <p>Pets: <%= @user.pets.count %>/<%= @user.pet_slots %></p>
+    <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+    <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
 
-      <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
-        <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
-      <% end %>
-    </section>
-  </article>
+    <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
+      <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>
+    <% end %>
+    <%= render "users/friends" %>
+  </section>
+</section>
