@@ -130,12 +130,14 @@ private
   end
 
   def event
-    if @pet.pet_boredom.value > 90
-      flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
-    elsif @pet.pet_hunger.value > 90
-      flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
-    elsif @pet.happiness > 90
-      flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+    unless @pet.user_id == 1
+      if @pet.pet_boredom.value > 90
+        flash[:alert] = t("pets.bored_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+      elsif @pet.pet_hunger.value > 90
+        flash[:alert] = t("pets.hungry_#{1+rand(3)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+      elsif @pet.happiness > 90
+        flash[:notice] = t("pets.happy_#{1+rand(2)}", name: @pet.name, gender: @pet.gender == 'Male' ? 'he' : 'she' )
+      end
     end
   end
 
