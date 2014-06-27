@@ -6,19 +6,35 @@
   padding: 10px;
   width: 100%;
   overflow: auto;
+
+  .header-logo {
+    @include span-columns(1);
+    width: 2em;
+  }
+  h1 {
+    @include span-columns(2);
+    margin-top: 3px;
+    margin-left: 5px;
+    display: inline-block;
+    font-size: 2em;
+  }
   @media screen and (max-width: 45em) {
     .header-logo {
       @include span-columns(1);
       @include shift(2);
-    	 width: 70px;
+      width: 2em;
     }
     h1 {
       @include span-columns(2);
       font-size: 30px;
       display: inline-block;
+      margin-top: 2px;
+      margin-left: 5px;
     }
   }
 }
+
+
 
 .main-nav {
 	background-color: $charlie-color;
@@ -149,8 +165,9 @@ footer {
 }
 #top .nav-btn {
   position: absolute;
-  top: 1.5em;
-  left: 1.875em;
+  // top: 1.5em;
+  // left: 1.875em;
+  height: 1.85em;
 }
 
 #main .block {
@@ -212,42 +229,42 @@ footer[role="contentinfo"] {
 
 
 //HEADER -------
-.header-main {
-  background-color: $bravo-color;
-  padding: 10px;
-  width: 100%;
-  .header-btn-menu {
-    width: 30px;
-  }
-  .header-logo {
-     width: 30px;
-  }
-  h1 {
-    font-size: 30px;
-    display: inline-block;
-  }
-}
+// .header-main {
+//   background-color: $bravo-color;
+//   padding: 10px;
+//   width: 100%;
+//   .header-btn-menu {
+//     width: 30px;
+//   }
+//   .header-logo {
+//      width: 30px;
+//   }
+//   h1 {
+//     font-size: 30px;
+//     display: inline-block;
+//   }
+// }
 
-.main-nav {
-  background-color: $charlie-color;
-}
+// .main-nav {
+//   background-color: $charlie-color;
+// }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: gray;
-  padding: 1em;
-  text-align: center;
-  color: black;
-  margin-top: 1em;
-  a {
-    padding: 0 0.5em;
-    &:hover {
-      color: white;
-    }
-  }
-}
+// footer {
+//   position: fixed;
+//   bottom: 0;
+//   width: 100%;
+//   background-color: gray;
+//   padding: 1em;
+//   text-align: center;
+//   color: black;
+//   margin-top: 1em;
+//   a {
+//     padding: 0 0.5em;
+//     &:hover {
+//       color: white;
+//     }
+//   }
+// }
 
 // OFF CANVAS - I pulled this from sassafrass/ui_patterns
 
