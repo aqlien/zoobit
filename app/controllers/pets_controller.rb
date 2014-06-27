@@ -51,6 +51,10 @@ class PetsController < ApplicationController
       @featured = @pets.sample
       @pets = @pets.page(params[:page]).per_page(5)
     end
+    respond_to do |format|
+      format.html
+      format.js { render "_shelterform"}
+    end
   end
 
   def adopt
