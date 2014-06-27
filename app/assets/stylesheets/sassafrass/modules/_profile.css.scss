@@ -13,6 +13,9 @@
 }
 .right-columns {
   @include span-columns(8);
+  @media screen and (max-width: 45em) {
+    @include span-columns(12);
+  }
 }
 
 .view {

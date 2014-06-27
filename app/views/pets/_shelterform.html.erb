@@ -1,5 +1,5 @@
 <% @results.each do |pet| %>
-	<section class="pet profile shelter">
+	<section class="pet profile shelter index">
 		<% pet.update_happiness(Time.now) %>
 	  <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
 	  <h2>About <%= pet.name %></h2>
