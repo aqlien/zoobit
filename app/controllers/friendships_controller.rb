@@ -11,24 +11,10 @@ class FriendshipsController < ApplicationController
     @friends = @user.friendships.all
   end
 
-  # GET /friendships/1
-  # GET /friendships/1.json
-  def show
-  end
-
-  # GET /friendships/new
-  def new
-    @friendship = Friendship.new
-  end
-
-  # GET /friendships/1/edit
-  def edit
-  end
-
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
+    @friendship = Friendship.new(friendship_params) unless current_user.friendships.any? { |f| f.friend_id == :friend_id }
     respond_to do |format|
       if @friendship.save
         friend = User.find(friendship_params["friend_id"]).username
@@ -36,20 +22,6 @@ class FriendshipsController < ApplicationController
         format.json { render :show, status: :created, location: @friendship }
       else
         format.html { render :new }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /friendships/1
-  # PATCH/PUT /friendships/1.json
-  def update
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }
-        format.json { render :show, status: :ok, location: @friendship }
-      else
-        format.html { render :edit }
         format.json { render json: @friendship.errors, status: :unprocessable_entity }
       end
     end

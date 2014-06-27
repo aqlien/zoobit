@@ -1,12 +1,17 @@
 <article class="user-dashboard">
+
+  <%= render "users/user_profile" %>
+  <%= render 'new_friend' %>
+  <h2 class="sub-heading"><%= @user.username %>'s Friends:</h2>
+
   <% if current_user.nil? && @user.friendships.empty? %>
     <%= @user.username %> doesn't have any friends listed!
   <% elsif current_user && current_user == @user && @user.friendships.empty? %>
-    You don't have any friends in your friend list. Add a friend?
+    You don't have any friends in your friend list.
   <% end %>
-  <%= render 'new_friend' %>
   <% @user.friendships.each do |friendship| %>
     <% @friend = User.find(friendship.friend_id) %>
     <%= render 'friend' %>
   <% end %>
+
 </article>
