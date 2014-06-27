@@ -3,6 +3,7 @@
     <!--@KL this section class is hacky as hell, figure out grid sytem better.  If remove shelter and index, it has multiple profiles spanning three columns, is it getting height for some reason? -->
     <section class="user profile shelter index">
       <%= link_to image_tag(avatar_url(user)), user %>
+
       <section class="stats">
         <h3><%= user.username %></h3>
         <p>Score: <%= user.points %></p>
@@ -10,10 +11,9 @@
         <p><%= user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
         <p><%= user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
       </section>
+
       <% if current_user && current_user.friendships.where(friend_id: user.id).empty? && current_user != user %>
-
         <%= link_to "Add Friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post, :class => "btn-profile" %>
-
       <% end %>
     </section>
   <% end %>
