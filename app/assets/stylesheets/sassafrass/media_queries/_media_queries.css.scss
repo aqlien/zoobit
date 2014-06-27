@@ -1,33 +1,33 @@
 @media screen and (max-width: 45em) {
-  #nav {
+  #side-nav {
     position: absolute;
     top: 0;
     padding-top: 5.25em;
   }
-  #nav:not(:target) {
+  #side-nav:not(:target) {
     z-index: 1;
     height: 0;
   }
-  #nav:target .close-btn {
+  #side-nav:target .close-btn {
     display: block;
   }
-  #nav .close-btn {
+  #side-nav .close-btn {
     position: absolute;
     top: -3.75em;
     left: 1.875em;
   }
-  #nav .block {
+  #side-nav .block {
     position: relative;
     padding: 0;
   }
-  #nav li {
+  #side-nav li {
     position: relative;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
-  #nav li:last-child {
+  #side-nav li:last-child {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  #nav li.is-active:after {
+  #side-nav li.is-active:after {
     z-index: 50;
     display: block;
     content: "";
@@ -39,11 +39,11 @@
     border-bottom: 0.625em transparent solid;
     border-right: 0.625em white solid;
   }
-  #nav li a {
+  #side-nav li a {
     padding: 0.85714em 2.14286em;
   }
 
-  .js-ready #nav {
+  .js-ready #side-nav {
     height: 100%;
     width: 70%;
     background: #333333;
@@ -51,20 +51,20 @@
     -moz-box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
     box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25);
   }
-  .js-ready #nav .block {
+  .js-ready #side-nav .block {
     background: transparent;
   }
-  .js-ready #nav .close-btn {
+  .js-ready #side-nav .close-btn {
     display: block;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7;
   }
-  .js-ready #nav .close-btn:focus, .js-ready #nav .close-btn:hover {
+  .js-ready #side-nav .close-btn:focus, .js-ready #side-nav .close-btn:hover {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
   }
 
-  .js-ready #nav {
+  .js-ready #side-nav {
     left: -70%;
   }
   .js-ready #inner-wrap {
@@ -114,7 +114,7 @@
     transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
   }
 
-  .csstransforms3d.csstransitions.js-ready #nav .block {
+  .csstransforms3d.csstransitions.js-ready #side-nav .block {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7;
     -webkit-transition: opacity 300ms 100ms, -webkit-transform 500ms ease;
@@ -134,7 +134,7 @@
     transform-origin: 50% 0%;
   }
 
-  .csstransforms3d.csstransitions.js-nav #nav .block {
+  .csstransforms3d.csstransitions.js-nav #side-nav .block {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
