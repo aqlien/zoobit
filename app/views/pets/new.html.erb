@@ -22,10 +22,13 @@
 	  	<%= render "randomform" %>
 	  	<% end %>
 		</section>
+
     <div id="pets">
 		  <%= render "shelterform" unless User.first.id != 1 %>
     </div>
-    </div class="hide"><%= will_paginate @pets%></div>
+    </div class="hide">
+      <%= will_paginate @pets%>
+    </div>
 	</section>
 
 	<!-- If the first user isn't Zoobit Shelter, the seed file didn't get loaded correctly-->
