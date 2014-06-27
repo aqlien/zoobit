@@ -1,7 +1,7 @@
 <%- title "Sign in to ZooBit" %>
 
 <article class="dashboard">
-  <section class="form profile">
+  <section class="reservedword profile">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <p><%= f.label :login %></p>
       <p><%= f.text_field :login, autofocus: true %></p>
@@ -24,6 +24,6 @@
 </article>
 
 <section id="omniauth">
-  
+
 </section>
 </article>
