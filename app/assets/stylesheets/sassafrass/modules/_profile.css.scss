@@ -15,7 +15,7 @@
   @include span-columns(8);
 }
 
-.view{
+.view {
   background-image: url('dog_bg.png');
   background-repeat:no-repeat;
   background-position:center;
@@ -66,7 +66,6 @@
   // min-height: 100px;
   min-width: 4.6875em;
   max-width: 4.6875em;
-  border-radius: 50%;
   background-color: $delta-color;
   margin-right: 2em !important;
 }
