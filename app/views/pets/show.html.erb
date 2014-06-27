@@ -1,30 +1,32 @@
-<article class="user-dashboard">
   <%- title @pet.name %>
-  <section class="profile">
-    <h5><%= @pet.name %></h5><% if current_user == @pet.user %>
-    <%= link_to 'Change Name', edit_pet_path(@pet) %>
+  <article class="dashboard">
+    <section class="user profile">
+      <%= link_to image_tag avatar_url(current_user) %>
+      <h3><%= current_user.username %></h3>
+      <p>Score: <%= current_user.points %></p>
+    </section>
 
-    <%= link_to 'Abandon', pet_path(@pet), method: :delete, data: { confirm: "Leave #{ @pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
-  <% end %>
-    <p>Owner: <%= @pet.user.username %></p>
-    <p>Species: <%= @pet.type %></p>
-    <p>Breed/color: <%= @pet.breed %></p>
-    <p>Gender: <%= @pet.gender %></p>
-  </section>
-  <div class="full-pet">
-  	<div class="pet-head">
-  		<%= image_tag(@pet.img_loc) %>
-  	</div>
-  	<div class="pet-body">
-  		<%= image_tag(@pet.body_img) %>
-  	</div>
-  </div>
-  <%= render "pets/status_bars" %>
-  <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "btn-profile"%>
-  <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "btn-profile" %>
-  <% if @pet.user_id == 1 %>
-    <%= link_to 'Back', "/shelter", class: "btn-profile" %>
-  <% else %>
-    <%= link_to 'Back', user_path(@pet.user), class: "btn-profile" %>
-  <% end %>
-</article>
+    <section class="pet view">
+      <h1><%= @pet.name %></h1>
+      <% if current_user == @pet.user %>
+        <%= link_to 'Change Name', edit_pet_path(@pet) %>
+      <% end %>
+      <%= image_tag(@pet.img_loc) %>
+    </section>
+
+    <section class="info-controls">
+      <section class="stats profile">
+        <%= render "layouts/flash" %>
+        <%= render "pets/status_bars" %>
+        <p>Breed/color: <%= @pet.breed %></p>
+        <p>Gender: <%= @pet.gender %></p>
+      </section>
+      <sections class="controls ">
+        <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "btn-profile"%>
+        <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "btn-profile" %>
+        <% if current_user == @pet.user %>
+          <%= link_to 'Abandon', pet_path(@pet), method: :delete, data: { confirm: "Leave #{ @pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+          <% end %>
+      </section>
+    </section>
+  </article>
