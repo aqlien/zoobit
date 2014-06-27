@@ -26,6 +26,14 @@
   @include span-columns(4);
 }
 
+.stats h2{
+  padding: .25em;
+}
+
+.stats > div {
+  margin-bottom: .25em;
+}
+
 .profile:first-of-type {
   margin-top: 0.5em;
 }
