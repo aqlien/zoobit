@@ -1,32 +1,25 @@
 <%- title "Sign in to ZooBit" %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<article class="profile">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <p><%= f.label :login %></p>
+    <p><%= f.text_field :login, autofocus: true %></p>
 
-  <%= f.label :login %>
+    <p><%= f.label :password %></p>
+    <p><%= f.password_field :password, autocomplete: "off" %></p>
 
-  <%= f.text_field :login, autofocus: true %>
+    <% if devise_mapping.rememberable? -%>
+      <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+    <% end -%>
 
+    <p><%= render "devise/shared/links" %></p>
 
-  <%= f.label :password %>
+    <section>
+      <%= f.submit "Submit", class: "btn-profile"%>
+    </section>
+  <% end %>
+</article>
 
-  <%= f.password_field :password, autocomplete: "off" %>
-
-
-  <% if devise_mapping.rememberable? -%>
-
-    <%= f.check_box :remember_me %> <%= f.label :remember_me %>
-
-  <% end -%>
-
-  <section><%= f.submit "Submit", class: "button small round"%> or <a href="#" class="button small round" data-reveal-id="omniauth"><%=t(:sign_in_media_link)%></a>
-  </section>
-
-<% end %>
-
-<%= render "devise/shared/links" %>
-
-<section id="omniauth" class="reveal-modal small" data-reveal>
+<section id="omniauth">
   <%= render "layouts/omniauthpopup" %>
 </section>
-
-<!-- @KL the above is repeated code, can we make this smaller, loke a render or someething? or actually it is a render, it's just the styling, so maybe we can actually include that modal styling in the rendered bit in layouts -->
