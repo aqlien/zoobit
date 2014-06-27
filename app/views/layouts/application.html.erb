@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700|Arimo:400,700' rel='stylesheet' type='text/css'>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title><%= content_for?(:title) ? yield(:title)+ " | ZooBit" : "ZooBit" %></title>
     <%= stylesheet_link_tag  "application" %>
     <%= javascript_include_tag  "main" %>

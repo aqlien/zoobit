@@ -1,37 +1,32 @@
 <%- title "New Owner" %>
 
+<article class="profile">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <%= devise_error_messages! %>
 
-    <%= f.label :username, "*Username: " %>
+    <p><%= f.label :username, "*Username: " %></p>
+    <p><%= f.text_field :username, autofocus: true %></p>
 
-    <%= f.text_field :username, autofocus: true %>
+    <p><%= f.label :email, "*Email:" %><p>
+    <p><small><%= f.label "An email address is required, just in case you need us to reset your password." %></small></p>
+    <p><%= f.email_field :email%></p>
 
-    <%= f.label :email, "*Email: An email address is required, just in case you need us to reset your password." %>
+    <% if f.object.password_required? %></p>
+      <p><%= f.label :password, "*Password: " %></p>
+      <p><%= f.password_field :password, autocomplete: "off" %></p>
 
-    <%= f.email_field :email%>
-
-
-    <% if f.object.password_required? %>
-
-      <%= f.label :password, "*Password: " %>
-      <%= f.password_field :password, autocomplete: "off" %>
-
-      <%= f.label :password_confirmation, "*Password, again: " %>
-
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
+      <p><%= f.label :password_confirmation, "*Password, again: " %>
+      <p><%= f.password_field :password_confirmation, autocomplete: "off" %></p>
     <% end %>
 
-    <section><%= f.submit "Sign Up", class: "button small round"%> or <a href="#" class="button small round" data-reveal-id="omniauth"><%=t(:sign_in_media_link)%></a>
+    <section><%= f.submit "Sign Up", class: "btn-profile"%>
     </section>
-
   <% end %>
-
   <%= render "devise/shared/links" %>
+</article>
 
-<section id="omniauth" class="reveal-modal small" data-reveal>
+<section id="omniauth">
   <%= render "layouts/omniauthpopup" %>
 </section>
 

@@ -35,23 +35,79 @@
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries';
 
+// .sandbox {
+// 	@include outer-container;
+// }
 .full-pet {
-	@include outer-container;
 	position: relative;
-	width: 5em;
+	width: 10em;
+	border: 1px solid blue;
 }
 
-.pet-head {
+/*RABBIT
+---------------------------------------------------------*/
+
+.Rabbit .pet-head {
 	position: absolute;
-	left: 15px;
+	left: -15%;
+	top: 0;
+	width: 131.7%;
+	border: 1px solid red;
+  z-index: 100;
+  -webkit-animation: head-move 1s ease-in-out infinite;
+}
+
+.Rabbit .pet-body {
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	border: 1px solid green;
+}
+
+/*DOG
+---------------------------------------------------------*/
+
+.Dog .pet-head {
+	position: absolute;
+	left: 18.75%;
 	top: 0;
 	width: 63%;
-	z-index: 100;
+	// border: 1px solid red;
+  z-index: 100;
+  -webkit-animation: head-move 1s ease-in-out infinite;
 }
 
-.pet-body {
+.Dog .pet-body {
 	position: absolute;
-	top: 66px;
+	top: 95%;
 	width: 100%;
-
+	// border: 1px solid green;
 }
+
+/*CAT
+---------------------------------------------------------*/
+
+.Cat .pet-head {
+	position: absolute;
+	left: -13%;
+	top: 0;
+	width: 131.2%;
+	border: 1px solid red;
+  z-index: 100;
+  -webkit-animation: head-move 1s ease-in-out infinite;
+}
+
+.Cat .pet-body {
+	position: absolute;
+	top: 90%;
+	width: 100%;
+	border: 1px solid green;
+}
+
+/*ANIMATIONS
+---------------------------------------------------------*/
+
+@-webkit-keyframes head-move {
+  50% { -webkit-transform: rotate(-1.5deg); }
+}
+

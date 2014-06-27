@@ -1,31 +1,26 @@
-<article class="profile">
   <% v = @pet.happiness %>
-  <h2 class="sub-heading">Happiness:</h2>
+  
   <div class="<%= v > 40 ? "meter-container-happy":"meter-container-unhappy"%>">
     <div class="<%= v > 40 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
-      <p><%= v %></p>
+      <h2>Happiness</h2>
     </div>
   </div>
   <% v = @pet.pet_hunger.value %>
-  <h2 class="sub-heading">Hunger:</h2>
   <div class="<%= v < 60 ? "meter-container-happy":"meter-container-unhappy"%>">
     <div class="<%= v < 60 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
-      <p><%= v %></p>
+      <h2>Hunger</h2>
     </div>
   </div>
   <% v = @pet.pet_tiredness.value %>
-  <h2 class="sub-heading">Tiredness:</h2>
   <div class="<%= v < 80 ? "meter-container-happy":"meter-container-unhappy"%>">
     <div class="<%= v < 80 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
-      <p><%= v < 100 ? v : "Sleeping" %></p>
+      <h2>Tiredness</h2>
     </div>
   </div>
   <% v = @pet.pet_boredom.value %>
-  <h2 class="sub-heading">Boredom:</h2>
   <div class="<%= v < 50 ? "meter-container-happy":"meter-container-unhappy"%>">
     <div class="<%= v < 50 ? "meter-happy":"meter-unhappy"%>" style="width:<%=v%>%">
-      <p><%= v %></p>
+      <h2>Boredom</h2>
     </div>
   </div>
-</article>
 
