@@ -2,10 +2,10 @@ module PetsHelper
 
   MALE_NAMES = ["Thor","Neo", "Hector", "Tony", "Peter", "Bruce", "Clark", "Samuel",
             "Lorenzo", "Reynaldo", "Raymondo", "Guillermo", "Theo", "Spike", "Joey",
-            "Buddy", "Woody", "Clint", "Lord Whitby, Esquire"]
+            "Buddy", "Woody", "Clint", "Lord Whitby, Esquire", "Bob", "Timmy", "Jake", "Louis", "Chip", "King", "Tommy", "Dakota", "Speckles", "Winston", "Camo"]
   FEMALE_NAMES = ["Ruby", "Sophie", "Pandora", "Pepper", "Natasha", "Elisabeth", "Monica",
-                  "Betsy", "Betty", "Phoebe", "Diana", "Queen Elizabeth the Second"]
-  NEUTRAL_NAMES = ["Spot", "Halo", "Scout", "AJ", "Killer", "Robin"]
+                  "Betsy", "Betty", "Phoebe", "Diana", "Queen Elizabeth the Second", "Sally", "Callie", "Karen", "Jenny", "Princess", "Abby", "Chelsea", "Ginger"]
+  NEUTRAL_NAMES = ["Spot", "Halo", "Scout", "AJ", "Killer", "Robin", "Lucky"]
   TYPES = ["Dog", "Cat", "Bird", "Rabbit"]
   GENDERS = ["Male", "Female"]
 
