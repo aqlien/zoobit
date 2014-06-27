@@ -1,1 +1,8 @@
 @import "media_queries/manifest";
+
+
+@media screen and (min-width: 45em) {
+  #side-nav {
+    display: none;
+  }
+}

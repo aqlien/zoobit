@@ -15,28 +15,50 @@
   @include span-columns(8);
 }
 
-.view{
+.view {
   background-image: url('dog_bg.png');
   background-repeat:no-repeat;
   background-position:center;
   margin-top: 0.5em;
+  position: relative;
+  height: 30em;
 }
 
 .info-controls,
-.pet, 
+.pet,
 .user {
   @include span-columns(4);
   @media screen and (max-width: 45em) {
-
+    @include span-columns(11);
   }
+}
+
+
+
+.form {
+  @include span-columns(4);
+  @include shift(4);
 }
 
 .shelter {
   @include span-columns(4 of 8);
+  &:last-child {
+    margin-right: 3.57866% !important;
+  }
+}
+
+.index {
+  @media screen and (max-width: 45em) {
+    @include span-columns(11);
+  }
 }
 
 .feature {
   @include span-columns(4 of 8);
+}
+
+.stats {
+  @include span-columns(4 of 4);
 }
 
 .stats h2{
@@ -52,13 +74,15 @@
 }
 
 .profile img {
-  @include span-columns(2);
   // min-height: 100px;
   min-width: 4.6875em;
   max-width: 4.6875em;
-  border-radius: 50%;
   background-color: $delta-color;
   margin-right: 2em !important;
+}
+
+.image {
+  @include span-columns(1 of 4);
 }
 
 // .stats {
@@ -67,7 +91,6 @@
 // }
 
 @mixin meter-container($color) {
-  @extend .stats;
   width: 80%;
   height: 1.25em;
   background-color: $color;

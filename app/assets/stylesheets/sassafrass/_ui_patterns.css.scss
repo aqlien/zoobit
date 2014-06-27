@@ -1,18 +1,22 @@
 @import "ui_patterns/manifest";
 
+//HEADER -------
 .header-main {
 	background-color: $bravo-color;
   padding: 10px;
   width: 100%;
-  .header-btn-menu {
-  	width: 30px;
-  }
-  .header-logo {
-  	 width: 30px;
-  }
-  h1 {
-    font-size: 30px;
-    display: inline-block;
+  overflow: auto;
+  @media screen and (max-width: 45em) {
+    .header-logo {
+      @include span-columns(1);
+      @include shift(2);
+    	 width: 70px;
+    }
+    h1 {
+      @include span-columns(2);
+      font-size: 30px;
+      display: inline-block;
+    }
   }
 }
 
@@ -38,22 +42,24 @@ footer {
 }
 
 // OFF CANVAS - I pulled this from sassafrass/ui_patterns
-.nav-btn {
-  display: block;
-  width: 2.625em;
-  height: 2.25em;
-  padding: 0;
-  border: 0;
-  outline: none;
-  background: #333333 url("../img/nav-icon.svg") left center no-repeat;
-  background-size: 1.875em 1.5em;
-  overflow: hidden;
-  white-space: nowrap;
-  text-indent: 100%;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-  opacity: 0.7;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+
+
+// .nav-btn {
+//   display: block;
+//   width: 2.625em;
+//   height: 2.25em;
+//   padding: 0;
+//   border: 0;
+//   outline: none;
+//   background: #333333 url("../img/nav-icon.svg") left center no-repeat;
+//   background-size: 1.875em 1.5em;
+//   overflow: hidden;
+//   white-space: nowrap;
+//   text-indent: 100%;
+//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+//   opacity: 0.7;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// }
 .no-svg .nav-btn {
   background-image: url("../img/nav-icon.png");
 }
@@ -61,6 +67,200 @@ footer {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+
+#outer-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+#inner-wrap {
+  position: relative;
+  width: 100%;
+}
+
+#side-nav {
+  z-index: 200;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+}
+#side-nav .close-btn {
+  display: none;
+}
+#side-nav .block-title {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+#side-nav .block {
+  z-index: 2;
+  position: relative;
+  padding: 0.75em 1.25em;
+  background: #333333;
+}
+#side-nav ul {
+  *zoom: 1;
+  display: block;
+}
+#side-nav ul:before, #nav ul:after {
+  content: "";
+  display: table;
+}
+#side-nav ul:after {
+  clear: both;
+}
+#side-nav li {
+  display: block;
+}
+#side-nav li a {
+  display: block;
+  color: #ccc;
+  font-size: 0.875em;
+  line-height: 1.28571em;
+  font-weight: bold;
+  outline: none;
+}
+#side-nav li a:focus, #side-nav li a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+#side-nav li.is-active a {
+  color: #fff;
+}
+
+#top {
+  z-index: 100;
+  position: relative;
+}
+#top .block-title {
+  margin: 0;
+  font-size: 1.875em;
+  line-height: 1.2em;
+  text-align: center;
+  white-space: nowrap;
+}
+#top .nav-btn {
+  position: absolute;
+  top: 1.5em;
+  left: 1.875em;
+}
+
+#main .block {
+  padding: 2.625em 1.875em;
+}
+
+footer[role="contentinfo"] {
+  background: #ddd;
+}
+
+@media screen and (min-width: 45.0625em) {
+  #top .nav-btn {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  #side-nav .close-btn {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  #side-nav .block-title {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  #side-nav ul {
+    text-align: center;
+    white-space: nowrap;
+  }
+  #side-nav li {
+    display: inline-block;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  #side-nav li:last-child {
+    border-right: none;
+  }
+  #side-nav li a {
+    padding: 0.42857em 0.85714em;
+  }
+}
+
+
+
+//HEADER -------
+.header-main {
+  background-color: $bravo-color;
+  padding: 10px;
+  width: 100%;
+  .header-btn-menu {
+    width: 30px;
+  }
+  .header-logo {
+     width: 30px;
+  }
+  h1 {
+    font-size: 30px;
+    display: inline-block;
+  }
+}
+
+.main-nav {
+  background-color: $charlie-color;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: gray;
+  padding: 1em;
+  text-align: center;
+  color: black;
+  margin-top: 1em;
+  a {
+    padding: 0 0.5em;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// OFF CANVAS - I pulled this from sassafrass/ui_patterns
+
+
+// 
+// .no-svg .nav-btn {
+//   background-image: url("../img/nav-icon.png");
+// }
+// .nav-btn:hover, .nav-btn:focus {
+//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+//   opacity: 1;
+// }
+
 
 #outer-wrap {
   position: relative;
@@ -128,77 +328,3 @@ footer {
 #nav li.is-active a {
   color: #fff;
 }
-
-#top {
-  z-index: 100;
-  position: relative;
-}
-#top .block-title {
-  margin: 0;
-  font-size: 1.875em;
-  line-height: 1.2em;
-  text-align: center;
-  white-space: nowrap;
-}
-#top .nav-btn {
-  position: absolute;
-  top: 1.5em;
-  left: 1.875em;
-}
-
-#main .block {
-  padding: 2.625em 1.875em;
-}
-
-footer[role="contentinfo"] {
-  background: #ddd;
-}
-
-@media screen and (min-width: 45.0625em) {
-  #top .nav-btn {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  #nav .close-btn {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  #nav .block-title {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  #nav ul {
-    text-align: center;
-    white-space: nowrap;
-  }
-  #nav li {
-    display: inline-block;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  #nav li:last-child {
-    border-right: none;
-  }
-  #nav li a {
-    padding: 0.42857em 0.85714em;
-  }
-}
-
