@@ -35,11 +35,13 @@
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries';
 
+// .sandbox {
+// 	@include outer-container;
+// }
 .full-pet {
-	@include outer-container;
 	position: relative;
 	width: 10em;
-	border: 1px solid red;
+	border: 1px solid blue;
 }
 
 /*RABBIT
@@ -70,7 +72,7 @@
 	left: 18.75%;
 	top: 0;
 	width: 63%;
-	border: 1px solid red;
+	// border: 1px solid red;
   z-index: 100;
   -webkit-animation: head-move 1s ease-in-out infinite;
 }
@@ -79,7 +81,7 @@
 	position: absolute;
 	top: 95%;
 	width: 100%;
-	border: 1px solid green;
+	// border: 1px solid green;
 }
 
 /*CAT

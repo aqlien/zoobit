@@ -1,3 +1,5 @@
+ 
+
 <article class="user-dashboard">
   <%- title @pet.name %>
   <section class="profile">
@@ -8,6 +10,7 @@
     Gender: <%= @pet.gender %>
   </section>
 
+  <div class="sandbox">
   <div class="<%= @pet.type %> full-pet">
   	<div class="pet-head">
   		<%= image_tag(@pet.img_loc) %>
@@ -16,6 +19,7 @@
   		<%= image_tag(@pet.body_img) %>
   	</div>
   </div>
+	</div> 
 
   <%= render "pets/status_bars" %>
   <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "btn-profile"%>
