@@ -20,10 +20,12 @@
   background-repeat:no-repeat;
   background-position:center;
   margin-top: 0.5em;
+  position: relative;
+  height: 30em;
 }
 
 .info-controls,
-.pet, 
+.pet,
 .user {
   @include span-columns(4);
   @media screen and (max-width: 45em) {
@@ -31,8 +33,16 @@
   }
 }
 
+.form {
+  @include span-columns(4);
+  @include shift(4);
+}
+
 .shelter {
   @include span-columns(4 of 8);
+  &:last-child {
+    margin-right: 3.57866% !important;
+  }
 }
 
 .feature {

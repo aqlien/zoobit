@@ -1,6 +1,6 @@
 <article class="user-dashboard">
   <% @users.each do |user| %>
-    <article class="profile">
+    <section class="shelter profile">
       <%= link_to image_tag(avatar_url(user)), user %>
       <section class="stats">
         <%= link_to user.username, user %>
@@ -12,6 +12,6 @@
         <%= link_to "Add Friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: user.id}, method: :post, :class => "btn-profile" %>
 
       <% end %>
-    </article>
+    </section>
   <% end %>
 </article>

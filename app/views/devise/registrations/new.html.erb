@@ -1,6 +1,6 @@
 <%- title "New Owner" %>
 
-<article class="profile">
+<article class="form profile">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
     <%= devise_error_messages! %>
@@ -24,10 +24,7 @@
     </section>
   <% end %>
   <%= render "devise/shared/links" %>
-</article>
-
-<section id="omniauth">
   <%= render "layouts/omniauthpopup" %>
-</section>
+</article>
 
 <!-- @KL reference the above for modals.  All sections here used to be divs -->

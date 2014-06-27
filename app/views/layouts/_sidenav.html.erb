@@ -1,12 +1,11 @@
-
-<% if current_user.nil? %>
+<nav id="side-nav">
+  <% if current_user.nil? %>
   <h4>Your pets go here!</h4>
   <% elsif current_user.pets.empty? %>
     <h4>You don't have any pets!</h4>
   <% else %>
     <h4>Your Current Pets:</h4>
 <% end %>
-<nav id="side-nav">
 <ul>
   <% if current_user.nil? %>
     <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %></li>

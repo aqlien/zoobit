@@ -35,79 +35,94 @@
 @import 'sassafrass/ui_patterns';
 @import 'sassafrass/media_queries';
 
-// .sandbox {
-// 	@include outer-container;
+.pet-head {
+	width: 60%;
+	position: absolute;
+	left: 20%;
+	top: 15%;
+	-webkit-animation: head-move 1s ease-in-out infinite;
+}
+
+.pet-body {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 180px;
+}
+
+
+
+
+
+// .full-pet {
+// 	position: relative;
+// 	width: 10em;
+// 	border: 1px solid blue;
 // }
-.full-pet {
-	position: relative;
-	width: 10em;
-	border: 1px solid blue;
-}
 
-/*RABBIT
----------------------------------------------------------*/
+// /*RABBIT
+// ---------------------------------------------------------*/
 
-.Rabbit .pet-head {
-	position: absolute;
-	left: -15%;
-	top: 0;
-	width: 131.7%;
-	border: 1px solid red;
-  z-index: 100;
-  -webkit-animation: head-move 0.25s ease-in-out infinite;
-}
+// .Rabbit .pet-head {
+// 	position: absolute;
+// 	left: -15%;
+// 	top: 0;
+// 	width: 131.7%;
+// 	border: 1px solid red;
+//   z-index: 100;
+//   -webkit-animation: head-move 1s ease-in-out infinite;
+// }
 
-.Rabbit .pet-body {
-	position: absolute;
-	top: 25%;
-	width: 100%;
-	border: 1px solid green;
-}
+// .Rabbit .pet-body {
+// 	position: absolute;
+// 	top: 25%;
+// 	width: 100%;
+// 	border: 1px solid green;
+// }
 
-/*DOG
----------------------------------------------------------*/
+// /*DOG
+// ---------------------------------------------------------*/
 
-.Dog .pet-head {
-	position: absolute;
-	left: 18.75%;
-	top: 0;
-	width: 63%;
-	// border: 1px solid red;
-  z-index: 100;
-  -webkit-animation: head-move 1s ease-in-out infinite;
-}
+// .Dog .pet-head {
+// 	position: absolute;
+// 	left: 18.75%;
+// 	top: 0;
+// 	width: 63%;
+// 	// border: 1px solid red;
+//   z-index: 100;
+//   -webkit-animation: head-move 1s ease-in-out infinite;
+// }
 
-.Dog .pet-body {
-	position: absolute;
-	top: 95%;
-	width: 100%;
-	// border: 1px solid green;
-}
+// .Dog .pet-body {
+// 	position: absolute;
+// 	top: 95%;
+// 	width: 100%;
+// 	// border: 1px solid green;
+// }
 
-/*CAT
----------------------------------------------------------*/
+// /*CAT
+// ---------------------------------------------------------*/
 
-.Cat .pet-head {
-	position: absolute;
-	left: -13%;
-	top: 0;
-	width: 131.2%;
-	border: 1px solid red;
-  z-index: 100;
-  -webkit-animation: head-move 1s ease-in-out infinite;
-}
+// .Cat .pet-head {
+// 	position: absolute;
+// 	left: -13%;
+// 	top: 0;
+// 	width: 131.2%;
+// 	border: 1px solid red;
+//   z-index: 100;
+//   -webkit-animation: head-move 1s ease-in-out infinite;
+// }
 
-.Cat .pet-body {
-	position: absolute;
-	top: 90%;
-	width: 100%;
-	border: 1px solid green;
-}
+// .Cat .pet-body {
+// 	position: absolute;
+// 	top: 90%;
+// 	width: 100%;
+// 	border: 1px solid green;
+// }
 
 /*ANIMATIONS
 ---------------------------------------------------------*/
 
 @-webkit-keyframes head-move {
-  100% { -webkit-transform: rotate(-360.5deg); }
+  50% { -webkit-transform: rotate(-1.5deg); }
 }
 
