@@ -18,14 +18,15 @@
       <section class="stats profile">
         <%= render "layouts/flash" %>
         <%= render "pets/status_bars" %>
-        <p>Breed/color: <%= @pet.breed %></p>
+        <p>Breed: <%= @pet.breed %></p>
         <p>Gender: <%= @pet.gender %></p>
       </section>
+
       <sections class="controls ">
         <%= link_to "Feed #{@pet.name}", pet_feed_path(@pet), class: "btn-profile"%>
         <%= link_to "Play with #{@pet.name}", pet_play_path(@pet), class: "btn-profile" %>
         <% if current_user == @pet.user %>
-          <%= link_to 'Abandon', pet_path(@pet), method: :delete, data: { confirm: "Leave #{ @pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." } %>
+          <%= link_to 'Abandon', pet_path(@pet), method: :delete, data: { confirm: "Leave #{ @pet.name } all alone? You will be fined half of your total points for being an irresponsible owner." }, class: "btn-profile-neg" %>
           <% end %>
       </section>
     </section>

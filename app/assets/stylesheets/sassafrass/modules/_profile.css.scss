@@ -11,7 +11,9 @@
     margin: 0.5em 5%;
   }
 }
-
+.right-columns {
+  @include span-columns(8);
+}
 
 .view{
   background-image: url('dog_bg.png');
@@ -24,6 +26,25 @@
 .pet, 
 .user {
   @include span-columns(4);
+  @media screen and (max-width: 45em) {
+
+  }
+}
+
+.shelter {
+  @include span-columns(4 of 8);
+}
+
+.feature {
+  @include span-columns(4 of 8);
+}
+
+.stats h2{
+  padding: .25em;
+}
+
+.stats > div {
+  margin-bottom: .25em;
 }
 
 .profile:first-of-type {

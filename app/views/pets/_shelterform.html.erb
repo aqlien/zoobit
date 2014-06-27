@@ -1,13 +1,12 @@
 <% @results.each do |pet| %>
-	<article class="profile">
+	<section class="pet profile shelter">
 		<% pet.update_happiness(Time.now) %>
 	  <%= link_to image_tag(pet.img_loc), user_pet_path(current_user, pet) %>
-	  <h5>About <%= pet.name %></h5>
-	  <p>Relinquished By: <%= pet.previous_owner && !ApplicationHelper.obscene_substring?(pet.previous_owner) ? pet.previous_owner : "Animal Control" %></p>
+	  <h2>About <%= pet.name %></h2>
 	  <p>Species: <%= pet.type %></p>
-	  <p>Breed/color: <%= pet.breed %></p>
+	  <p>Breed: <%= pet.breed %></p>
 	  <p>Gender: <%= pet.gender %></p>
 	  <%= link_to "Adopt Pet", pet_adopt_path(pet), method: :patch, class: "btn-profile", data: { confirm: "Adopt #{ pet.name }?" } %>
-	</article>
+	</section>
 <% end %>
 
