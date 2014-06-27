@@ -27,7 +27,7 @@
 .user {
   @include span-columns(4);
   @media screen and (max-width: 45em) {
-
+    @include span-columns(11);
   }
 }
 
@@ -37,6 +37,10 @@
 
 .feature {
   @include span-columns(4 of 8);
+}
+
+.stats {
+  @include span-columns(4 of 4);
 }
 
 .stats h2{
@@ -52,7 +56,6 @@
 }
 
 .profile img {
-  @include span-columns(2);
   // min-height: 100px;
   min-width: 4.6875em;
   max-width: 4.6875em;
@@ -61,13 +64,16 @@
   margin-right: 2em !important;
 }
 
+.image {
+  @include span-columns(1 of 4);
+}
+
 // .stats {
 //   @include span-columns(6);
 //   @include omega();
 // }
 
 @mixin meter-container($color) {
-  @extend .stats;
   width: 80%;
   height: 1.25em;
   background-color: $color;
