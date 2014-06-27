@@ -9,10 +9,11 @@
       <li><%= link_to (raw t(:sign_up_link_html)), new_user_registration_path %><li>
       <li><%= link_to (raw t(:sign_in_link_html)), new_user_session_path  %></li>
     <% else %>
-      <li><%= link_to "Adopt a new Pet!", new_pet_path %></li>
+      <li><%= link_to "Pets", user_path(current_user) %></li>
+      <li><%= link_to "Animal Shelter", new_pet_path %></li>
+      <li><%= link_to "Leaderboard", "/leaderboard" %></li>
       <li><%= link_to (raw t(:sign_out_link_html)), destroy_user_session_path, method: :delete %></li>
     <% end %>
-    <li><%= link_to "Leaderboard", "/leaderboard" %></li>
   </ul>
   <a class="close-btn" id="nav-close-btn" href="#top">Return to Content</a>
 </nav>
