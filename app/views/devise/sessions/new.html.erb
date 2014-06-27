@@ -1,7 +1,7 @@
 <%- title "Sign in to ZooBit" %>
 
 <article class="dashboard">
-  <section class="reservedword profile">
+  <section class="reservedword profile index shelter">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <p><%= f.label :login %></p>
       <p><%= f.text_field :login, autofocus: true %></p>

@@ -40,7 +40,11 @@
 
 .reservedword {
   @include span-columns(4);
-  @include shift(4);
+  @include shift(2);
+  @media screen and (max-width: 45em) {
+    @include shift(0);
+    margin-left: 1em;
+  }
 }
 
 .shelter {
