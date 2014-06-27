@@ -39,7 +39,7 @@
 	width: 60%;
 	position: absolute;
 	left: 20%;
-	top: 15%;
+	top: 20%;
 	-webkit-animation: head-move 1s ease-in-out infinite;
 }
 
@@ -50,7 +50,9 @@
 }
 
 
-
+@-webkit-keyframes head-move {
+  50% { -webkit-transform: rotate(-1.5deg); }
+}
 
 
 // .full-pet {
@@ -121,8 +123,4 @@
 
 /*ANIMATIONS
 ---------------------------------------------------------*/
-
-@-webkit-keyframes head-move {
-  50% { -webkit-transform: rotate(-1.5deg); }
-}
 
