@@ -21,7 +21,7 @@
     <section class="pet view">
       <h1><%= @pet.name %></h1>
       <% if current_user == @pet.user %>
-        <%= link_to 'Change Name', edit_pet_path(@pet) %>
+        <%= link_to 'C', edit_pet_path(@pet) %>
       <% end %>
       <div class="pet-head">
         <%= image_tag(@pet.img_loc) %>
