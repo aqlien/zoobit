@@ -8,9 +8,12 @@
   @media screen and (max-width: 45em) {
     display: inline-block;
     width: 90%;
-    margin: 0.5em 5%;
+    margin: 0.5em;
   }
 }
+
+
+
 .right-columns {
   @include span-columns(8);
   @media screen and (max-width: 45em) {
@@ -38,6 +41,19 @@
     @include span-columns(11);
   }
 }
+.user {
+  @media screen and (max-width: 45em) {
+    display: none;
+  }
+} 
+
+.pet {
+  @media screen and (max-width: 45em) {
+    width: 100%;
+    margin: 0;
+  }
+} 
+
 
 .reservedword {
   @include span-columns(4);
