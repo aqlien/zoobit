@@ -2,10 +2,10 @@
   <%= link_to image_tag avatar_url(@user) %>
   <section class="stats">
     <h3><%= @user.username %></h3>
-    <p>Score: <%= @user.points %></p>
-    <p>Pets: <%= @user.pets.count %>/<%= @user.pet_slots %></p>
-    <p><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
-    <p><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
+    <p class="score">Score: <%= @user.points %></p>
+    <p class="slots">Pets: <%= @user.pets.count %>/<%= @user.pet_slots %></p>
+    <p class="join-date"><%= @user.created_at.strftime("Joined on: %m/%d/%Y") %></p>
+    <p class="last-login"><%= @user.last_sign_in_at.strftime("Last signed in: %m/%d/%Y at %I:%M%p") %></p>
 
     <% if current_user && current_user.friendships.where(friend_id: @user.id).empty? && current_user != @user %>
       <%= link_to "Add #{@user.username} as a friend", {controller: "friendships", action: "create", user_id: current_user.id, friend_id: @user.id}, method: :post %>

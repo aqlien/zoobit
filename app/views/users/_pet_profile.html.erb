@@ -6,12 +6,11 @@
       <% h = pet.happiness.nil? ? 0 : pet.happiness %>
       <section class="pet profile shelter index">
         <section class="image">
-        <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
-      </section>
-        <!-- @KL the image is not reflecting the happiness status effectively -->
+          <%= link_to image_tag(pet.img_loc), user_pet_path(@user, pet) %>
+        </section>
         <section class="stats"><h4><%= link_to pet.name, user_pet_path(@user, pet) %></h4>
-          <p><%= pet.type %></p>
-          <p><%= pet.breed %></p>
+          <p class="pet-type"><%= pet.type %></p>
+          <p class="breed"><%= pet.breed %></p>
           <p class="<%= pet.pet_hunger.value > 50 ? "hungry":""%>"></p>
           <p class="<%= pet.pet_boredom.value > 50 ? "bored":""%>"></p>
           <div class="<%= h > 40 ? "meter-container-happy":"meter-container-unhappy"%>">

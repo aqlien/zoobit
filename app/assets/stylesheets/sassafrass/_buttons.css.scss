@@ -1,17 +1,17 @@
 @import "buttons/manifest";
 
-.btn-profile {
-	@include button($bravo-color, $charlie-color);
-}
+// .btn-profile {
+// 	@include button($bravo-color, $charlie-color);
+// }
 
-.btn-profile-neg {
-  @include button($alpha-color, $alpha-color-dark);
-}
+// .btn-profile-neg {
+//   @include button($alpha-color, $alpha-color-dark);
+// }
 
-.form .btn-profile {
-  margin-left: 0.5em;
-}
+// .form .btn-profile {
+//   margin-left: 0.5em;
+// }
 
-.form input.btn-profile:active {
-  margin-bottom: 7px;
-}
+// .form input.btn-profile:active {
+//   margin-bottom: 7px;
+// }
