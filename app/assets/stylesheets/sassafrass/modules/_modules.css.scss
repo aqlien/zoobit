@@ -3,3 +3,35 @@
 // Examples are site header, main navigation and footer.
 // One could argue that a module is engineered as a 'plug-n-play' element.
 // Modules and UI Patters can be directories unto themselves.
+
+.profile {
+  background-color: $delta-color;
+  border-radius: 0.625em;
+  border-bottom: 0.5em solid $charlie-color;
+  // overflow: auto;
+  margin-bottom: 0.5em;
+  padding: 0.5em;
+  img {
+  	border: 1px solid red;
+  	border-radius: 100px;
+  	width: 50px;
+  }
+}
+
+.pet-head {
+	width: 60%;
+	position: absolute;
+	left: 20%;
+	top: 20%;
+	-webkit-animation: head-move 1s ease-in-out infinite;
+}
+
+.pet-body {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 50%;
+}
+
+@-webkit-keyframes head-move {
+  50% { -webkit-transform: rotate(-1.5deg); }
+}

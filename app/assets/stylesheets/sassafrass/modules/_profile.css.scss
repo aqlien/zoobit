@@ -1,177 +1,118 @@
-.profile {
-  background-color: $delta-color;
-  border-radius: 0.625em;
-  border-bottom: 0.5em solid $charlie-color;
-  // overflow: auto;
-  margin-bottom: 0.5em;
-  padding: 0.5em;
-  @media screen and (max-width: 45em) {
-    display: inline-block;
-    width: 90%;
-    margin: 0.5em;
-  }
-}
-
-
-
-.right-columns {
-  @include span-columns(8);
-  @media screen and (max-width: 45em) {
-    @include span-columns(12);
-  }
-}
-
-.view {
-  background-image: url('dog_bg.png');
-  background-repeat:no-repeat;
-  background-position:center;
-  margin-top: 0.5em;
-  position: relative;
-  height: 100%;
-  padding: 1em;
-  @media screen and (max-width: 45em) {
-    margin: 0.5em 5%;
-  }
-}
-
-.info-controls,
-.pet,
-.user {
-  @include span-columns(4);
-  @media screen and (max-width: 45em) {
-    @include span-columns(11);
-  }
-}
-.user {
-  @media screen and (max-width: 45em) {
-    display: none;
-  }
-} 
-
-.pet {
-  @media screen and (max-width: 45em) {
-    width: 100%;
-    margin: 0;
-  }
-} 
-
-
-.reservedword {
-  @include span-columns(4);
-  @include shift(4);
-}
-
-.shelter {
-  @include span-columns(4 of 8);
-  &:last-child {
-    margin-right: 3.57866% !important;
-  }
-}
-
-.index {
-  @media screen and (max-width: 45em) {
-    @include span-columns(11);
-  }
-}
-
-.feature {
-  @include span-columns(4 of 8);
-}
-
-.stats {
-  @include span-columns(4 of 4);
-}
-
-.stats h2{
-  padding: .25em;
-}
-
-.stats > div {
-  margin-bottom: .25em;
-}
-
-.profile:first-of-type {
-  margin-top: 0.5em;
-}
-
-.profile img {
-  // min-height: 100px;
-  min-width: 4.6875em;
-  max-width: 4.6875em;
-  background-color: $delta-color;
-  margin-right: 2em !important;
-}
-
-.image {
-  @include span-columns(1 of 4);
-}
-
-// .stats {
-//   @include span-columns(6);
-//   @include omega();
-// }
-
-@mixin meter-container($color) {
-  width: 80%;
-  height: 1.25em;
-  background-color: $color;
-  border-radius: 1.5em;
-}
-
-@mixin meter($color) {
-  background-color: $color;
-  height: 1.25em;
-  border-radius: 1.5em;
-}
-
-@mixin need-icon($url) {
-  width: 1.1em;
-  display: inline-block;
-  &:after {
-  content: url($url + '.svg');
-  }
-}
-
-// .meter-container-happy {
-//   @include span-columns(6);
-//   @include omega();
-//   width: 80%;
-//   height: 1.25em;
-//   background-color: $bravo-color-light;
-//   border-radius: 1.5em;
-// }
-// .meter-unhappy {
-//   background-color: $alpha-color;
-//   height: 1.25em;
-//   border-radius: 1.5em;
-// }
-
-// .meter-happy {
-//   background-color: $bravo-color;
-//   height: 1.25em;
-//   border-radius: 1.5em;
-// }
-
-// .meter-container-unhappy {
-//   @include span-columns(6);
-//   @include omega();
-//   width: 80%;
-//   height: 1.25em;
-//   background-color: $alpha-color-light;
-//   border-radius: 1.5em;
-// }
-
-// .hungry {
-//   display: inline-block;
-//   &:after {
-//   content: url('hungry.svg');
+// .right-columns {
+//   @include span-columns(8);
+//   @media screen and (max-width: 45em) {
+//     @include span-columns(12);
 //   }
 // }
 
-// .bored {
+// .view {
+//   background-image: url('dog_bg.png');
+//   background-repeat:no-repeat;
+//   background-position:center;
+//   margin-top: 0.5em;
+//   position: relative;
+//   height: 100%;
+//   padding: 1em;
+//   @media screen and (max-width: 45em) {
+//     margin: 0.5em 5%;
+//   }
+// }
+
+// .info-controls,
+// .pet,
+// .user {
+//   @include span-columns(4);
+//   @media screen and (max-width: 45em) {
+//     @include span-columns(11);
+//   }
+// }
+// .user {
+//   @media screen and (max-width: 45em) {
+//     display: none;
+//   }
+// } 
+
+// .pet {
+//   @media screen and (max-width: 45em) {
+//     width: 100%;
+//     margin: 0;
+//   }
+// } 
+
+
+// .reservedword {
+//   @include span-columns(4);
+//   @include shift(4);
+// }
+
+// .shelter {
+//   @include span-columns(4 of 8);
+//   &:last-child {
+//     margin-right: 3.57866% !important;
+//   }
+// }
+
+// .index {
+//   @media screen and (max-width: 45em) {
+//     @include span-columns(11);
+//   }
+// }
+
+// .feature {
+//   @include span-columns(4 of 8);
+// }
+
+// .stats {
+//   @include span-columns(4 of 4);
+// }
+
+// .stats h2{
+//   padding: .25em;
+// }
+
+// .stats > div {
+//   margin-bottom: .25em;
+// }
+
+// .profile:first-of-type {
+//   margin-top: 0.5em;
+// }
+
+// .profile img {
+//   // min-height: 100px;
+//   min-width: 4.6875em;
+//   max-width: 4.6875em;
+//   background-color: $delta-color;
+//   margin-right: 2em !important;
+// }
+
+// .image {
+//   @include span-columns(1 of 4);
+// }
+
+// // .stats {
+// //   @include span-columns(6);
+// //   @include omega();
+// // }
+
+// @mixin meter-container($color) {
+//   width: 80%;
+//   height: 1.25em;
+//   background-color: $color;
+//   border-radius: 1.5em;
+// }
+
+// @mixin meter($color) {
+//   background-color: $color;
+//   height: 1.25em;
+//   border-radius: 1.5em;
+// }
+
+// @mixin need-icon($url) {
 //   width: 1.1em;
 //   display: inline-block;
 //   &:after {
-//   content: url('bored.svg');
+//   content: url($url + '.svg');
 //   }
 // }
+
