@@ -1,4 +1,4 @@
-#ZooBit v2.0
+#ZooBit v2.0  [![Build Status](https://api.shippable.com/projects/538612373d9175e2016e6987/badge/master)](https://www.shippable.com/projects/538612373d9175e2016e6987/builds/1)
 
 ##Authors:
 Alex Lien
@@ -10,7 +10,7 @@ Katie Brasfield
 Kevin Kevin Lewis
 
 Samantha Camus
-[![Build Status](https://api.shippable.com/projects/538612373d9175e2016e6987/badge/master)](https://www.shippable.com/projects/538612373d9175e2016e6987/builds/1)
+
 * * * * * * * *
 
 ZooBit is a web app that allows users to manage
