@@ -1,7 +1,7 @@
 #ZooBit v2.0
 
 ##Authors:
-Alex Lien
+Alex Lien\n
 Dexter Lesaca
 Katie Brasfield
 Kevin Kevin Lewis
