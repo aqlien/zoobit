@@ -1,6 +1,5 @@
 #ZooBit v2.0  [![Build Status](https://api.shippable.com/projects/538612373d9175e2016e6987/badge/master)](https://www.shippable.com/projects/538612373d9175e2016e6987/builds/1)
 
-##Authors:
 Alex Lien
 
 Dexter Lesaca
@@ -12,6 +11,8 @@ Kevin Kevin Lewis
 Samantha Camus
 
 * * * * * * * *
+
+#About
 
 ZooBit is a web app that allows users to manage
 their own collection of virtual pets. These pets require
