@@ -1,11 +1,11 @@
 #ZooBit v2.0
 
 ##Authors:
-##Alex Lien
-##Dexter Lesaca
-##Katie Brasfield
-##Kevin Kevin Lewis
-##Samantha Camus
+#Alex Lien
+#Dexter Lesaca
+#Katie Brasfield
+#Kevin Kevin Lewis
+#Samantha Camus
 [![Build Status](https://api.shippable.com/projects/538612373d9175e2016e6987/badge/master)](https://www.shippable.com/projects/538612373d9175e2016e6987/builds/1)
 * * * * * * * *
 
