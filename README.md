@@ -23,7 +23,7 @@ Pets are adopted from the shelter, and if a user chooses not to keep their pet
 it will be returned to the shelter, able to be adopted by another user.
 
 #To Do
-The next version will focus on making pets more interactive and user experience.
+The next version will focus on improving the user experience, including making pets more interactive.
 
 #Contributions
 Please feel free to submit a pull request with information on any suggested changes.
