@@ -4,6 +4,7 @@ class BirdsController < ApplicationController
   # GET /birds
   # GET /birds.json
   def index
+    # TODO: hound
     @birds = Bird.all
   end
 
